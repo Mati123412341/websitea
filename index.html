@@ -90,7 +90,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -150,6 +150,15 @@
         .about h2 {
             font-size: 36px;
             margin-bottom: 20px;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
         }
 
         .about p {
@@ -219,6 +228,15 @@
         .contact h2 {
             font-size: 36px;
             margin-bottom: 20px;
+        }
+
+        .contact img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
         }
 
         .contact p {
@@ -308,6 +326,11 @@
             .service-grid {
                 grid-template-columns: 1fr;
             }
+
+            .about img,
+            .contact img {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -335,6 +358,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <h2>O Mnie</h2>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Fotograf w pracy">
         <p>Z przyjemnością zrealizuję dla Państwa niezapomniane sesje w dziedzinie fotografii okolicznościowej. Moja oferta obejmuje także sesje portretowe zarówno w profesjonalnym studio, jak i malowniczych plenerach, ukazując wyjątkowe chwile w unikalny sposób. Zapraszam do współpracy, a każda sesja stanie się nie tylko fotograficzną podróżą, ale także niepowtarzalnym wspomnieniem.</p>
     </section>
 
@@ -343,17 +367,17 @@
         <h2>Oferta</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1519733872-13ba8db0a3b1" alt="Fotografia Ślubna">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7" alt="Fotografia Ślubna">
                 <h3>Fotografia Ślubna</h3>
                 <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób.</p>
             </div>
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1522075469751-6603afb6486f" alt="Sesje Portretowe">
+                <img src="https://images.unsplash.com/photo-1534126416832-a87fdf0ba025" alt="Sesje Portretowe">
                 <h3>Sesje Portretowe</h3>
                 <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją osobowość.</p>
             </div>
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc49" alt="Fotografia Okolicznościowa">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Fotografia Okolicznościowa">
                 <h3>Fotografia Okolicznościowa</h3>
                 <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
             </div>
@@ -363,6 +387,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Kontakt</h2>
+        <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2" alt="Kontakt z fotografem">
         <p>Skontaktuj się ze mną, aby omówić szczegóły sesji!</p>
         <p>Email: <a href="mailto:kontakt@krzysztof-watorowski.pl">kontakt@krzysztof-watorowski.pl</a></p>
         <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
