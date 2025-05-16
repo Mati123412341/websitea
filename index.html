@@ -90,7 +90,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -278,8 +278,13 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
             nav ul li {
-                margin: 0 10px;
+                margin: 10px 0;
             }
 
             nav ul li a {
@@ -310,10 +315,11 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#home">Strona Główna</a></li>
-            <li><a href="#about">O Mnie</a></li>
-            <li><a href="#services">Oferta</a></li>
-            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="index.html">Strona Główna</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="cennik.html">Cennik</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="admin.html">Admin</a></li>
         </ul>
     </nav>
 
@@ -337,17 +343,17 @@
         <h2>Oferta</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="https://via.placeholder.com/300x200" alt="Fotografia Ślubna">
+                <img src="https://images.unsplash.com/photo-1519733872-13ba8db0a3b1" alt="Fotografia Ślubna">
                 <h3>Fotografia Ślubna</h3>
                 <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób.</p>
             </div>
             <div class="service-item">
-                <img src="https://via.placeholder.com/300x200" alt="Sesje Portretowe">
+                <img src="https://images.unsplash.com/photo-1522075469751-6603afb6486f" alt="Sesje Portretowe">
                 <h3>Sesje Portretowe</h3>
                 <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją osobowość.</p>
             </div>
             <div class="service-item">
-                <img src="https://via.placeholder.com/300x200" alt="Fotografia Okolicznościowa">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc49" alt="Fotografia Okolicznościowa">
                 <h3>Fotografia Okolicznościowa</h3>
                 <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
             </div>
@@ -364,7 +370,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
     <!-- Cookie Popup -->
