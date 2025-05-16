@@ -43,104 +43,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cennik - Krzysztof Wątorowski</title>
-    <meta name="description" content="Sprawdź cennik usług fotograficznych Krzysztofa Wątorowskiego: fotografia ślubna, portretowa i okolicznościowa.">
+    <meta name="description" content="Cennik usług fotograficznych Krzysztofa Wątorowskiego: pakiety ślubne, sesje portretowe i okolicznościowe.">
     <meta name="keywords" content="cennik, fotografia, ślubna, portretowa, Warszawa, ceny">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <a href="#main" class="skip-link">Pomiń do treści</a>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" class="active" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+<body class="bg-gray-900 text-white font-sans">
+    <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
+    <header class="bg-gray-800 p-6">
+        <nav class="max-w-7xl mx-auto">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-white hover:text-yellow-400 active" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <h1>Cennik</h1>
-        <p>Zapoznaj się z moimi pakietami usług fotograficznych. Dojazd poza Warszawę: 1 zł/km.</p>
+        <h1 class="text-4xl font-bold text-center mt-6">Cennik</h1>
+        <p class="text-lg text-gray-300 text-center">Wybierz pakiet idealny dla Ciebie. Dojazd poza Warszawę: 1 zł/km.</p>
     </header>
 
-    <main id="main">
-        <section id="pricing">
-            <article class="pricing-card">
-                <h2>Pakiet Ślubny Podstawowy</h2>
-                <p>4 godziny fotografowania, 100 obrobionych zdjęć, galeria online.</p>
-                <p class="price">2000 PLN</p>
-                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
-            </article>
-            <article class="pricing-card">
-                <h2>Pakiet Ślubny Premium</h2>
-                <p>8 godziny fotografowania, 200 obrobionych zdjęć, album premium.</p>
-                <p class="price">3500 PLN</p>
-                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
-            </article>
-            <article class="pricing-card">
-                <h2>Sesja Portretowa</h2>
-                <p>2 godziny sesji, 20 obrobionych zdjęć, studio lub plener.</p>
-                <p class="price">800 PLN</p>
-                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
-            </article>
+    <main id="main" class="max-w-7xl mx-auto p-6">
+        <section id="pricing" class="py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-semibold mb-4">Pakiet Ślubny Podstawowy</h2>
+                    <p class="text-gray-300 mb-4">4 godziny fotografowania, 100 obrobionych zdjęć, galeria online.</p>
+                    <p class="text-3xl font-bold mb-4">2000 PLN</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                </article>
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-semibold mb-4">Pakiet Ślubny Premium</h2>
+                    <p class="text-gray-300 mb-4">8 godziny fotografowania, 200 obrobionych zdjęć, album premium.</p>
+                    <p class="text-3xl font-bold mb-4">3500 PLN</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                </article>
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-semibold mb-4">Sesja Portretowa</h2>
+                    <p class="text-gray-300 mb-4">2 godziny sesji, 20 obrobionych zdjęć, studio lub plener.</p>
+                    <p class="text-3xl font-bold mb-4">800 PLN</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                </article>
+            </div>
         </section>
 
-        <div id="booking-modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('booking-modal')">&times;</span>
-                <h2>Zarezerwuj Sesję</h2>
+        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
+            <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
+                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">&times;</span>
+                <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
                 <form action="reserve.php" method="post" id="booking-form">
-                    <label for="booking-name">Imię:</label>
-                    <input type="text" id="booking-name" name="name" required>
-                    <label for="booking-email">Email:</label>
-                    <input type="email" id="booking-email" name="email" required>
-                    <label for="session-type">Rodzaj sesji:</label>
-                    <select id="session-type" name="session_type" required>
-                        <option value="slubna">Fotografia Ślubna</option>
-                        <option value="portretowa">Sesja Portretowa</option>
-                        <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
-                    </select>
-                    <label for="preferred-date">Preferowana data:</label>
-                    <input type="date" id="preferred-date" name="preferred_date" required>
-                    <label for="preferred-time">Preferowana godzina:</label>
-                    <input type="time" id="preferred-time" name="preferred_time">
-                    <label for="booking-message">Wiadomość:</label>
-                    <textarea id="booking-message" name="message"></textarea>
-                    <button type="submit">Wyślij Zapytanie</button>
+                    <div class="mb-4">
+                        <label for="booking-name" class="block text-sm font-medium">Imię:</label>
+                        <input type="text" id="booking-name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-email" class="block text-sm font-medium">Email:</label>
+                        <input type="email" id="booking-email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="session-type" class="block text-sm font-medium">Rodzaj sesji:</label>
+                        <select id="session-type" name="session_type" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                            <option value="slubna">Fotografia Ślubna</option>
+                            <option value="portretowa">Sesja Portretowa</option>
+                            <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="preferred-date" class="block text-sm font-medium">Data:</label>
+                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="preferred-time" class="block text-sm font-medium">Godzina:</label>
+                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-message" class="block text-sm font-medium">Wiadomość:</label>
+                        <textarea id="booking-message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700"></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <ul class="social-links">
-            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <ul class="flex justify-center space-x-4 mt-4">
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div id="cookie-notice">
-            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies">Akceptuj</button>
+        <div id="cookie-notice" class="mt-4">
+            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
     <script>
-        // Modal functionality
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
+            document.getElementById(modalId).classList.remove('hidden');
         }
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+            document.getElementById(modalId).classList.add('hidden');
         }
 
-        // Cookie notice
-        document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('accept-cookies').addEventListener('click', () => {
             document.getElementById('cookie-notice').style.display = 'none';
         });
 
-        // Booking form validation
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
             const name = document.getElementById('booking-name').value;
             const email = document.getElementById('booking-email').value;
             const date = document.getElementById('preferred-date').value;

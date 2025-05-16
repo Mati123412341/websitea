@@ -43,183 +43,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotograf Krzysztof Wątorowski - Strona Główna</title>
-    <meta name="description" content="Profesjonalna fotografia ślubna, portretowa i okolicznościowa w Warszawie i całej Polsce. Zarezerwuj sesję już dziś!">
-    <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Warszawa, fotografia okolicznościowa">
+    <meta name="description" content="Profesjonalna fotografia ślubna, portretowa i okolicznościowa w Warszawie i całej Polsce. Zatrzymaj piękne chwile!">
+    <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Warszawa, okolicznościowa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <a href="#main" class="skip-link">Pomiń do treści</a>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+<body class="bg-gray-900 text-white font-sans">
+    <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
+    <header class="bg-cover bg-center h-screen" style="background-image: url('hero.jpg')">
+        <nav class="bg-black bg-opacity-50 p-4">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <h1>Fotograf Krzysztof Wątorowski</h1>
-        <p>Tworzę niezapomniane sesje fotograficzne, które zatrzymują piękne chwile na zawsze.</p>
-        <button onclick="openModal('booking-modal')">Zarezerwuj teraz</button>
+        <div class="text-center mt-20">
+            <h1 class="text-5xl font-bold mb-4">Krzysztof Wątorowski</h1>
+            <p class="text-xl mb-6">Tworzę sztukę z Twoich wspomnień</p>
+            <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj sesję</button>
+        </div>
     </header>
 
-    <main id="main">
-        <section id="about">
-            <h2>O Mnie</h2>
-            <p>Jestem fotografem z 10-letnim doświadczeniem, specjalizującym się w fotografii ślubnej i portretowej. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024. Pracuję w Warszawie, ale realizuję sesje w całej Polsce, tworząc wyjątkowe wspomnienia.</p>
+    <main id="main" class="max-w-7xl mx-auto p-6">
+        <section id="about" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">O Mnie</h2>
+            <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024. Pracuję w Warszawie, ale chętnie podróżuję po całej Polsce, by uchwycić Twoją historię.</p>
         </section>
 
-        <section id="why-me">
-            <h2>Dlaczego Ja?</h2>
-            <ul>
-                <li>Indywidualne podejście do każdego klienta.</li>
-                <li>Profesjonalny sprzęt i zaawansowana obróbka zdjęć.</li>
-                <li>Elastyczne terminy i lokalizacje sesji.</li>
-            </ul>
-        </section>
-
-        <section id="offerings">
-            <h2>Oferta</h2>
-            <article>
-                <h3>Fotografia Ślubna</h3>
-                <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób, od przygotowań po wesele.</p>
-            </article>
-            <article>
-                <h3>Sesje Portretowe</h3>
-                <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją osobowość.</p>
-            </article>
-            <article>
-                <h3>Fotografia Okolicznościowa</h3>
-                <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
-            </article>
-        </section>
-
-        <section id="latest-projects">
-            <h2>Najnowsze Projekty</h2>
-            <ul>
-                <li><img src="slub1.jpg" alt="Ślub plenerowy w Tatrach, maj 2025">Ślub w plenerze – Maj 2025</li>
-                <li><img src="portret1.jpg" alt="Sesja portretowa w studio, kwiecień 2025">Sesja portretowa – Kwiecień 2025</li>
-                <li><img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025">Chrzciny – Marzec 2025</li>
-            </ul>
-        </section>
-
-        <section id="client-gallery">
-            <h2>Galeria Klientów</h2>
-            <div class="gallery-grid">
-                <img src="client1.jpg" alt="Sesja ślubna klienta">
-                <img src="client2.jpg" alt="Sesja portretowa klienta">
-                <img src="client3.jpg" alt="Sesja okolicznościowa klienta">
+        <section id="offerings" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Oferta</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Fotografia Ślubna</h3>
+                    <p>Od przygotowań po pierwszy taniec – uchwycę każdy moment Twojego wyjątkowego dnia.</p>
+                </article>
+                <article class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Sesje Portretowe</h3>
+                    <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją unikalną osobowość.</p>
+                </article>
+                <article class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4">Fotografia Okolicznościowa</h3>
+                    <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
+                </article>
             </div>
         </section>
 
-        <section id="work-process">
-            <h2>Mój Proces Pracy</h2>
-            <ol>
-                <li><strong>Konsultacja</strong>: Omawiamy Twoje potrzeby i ustalamy szczegóły sesji.</li>
-                <li><strong>Sesja</strong>: Realizujemy zdjęcia w wybranym miejscu i stylu.</li>
-                <li><strong>Obróbka</strong>: Profesjonalna edycja zdjęć, by wydobyć ich piękno.</li>
-                <li><strong>Dostawa</strong>: Otrzymujesz gotowe zdjęcia cyfrowo lub w albumie.</li>
-            </ol>
+        <section id="latest-projects" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Projekty</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group">
+                    <img src="slub1.jpg" alt="Ślub plenerowy w Tatrach, maj 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Ślub w Tatrach, maj 2025</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="portret1.jpg" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Portret, kwiecień 2025</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Chrzciny, marzec 2025</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="testimonials">
-            <h2>Rekomendacje</h2>
-            <blockquote>
-                <p>"Krzysztof uchwycił nasz ślub w sposób, który na zawsze pozostanie w naszej pamięci. Profesjonalizm na najwyższym poziomie!"</p>
-                <cite>– Anna i Marek</cite>
-            </blockquote>
-            <blockquote>
-                <p>"Fantastyczna sesja portretowa, zdjęcia są niesamowite. Polecam każdemu!"</p>
-                <cite>– Katarzyna</cite>
-            </blockquote>
-        </section>
-
-        <section id="faq">
-            <h2>Najczęściej Zadawane Pytania</h2>
-            <dl>
-                <dt>Jak przygotować się do sesji?</dt>
-                <dd>Wybierz wygodne ubrania pasujące do stylu sesji, np. eleganckie dla ślubnych, swobodne dla plenerowych. Przynieś rekwizyty, które mają dla Ciebie znaczenie, np. bukiet ślubny.</dd>
-                <dt>Ile trwa obróbka zdjęć?</dt>
-                <dd>Obróbka trwa od 2 do 4 tygodni, w zależności od liczby zdjęć i rodzaju sesji.</dd>
-                <dt>Czy oferujesz sesje plenerowe?</dt>
-                <dd>Tak, realizuję sesje w plenerze, np. w parkach, górach czy nad morzem. Wybierzemy miejsce zgodne z Twoją wizją.</dd>
-            </dl>
-        </section>
-
-        <section id="contact">
-            <h2>Kontakt</h2>
-            <p>Email: <a href="mailto:[email protected]">[email protected]</a></p>
-            <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
-            <form action="send_contact.php" method="post" id="contact-form">
-                <label for="name">Imię:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="subject">Temat:</label>
-                <input type="text" id="subject" name="subject">
-                <label for="message">Wiadomość:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Wyślij</button>
+        <section id="contact" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Kontakt</h2>
+            <p class="text-lg text-gray-300 text-center mb-4">Skontaktuj się, aby omówić szczegóły Twojej sesji!</p>
+            <form action="send_contact.php" method="post" id="contact-form" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium">Imię:</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium">Email:</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                </div>
+                <div class="mb-4">
+                    <label for="subject" class="block text-sm font-medium">Temat:</label>
+                    <input type="text" id="subject" name="subject" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium">Wiadomość:</label>
+                    <textarea id="message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required></textarea>
+                </div>
+                <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij</button>
             </form>
+            <p class="text-center mt-4">Email: <a href="mailto:[email protected]" class="text-yellow-400">[email protected]</a> | Telefon: <a href="tel:+48790123456" class="text-yellow-400">+48 790 123 456</a></p>
         </section>
 
-        <div id="booking-modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('booking-modal')">&times;</span>
-                <h2>Zarezerwuj Sesję</h2>
+        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
+            <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
+                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">&times;</span>
+                <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
                 <form action="reserve.php" method="post" id="booking-form">
-                    <label for="booking-name">Imię:</label>
-                    <input type="text" id="booking-name" name="name" required>
-                    <label for="booking-email">Email:</label>
-                    <input type="email" id="booking-email" name="email" required>
-                    <label for="session-type">Rodzaj sesji:</label>
-                    <select id="session-type" name="session_type" required>
-                        <option value="slubna">Fotografia Ślubna</option>
-                        <option value="portretowa">Sesja Portretowa</option>
-                        <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
-                    </select>
-                    <label for="preferred-date">Preferowana data:</label>
-                    <input type="date" id="preferred-date" name="preferred_date" required>
-                    <label for="preferred-time">Preferowana godzina:</label>
-                    <input type="time" id="preferred-time" name="preferred_time">
-                    <label for="booking-message">Wiadomość:</label>
-                    <textarea id="booking-message" name="message"></textarea>
-                    <button type="submit">Wyślij Zapytanie</button>
+                    <div class="mb-4">
+                        <label for="booking-name" class="block text-sm font-medium">Imię:</label>
+                        <input type="text" id="booking-name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-email" class="block text-sm font-medium">Email:</label>
+                        <input type="email" id="booking-email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="session-type" class="block text-sm font-medium">Rodzaj sesji:</label>
+                        <select id="session-type" name="session_type" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                            <option value="slubna">Fotografia Ślubna</option>
+                            <option value="portretowa">Sesja Portretowa</option>
+                            <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="preferred-date" class="block text-sm font-medium">Data:</label>
+                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="preferred-time" class="block text-sm font-medium">Godzina:</label>
+                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-message" class="block text-sm font-medium">Wiadomość:</label>
+                        <textarea id="booking-message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700"></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <ul class="social-links">
-            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <ul class="flex justify-center space-x-4 mt-4">
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div id="cookie-notice">
-            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies">Akceptuj</button>
+        <div id="cookie-notice" class="mt-4">
+            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
     <script>
-        // Modal functionality
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
+            document.getElementById(modalId).classList.remove('hidden');
         }
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+            document.getElementById(modalId).classList.add('hidden');
         }
 
-        // Cookie notice
-        document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('accept-cookies').addEventListener('click', () => {
             document.getElementById('cookie-notice').style.display = 'none';
         });
 
-        // Contact form validation
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
@@ -232,8 +217,7 @@
             }
         });
 
-        // Booking form validation
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
             const name = document.getElementById('booking-name').value;
             const email = document.getElementById('booking-email').value;
             const date = document.getElementById('preferred-date').value;

@@ -43,82 +43,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Krzysztof Wątorowski</title>
-    <meta name="description" content="Przeglądaj portfolio Krzysztofa Wątorowskiego: sesje ślubne, portretowe i okolicznościowe w Warszawie i całej Polsce.">
+    <meta name="description" content="Portfolio fotograficzne Krzysztofa Wątorowskiego: sesje ślubne, portretowe i okolicznościowe w najwyższej jakości.">
     <meta name="keywords" content="portfolio, fotografia, ślubna, portretowa, Warszawa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <a href="#main" class="skip-link">Pomiń do treści</a>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" class="active" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+<body class="bg-gray-900 text-white font-sans">
+    <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
+    <header class="bg-gray-800 p-6">
+        <nav class="max-w-7xl mx-auto">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-white hover:text-yellow-400 active" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <h1>Portfolio</h1>
-        <p>Odkryj moje najlepsze prace w różnych kategoriach fotograficznych.</p>
+        <h1 class="text-4xl font-bold text-center mt-6">Portfolio</h1>
+        <p class="text-lg text-gray-300 text-center">Odkryj moje najlepsze prace w różnych kategoriach fotograficznych.</p>
     </header>
 
-    <main id="main">
-        <section id="portfolio">
-            <h2>Sesje Ślubne</h2>
-            <div class="gallery-grid">
-                <figure>
-                    <img src="slub1.jpg" alt="Plenerowa sesja ślubna w Tatrach, lato 2025">
-                    <figcaption>Sesja ślubna w Tatrach, lato 2025</figcaption>
-                </figure>
-                <figure>
-                    <img src="slub2.jpg" alt="Ślub w pałacu, zima 2025">
-                    <figcaption>Ślub w pałacu, zima 2025</figcaption>
-                </figure>
+    <main id="main" class="max-w-7xl mx-auto p-6">
+        <section id="portfolio" class="py-12">
+            <h2 class="text-3xl font-bold mb-6">Sesje Ślubne</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group">
+                    <img src="slub1.jpg" alt="Plenerowa sesja ślubna w Tatrach, lato 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Sesja ślubna w Tatrach, lato 2025</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="slub2.jpg" alt="Ślub w pałacu, zima 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Ślub w pałacu, zima 2025</p>
+                    </div>
+                </div>
             </div>
 
-            <h2>Sesje Portretowe</h2>
-            <div class="gallery-grid">
-                <figure>
-                    <img src="portret1.jpg" alt="Portret w studio, wiosna 2025">
-                    <figcaption>Portret w studio, wiosna 2025</figcaption>
-                </figure>
-                <figure>
-                    <img src="portret2.jpg" alt="Sesja portretowa w parku, jesień 2024">
-                    <figcaption>Sesja portretowa w parku, jesień 2024</figcaption>
-                </figure>
+            <h2 class="text-3xl font-bold mb-6 mt-12">Sesje Portretowe</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group">
+                    <img src="portret1.jpg" alt="Portret w studio, wiosna 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Portret w studio, wiosna 2025</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="portret2.jpg" alt="Sesja portretowa w parku, jesień 2024" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Sesja portretowa w parku, jesień 2024</p>
+                    </div>
+                </div>
             </div>
 
-            <h2>Sesje Okolicznościowe</h2>
-            <div class="gallery-grid">
-                <figure>
-                    <img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025">
-                    <figcaption>Chrzciny w Krakowie, marzec 2025</figcaption>
-                </figure>
-                <figure>
-                    <img src="rodzina1.jpg" alt="Sesja rodzinna nad morzem, lato 2024">
-                    <figcaption>Sesja rodzinna nad morzem, lato 2024</figcaption>
-                </figure>
+            <h2 class="text-3xl font-bold mb-6 mt-12">Sesje Okolicznościowe</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group">
+                    <img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Chrzciny w Krakowie, marzec 2025</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="rodzina1.jpg" alt="Sesja rodzinna nad morzem, lato 2024" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Sesja rodzinna nad morzem, lato 2024</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <ul class="social-links">
-            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <ul class="flex justify-center space-x-4 mt-4">
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div id="cookie-notice">
-            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies">Akceptuj</button>
+        <div id="cookie-notice" class="mt-4">
+            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
     <script>
-        // Cookie notice
-        document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('accept-cookies').addEventListener('click', () => {
             document.getElementById('cookie-notice').style.display = 'none';
         });
     </script>

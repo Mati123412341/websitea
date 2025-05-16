@@ -43,106 +43,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administracyjny - Krzysztof Wątorowski</title>
-    <meta name="description" content="Panel administracyjny do zarządzania artykułami na blogu Krzysztofa Wątorowskiego.">
+    <meta name="description" content="Zarządzaj artykułami na blogu Krzysztofa Wątorowskiego: dodawaj, edytuj, usuwaj wpisy.">
     <meta name="keywords" content="admin, blog, fotografia, zarządzanie">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <a href="#main" class="skip-link">Pomiń do treści</a>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" class="active" aria-label="Panel Administracyjny">Admin</a></li>
+<body class="bg-gray-900 text-white font-sans">
+    <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
+    <header class="bg-gray-800 p-6">
+        <nav class="max-w-7xl mx-auto">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-white hover:text-yellow-400 active" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <h1>Panel Administracyjny</h1>
-        <p>Zarządzaj artykułami na blogu: dodawaj, edytuj lub usuwaj wpisy.</p>
+        <h1 class="text-4xl font-bold text-center mt-6">Panel Administracyjny</h1>
+        <p class="text-lg text-gray-300 text-center">Zarządzaj treścią bloga w prosty sposób.</p>
     </header>
 
-    <main id="main">
-        <section id="add-post">
-            <h2>Dodaj nowy artykuł</h2>
-            <form action="save_post.php" method="post" id="add-post-form" enctype="multipart/form-data">
-                <label for="title">Tytuł:</label>
-                <input type="text" id="title" name="title" required>
-                <label for="content">Treść:</label>
-                <textarea id="content" name="content" required></textarea>
-                <label for="date">Data publikacji:</label>
-                <input type="date" id="date" name="date" required>
-                <label for="category">Kategoria:</label>
-                <select id="category" name="category" required>
-                    <option value="porady">Porady</option>
-                    <option value="inspiracje">Inspiracje</option>
-                    <option value="technika">Technika</option>
-                </select>
-                <label for="tags">Tagi (oddzielone przecinkami):</label>
-                <input type="text" id="tags" name="tags">
-                <label for="featured-image">Obrazek wyróżniający:</label>
-                <input type="file" id="featured-image" name="featured_image" accept="image/*">
-                <button type="submit">Dodaj artykuł</button>
+    <main id="main" class="max-w-7xl mx-auto p-6">
+        <section id="add-post" class="py-12">
+            <h2 class="text-3xl font-bold mb-6">Dodaj nowy artykuł</h2>
+            <form action="save_post.php" method="post" id="add-post-form" enctype="multipart/form-data" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="title" class="block text-sm font-medium">Tytuł:</label>
+                    <input type="text" id="title" name="title" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                </div>
+                <div class="mb-4">
+                    <label for="content" class="block text-sm font-medium">Treść:</label>
+                    <textarea id="content" name="content" class="w-full p-2 rounded bg-gray-800 border border-gray-700" rows="6" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="date" class="block text-sm font-medium">Data publikacji:</label>
+                    <input type="date" id="date" name="date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-sm font-medium">Kategoria:</label>
+                    <select id="category" name="category" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <option value="porady">Porady</option>
+                        <option value="inspiracje">Inspiracje</option>
+                        <option value="technika">Technika</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="tags" class="block text-sm font-medium">Tagi (oddzielone przecinkami):</label>
+                    <input type="text" id="tags" name="tags" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                </div>
+                <div class="mb-4">
+                    <label for="featured-image" class="block text-sm font-medium">Obrazek wyróżniający:</label>
+                    <input type="file" id="featured-image" name="featured_image" accept="image/*" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                </div>
+                <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Dodaj artykuł</button>
             </form>
         </section>
 
-        <section id="manage-posts">
-            <h2>Zarządzaj artykułami</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tytuł</th>
-                        <th>Data</th>
-                        <th>Kategoria</th>
-                        <th>Akcje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jak przygotować się do sesji ślubnej</td>
-                        <td>17 maja 2025</td>
-                        <td>Porady</td>
-                        <td>
-                            <button onclick="editPost(1)">Edytuj</button>
-                            <button onclick="deletePost(1)">Usuń</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Najlepsze lokalizacje na sesje plenerowe</td>
-                        <td>15 maja 2025</td>
-                        <td>Inspiracje</td>
-                        <td>
-                            <button onclick="editPost(2)">Edytuj</button>
-                            <button onclick="deletePost(2)">Usuń</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="manage-posts" class="py-12">
+            <h2 class="text-3xl font-bold mb-6">Zarządzaj artykułami</h2>
+            <div class="bg-gray-800 rounded-lg overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-700">
+                            <th class="p-4 text-left">Tytuł</th>
+                            <th class="p-4 text-left">Data</th>
+                            <th class="p-4 text-left">Kategoria</th>
+                            <th class="p-4 text-left">Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4">Jak przygotować się do sesji ślubnej</td>
+                            <td class="p-4">17 maja 2025</td>
+                            <td class="p-4">Porady</td>
+                            <td class="p-4">
+                                <button onclick="editPost(1)" class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">Edytuj</button>
+                                <button onclick="deletePost(1)" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">Usuń</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Najlepsze lokalizacje na sesje plenerowe</td>
+                            <td class="p-4">15 maja 2025</td>
+                            <td class="p-4">Inspiracje</td>
+                            <td class="p-4">
+                                <button onclick="editPost(2)" class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">Edytuj</button>
+                                <button onclick="deletePost(2)" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">Usuń</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <ul class="social-links">
-            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <ul class="flex justify-center space-x-4 mt-4">
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div id="cookie-notice">
-            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies">Akceptuj</button>
+        <div id="cookie-notice" class="mt-4">
+            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
     <script>
-        // Cookie notice
-        document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('accept-cookies').addEventListener('click', () => {
             document.getElementById('cookie-notice').style.display = 'none';
         });
 
-        // Add post form validation
-        document.getElementById('add-post-form').addEventListener('submit', function(e) {
+        document.getElementById('add-post-form').addEventListener('submit', (e) => {
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
             const date = document.getElementById('date').value;
@@ -152,13 +165,12 @@
             }
         });
 
-        // Placeholder functions for edit/delete (requires backend)
         function editPost(id) {
-            alert('Edycja artykułu o ID: ' + id + ' (wymaga backendu)');
+            alert(`Edycja artykułu o ID: ${id} (wymaga backendu)`);
         }
         function deletePost(id) {
-            if (confirm('Czy na pewno chcesz usunąć artykuł o ID: ' + id + '?')) {
-                alert('Usunięto artykuł o ID: ' + id + ' (wymaga backendu)');
+            if (confirm(`Czy na pewno chcesz usunąć artykuł o ID: ${id}?`)) {
+                alert(`Usunięto artykuł o ID: ${id} (wymaga backendu)`);
             }
         }
     </script>
