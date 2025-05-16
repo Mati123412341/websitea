@@ -47,10 +47,19 @@
     <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Warszawa, okolicznościowa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
-    <header class="bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1591601441798-360b6b7cc9e5')">
+    <header class="bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1591601441798-360b6b7cc9e5?w=1200')">
         <nav class="bg-black bg-opacity-50 p-4">
             <ul class="flex justify-center space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
@@ -60,10 +69,15 @@
                 <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <div class="text-center mt-20">
-            <h1 class="text-5xl font-bold mb-4">Krzysztof Wątorowski</h1>
-            <p class="text-xl mb-6">Tworzę sztukę z Twoich wspomnień</p>
-            <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj sesję</button>
+        <div class="text-center mt-20 animate-fade-in">
+            <h1 class="text-5xl font-bold mb-2">Krzysztof Wątorowski</h1>
+            <div class="w-32 h-1 bg-gradient-to-r from-yellow-400 to-white mx-auto mb-4"></div>
+            <p class="text-xl mb-6 flex items-center justify-center">
+                <i class="fas fa-camera text-yellow-400 mr-2"></i>
+                Tworzę sztukę z Twoich wspomnień
+                <i class="fas fa-camera text-yellow-400 ml-2"></i>
+            </p>
+            <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500 transition-transform transform hover:scale-105">Zarezerwuj sesję</button>
         </div>
     </header>
 
@@ -95,19 +109,19 @@
             <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Projekty</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="relative group">
-                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Ślub w kościele, maj 2025</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1519345182560-3f834c05d106" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1519345182560-3f834c05d106?w=800" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Portret, kwiecień 2025</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Chrzciny, marzec 2025</p>
                     </div>
@@ -119,19 +133,19 @@
             <h2 class="text-3xl font-bold mb-6 text-center">Galeria Klientów</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1569183091671-69640258678b" alt="Sesja ślubna w parku" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1569183091671-69640258678b?w=800" alt="Sesja ślubna w parku" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Sesja ślubna w parku</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Sesja portretowa mężczyzny" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress" alt="Sesja portretowa mężczyzny" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Portret mężczyzny</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4" alt="Sesja rodzinna na pikniku" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800" alt="Sesja rodzinna na pikniku" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Sesja rodzinna</p>
                     </div>
