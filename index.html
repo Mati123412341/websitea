@@ -50,7 +50,7 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
-    <header class="bg-cover bg-center h-screen" style="background-image: url('hero.jpg')">
+    <header class="bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1591601441798-360b6b7cc9e5')">
         <nav class="bg-black bg-opacity-50 p-4">
             <ul class="flex justify-center space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
@@ -95,21 +95,45 @@
             <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Projekty</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="relative group">
-                    <img src="slub1.jpg" alt="Ślub plenerowy w Tatrach, maj 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Ślub w Tatrach, maj 2025</p>
+                        <p class="text-white">Ślub w kościele, maj 2025</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="portret1.jpg" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1519345182560-3f834c05d106" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Portret, kwiecień 2025</p>
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Chrzciny, marzec 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="client-gallery" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Galeria Klientów</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1569183091671-69640258678b" alt="Sesja ślubna w parku" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Sesja ślubna w parku</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Sesja portretowa mężczyzny" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Portret mężczyzny</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4" alt="Sesja rodzinna na pikniku" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white">Sesja rodzinna</p>
                     </div>
                 </div>
             </div>
@@ -142,7 +166,7 @@
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
             <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
-                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">&times;</span>
+                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">×</span>
                 <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
                 <form action="reserve.php" method="post" id="booking-form">
                     <div class="mb-4">
