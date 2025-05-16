@@ -43,6 +43,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotograf Krzysztof Wątorowski</title>
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -116,9 +117,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f') no-repeat center center/cover,
-                       url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
-            background-blend-mode: overlay;
+            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             animation: parallax 15s infinite linear;
             z-index: 0;
         }
@@ -140,11 +139,13 @@
             font-size: 48px;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #fff;
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
+            color: #fff;
         }
 
         .btn {
@@ -199,7 +200,7 @@
         /* Services Section */
         .services {
             padding: 60px 20px;
-            background: url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             position: relative;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
@@ -214,14 +215,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(45deg, rgba(240, 193, 75, 0.3), rgba(0, 0, 0, 0.5));
-            animation: gradientShift 10s ease infinite;
             z-index: 0;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .services h2 {
@@ -399,10 +393,10 @@
             transform: translateY(-5px);
         }
 
-        .process-item img {
-            width: 50px;
-            height: 50px;
+        .process-item i {
+            font-size: 50px;
             margin-bottom: 15px;
+            color: #f0c14b;
         }
 
         .process-item h3 {
@@ -789,7 +783,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <h2>O Mnie</h2>
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Fotograf w pracy">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Fotograf w pracy">
         <p>Z przyjemnością zrealizuję dla Państwa niezapomniane sesje w dziedzinie fotografii okolicznościowej. Moja oferta obejmuje także sesje portretowe zarówno w profesjonalnym studio, jak i malowniczych plenerach, ukazując wyjątkowe chwile w unikalny sposób. Zapraszam do współpracy, a każda sesja stanie się nie tylko fotograficzną podróżą, ale także niepowtarzalnym wspomnieniem.</p>
     </section>
 
@@ -798,17 +792,17 @@
         <h2>Oferta</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1525562723837-d1a06b37fa6e" alt="Fotografia Ślubna">
+                <img src="https://images.unsplash.com/photo-1598259988393-43e3da5f98a8?auto=format&fit=crop&w=1200&q=80" alt="Fotografia Ślubna">
                 <h3>Fotografia Ślubna</h3>
                 <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób.</p>
             </div>
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesje Portretowe">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Sesje Portretowe">
                 <h3>Sesje Portretowe</h3>
                 <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją osobowość.</p>
             </div>
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Fotografia Okolicznościowa">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" alt="Fotografia Okolicznościowa">
                 <h3>Fotografia Okolicznościowa</h3>
                 <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
             </div>
@@ -820,15 +814,15 @@
         <h2>Najnowsze Projekty</h2>
         <div class="project-grid">
             <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Ślub w plenerze">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Ślub w plenerze">
                 <p>Ślub w plenerze – Maj 2025</p>
             </div>
             <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesja portretowa">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Sesja portretowa">
                 <p>Sesja portretowa – Kwiecień 2025</p>
             </div>
             <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Chrzciny">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80" alt="Chrzciny">
                 <p>Chrzciny – Marzec 2025</p>
             </div>
         </div>
@@ -839,13 +833,13 @@
         <h2>Galeria Klientów</h2>
         <div class="client-grid">
             <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8" alt="Zdjęcie klienta 1">
+                <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?auto=format&fit=crop&w=1200&q=80" alt="Zdjęcie klienta 1">
             </div>
             <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Zdjęcie klienta 2">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Zdjęcie klienta 2">
             </div>
             <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1525562723837-d1a06b37fa6e" alt="Zdjęcie klienta 3">
+                <img src="https://images.unsplash.com/photo-1598259988393-43e3da5f98a8?auto=format&fit=crop&w=1200&q=80" alt="Zdjęcie klienta 3">
             </div>
         </div>
     </section>
@@ -855,22 +849,22 @@
         <h2>Mój Proces Pracy</h2>
         <div class="process-grid">
             <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1008/1008939.png" alt="Konsultacja">
+                <i class="fas fa-users"></i>
                 <h3>1. Konsultacja</h3>
                 <p>Omawiamy Twoje potrzeby i ustalamy szczegóły sesji.</p>
             </div>
             <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048946.png" alt="Sesja">
+                <i class="fas fa-camera"></i>
                 <h3>2. Sesja</h3>
                 <p>Realizujemy sesję w wybranym miejscu i stylu.</p>
             </div>
             <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Obróbka">
+                <i class="fas fa-edit"></i>
                 <h3>3. Obróbka</h3>
                 <p>Profesjonalna obróbka zdjęć, by wydobyć ich piękno.</p>
             </div>
             <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dostawa">
+                <i class="fas fa-share-square"></i>
                 <h3>4. Dostawa</h3>
                 <p>Otrzymujesz gotowe zdjęcia w formie cyfrowej lub albumu.</p>
             </div>
@@ -910,7 +904,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Kontakt</h2>
-        <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2" alt="Kontakt z fotografem">
+        <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1200&q=80" alt="Kontakt z fotografem">
         <p>Skontaktuj się ze mną, aby omówić szczegóły sesji!</p>
         <div class="contact-form">
             <input type="text" placeholder="Twoje imię" required>
@@ -919,7 +913,7 @@
             <button type="submit">Wyślij</button>
         </div>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.168785832686!2d19.74914831597188!3d51.79898767965743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a1b3f2e9a4f5d%3A0x4b8e0c6e8d7f5c!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2sus!4v1621456789012!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.168785832686!2d19.74914831597188!3d51.79898767965743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a1b3f2e9a4f5d%3A0x4b8e0c6e8d7f5c!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2sus!4v1715899149000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <p>Email: <a href="mailto:kontakt@krzysztof-watorowski.pl">kontakt@krzysztof-watorowski.pl</a></p>
         <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
@@ -960,13 +954,21 @@
     <!-- Cookie Popup -->
     <div class="cookie-popup" id="cookiePopup">
         <p>Ta strona korzysta z ciasteczek, aby zapewnić Ci najlepszą możliwą obsługę. Kontynuując, zgadzasz się na ich użycie.</p>
-        <button onclick="document.getElementById('cookiePopup').style.display='none'">Akceptuj</button>
+        <button onclick="acceptCookies()">Akceptuj</button>
     </div>
 
     <script>
-        // Show cookie popup on page load
+        // Cookie Popup Functions
+        function acceptCookies() {
+            const popup = document.getElementById('cookiePopup');
+            popup.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
         window.onload = function() {
-            document.getElementById('cookiePopup').style.display = 'block';
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookiePopup').style.display = 'block';
+            }
         };
 
         // Reservation Popup Functions
@@ -977,6 +979,31 @@
         function closeReservationPopup() {
             document.getElementById('reservationPopup').style.display = 'none';
         }
+
+        // Diagnostic Script
+        function checkResources() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = () => {
+                    console.error(`Błąd ładowania obrazu: ${img.src}`);
+                };
+                img.onload = () => {
+                    console.log(`Obraz załadowany poprawnie: ${img.src}`);
+                };
+            });
+
+            const iframe = document.querySelector('iframe');
+            if (iframe) {
+                iframe.onerror = () => {
+                    console.error('Błąd ładowania mapy Google Maps');
+                };
+                iframe.onload = () => {
+                    console.log('Mapa Google Maps załadowana poprawnie');
+                };
+            }
+        }
+
+        checkResources();
     </script>
 </body>
 </html>
