@@ -263,6 +263,60 @@
             color: #666;
         }
 
+        /* Latest Projects Section */
+        .latest-projects {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        .latest-projects h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-item p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+            font-size: 16px;
+        }
+
         /* Client Gallery Section */
         .client-gallery {
             padding: 60px 20px;
@@ -270,7 +324,7 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-            animation-delay: 0.6s;
+            animation-delay: 0.8s;
         }
 
         .client-gallery h2 {
@@ -300,14 +354,63 @@
             transform: scale(1.05);
         }
 
-        /* Testimonials Section */
-        .testimonials {
+        /* Process Section */
+        .process {
             padding: 60px 20px;
             background: #fff;
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-            animation-delay: 0.8s;
+            animation-delay: 1s;
+        }
+
+        .process h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-item {
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .process-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .process-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .process-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            background: #f9f9f9;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 1.2s;
         }
 
         .testimonials h2 {
@@ -322,13 +425,45 @@
             color: #666;
             padding: 20px;
             border-left: 4px solid #f0c14b;
-            background: #f9f9f9;
+            background: #fff;
             border-radius: 5px;
         }
 
         .testimonial-author {
             font-weight: bold;
             color: #333;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 1.4s;
+        }
+
+        .faq h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: left;
+        }
+
+        .faq-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f0c14b;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: #666;
         }
 
         /* Contact Section */
@@ -339,7 +474,7 @@
             position: relative;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-            animation-delay: 1s;
+            animation-delay: 1.6s;
         }
 
         .contact h2 {
@@ -413,6 +548,91 @@
             background: #ccc;
             border-radius: 10px;
             overflow: hidden;
+        }
+
+        /* Reservation Button */
+        .reservation-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f0c14b;
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .reservation-btn:hover {
+            background: #d4a017;
+            transform: scale(1.1);
+        }
+
+        /* Reservation Popup */
+        .reservation-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reservation-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .reservation-form h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reservation-form input,
+        .reservation-form select,
+        .reservation-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .reservation-form button {
+            padding: 10px 20px;
+            background: #f0c14b;
+            color: #333;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .reservation-form button:hover {
+            background: #d4a017;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
         }
 
         /* Footer */
@@ -503,12 +723,17 @@
             .services h2,
             .contact h2,
             .client-gallery h2,
-            .testimonials h2 {
+            .testimonials h2,
+            .latest-projects h2,
+            .process h2,
+            .faq h2 {
                 font-size: 28px;
             }
 
             .service-grid,
-            .client-grid {
+            .client-grid,
+            .project-grid,
+            .process-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -578,6 +803,25 @@
         </div>
     </section>
 
+    <!-- Latest Projects Section -->
+    <section class="latest-projects">
+        <h2>Najnowsze Projekty</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Ślub w plenerze">
+                <p>Ślub w plenerze – Maj 2025</p>
+            </div>
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesja portretowa">
+                <p>Sesja portretowa – Kwiecień 2025</p>
+            </div>
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Chrzciny">
+                <p>Chrzciny – Marzec 2025</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Client Gallery Section -->
     <section class="client-gallery">
         <h2>Galeria Klientów</h2>
@@ -594,6 +838,33 @@
         </div>
     </section>
 
+    <!-- Process Section -->
+    <section class="process">
+        <h2>Mój Proces Pracy</h2>
+        <div class="process-grid">
+            <div class="process-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1008/1008939.png" alt="Konsultacja">
+                <h3>1. Konsultacja</h3>
+                <p>Omawiamy Twoje potrzeby i ustalamy szczegóły sesji.</p>
+            </div>
+            <div class="process-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048946.png" alt="Sesja">
+                <h3>2. Sesja</h3>
+                <p>Realizujemy sesję w wybranym miejscu i stylu.</p>
+            </div>
+            <div class="process-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Obróbka">
+                <h3>3. Obróbka</h3>
+                <p>Profesjonalna obróbka zdjęć, by wydobyć ich piękno.</p>
+            </div>
+            <div class="process-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dostawa">
+                <h3>4. Dostawa</h3>
+                <p>Otrzymujesz gotowe zdjęcia w formie cyfrowej lub albumu.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="testimonials">
         <h2>Rekomendacje</h2>
@@ -604,6 +875,23 @@
         <div class="testimonial">
             <p>"Fantastyczna sesja portretowa, zdjęcia są niesamowite. Polecam każdemu!"</p>
             <p class="testimonial-author">– Katarzyna</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Najczęściej Zadawane Pytania</h2>
+        <div class="faq-item">
+            <h3>Jak przygotować się do sesji?</h3>
+            <p>Zalecam wybrać wygodne ubrania, które pasują do stylu sesji. Przed sesją omówimy wszystkie szczegóły.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Ile trwa obróbka zdjęć?</h3>
+            <p>Obróbka trwa zazwyczaj od 2 do 4 tygodni, w zależności od rodzaju sesji i liczby zdjęć.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Czy oferujesz sesje plenerowe?</h3>
+            <p>Tak, realizuję sesje zarówno w studio, jak i w plenerze. Możemy wybrać miejsce, które najlepiej pasuje do Twojej wizji.</p>
         </div>
     </section>
 
@@ -626,6 +914,28 @@
         <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
     </section>
 
+    <!-- Reservation Button -->
+    <a href="#" class="reservation-btn" onclick="openReservationPopup()">Zarezerwuj Sesję</a>
+
+    <!-- Reservation Popup -->
+    <div class="reservation-popup" id="reservationPopup">
+        <div class="reservation-form">
+            <span class="close-popup" onclick="closeReservationPopup()">&times;</span>
+            <h3>Zarezerwuj Sesję</h3>
+            <input type="text" placeholder="Twoje imię" required>
+            <input type="email" placeholder="Twój email" required>
+            <select required>
+                <option value="" disabled selected>Wybierz rodzaj sesji</option>
+                <option value="ślubna">Fotografia Ślubna</option>
+                <option value="portretowa">Sesja Portretowa</option>
+                <option value="okolicznościowa">Fotografia Okolicznościowa</option>
+            </select>
+            <input type="date" required>
+            <textarea placeholder="Dodatkowe uwagi" rows="3"></textarea>
+            <button type="submit">Wyślij Zapytanie</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
@@ -647,6 +957,15 @@
         window.onload = function() {
             document.getElementById('cookiePopup').style.display = 'block';
         };
+
+        // Reservation Popup Functions
+        function openReservationPopup() {
+            document.getElementById('reservationPopup').style.display = 'flex';
+        }
+
+        function closeReservationPopup() {
+            document.getElementById('reservationPopup').style.display = 'none';
+        }
     </script>
 </body>
 </html>

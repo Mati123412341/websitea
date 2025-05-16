@@ -76,6 +76,7 @@
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -101,6 +102,35 @@
             margin: 0;
             font-size: 16px;
         }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -117,32 +147,38 @@
     <section class="gallery">
         <h2>Portfolio</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1523381294911-8d3cead13475')">
                 <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Ślubna sesja plenerowa">
                 <p>Ślubna sesja plenerowa</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1494790108377-be9c29b29330')">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Portret w studio">
                 <p>Portret w studio</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1517457373958-b7bdd4587205')">
                 <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Chrzciny">
                 <p>Chrzciny</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1516726817505-f5ed825624d8')">
                 <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8" alt="Sesja rodzinna">
                 <p>Sesja rodzinna</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1506744038136-46273834b3fb')">
                 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Fotografia krajobrazowa">
                 <p>Fotografia krajobrazowa</p>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a')">
                 <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Sesja narzeczeńska">
                 <p>Sesja narzeczeńska</p>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Powiększone zdjęcie">
+    </div>
 
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
@@ -152,5 +188,18 @@
             <a href="#">Pinterest</a>
         </div>
     </footer>
+
+    <script>
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
