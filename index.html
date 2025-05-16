@@ -42,930 +42,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotograf Krzysztof Wątorowski</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #f0c14b;
-            transform: scale(1.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f0c14b;
-            color: #333;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:hover {
-            background: #d4a017;
-            transform: translateY(-3px);
-        }
-
-        /* About Section */
-        .about {
-            padding: 60px 20px;
-            text-align: center;
-            background: #f9f9f9;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.2s;
-        }
-
-        .about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .about img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 15px;
-            margin: 20px auto;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .about p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 60px 20px;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.4s;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(240, 193, 75, 0.3), rgba(0, 0, 0, 0.5));
-            animation: gradientShift 10s ease infinite;
-            z-index: 0;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-            color: #fff;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-item {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .service-item h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .service-item p {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* Latest Projects Section */
-        .latest-projects {
-            padding: 60px 20px;
-            background: #fff;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.6s;
-        }
-
-        .latest-projects h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .project-item p {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            margin: 0;
-            font-size: 16px;
-        }
-
-        /* Client Gallery Section */
-        .client-gallery {
-            padding: 60px 20px;
-            background: #f9f9f9;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.8s;
-        }
-
-        .client-gallery h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .client-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .client-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .client-item img:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
-
-        /* Process Section */
-        .process {
-            padding: 60px 20px;
-            background: #fff;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 1s;
-        }
-
-        .process h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .process-item {
-            padding: 20px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .process-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .process-item img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-        }
-
-        .process-item h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .process-item p {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 60px 20px;
-            background: #f9f9f9;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 1.2s;
-        }
-
-        .testimonials h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .testimonial {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-style: italic;
-            color: #666;
-            padding: 20px;
-            border-left: 4px solid #f0c14b;
-            background: #fff;
-            border-radius: 5px;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 60px 20px;
-            background: #fff;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 1.4s;
-        }
-
-        .faq h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .faq-item {
-            max-width: 800px;
-            margin: 0 auto 20px;
-            text-align: left;
-        }
-
-        .faq-item h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #f0c14b;
-        }
-
-        .faq-item p {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 60px 20px;
-            background: #f0c14b;
-            text-align: center;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 1.6s;
-        }
-
-        .contact h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .contact img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 15px;
-            margin: 20px auto;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 20px auto;
-            text-align: left;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #f0c14b;
-            outline: none;
-        }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background: #333;
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: #555;
-            transform: translateY(-3px);
-        }
-
-        .map {
-            margin-top: 20px;
-            height: 200px;
-            background: #ccc;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        /* Reservation Button */
-        .reservation-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #f0c14b;
-            color: #333;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .reservation-btn:hover {
-            background: #d4a017;
-            transform: scale(1.1);
-        }
-
-        /* Reservation Popup */
-        .reservation-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .reservation-form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-        }
-
-        .reservation-form h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .reservation-form input,
-        .reservation-form select,
-        .reservation-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .reservation-form button {
-            padding: 10px 20px;
-            background: #f0c14b;
-            color: #333;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        .reservation-form button:hover {
-            background: #d4a017;
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        footer p {
-            font-size: 14px;
-            flex: 1;
-        }
-
-        .social-links a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 18px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #f0c14b;
-        }
-
-        /* Cookie Popup */
-        .cookie-popup {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .cookie-popup p {
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .cookie-popup button {
-            padding: 10px 20px;
-            background: #f0c14b;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .cookie-popup button:hover {
-            background: #d4a017;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            nav ul li a {
-                font-size: 16px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .about h2,
-            .services h2,
-            .contact h2,
-            .client-gallery h2,
-            .testimonials h2,
-            .latest-projects h2,
-            .process h2,
-            .faq h2 {
-                font-size: 28px;
-            }
-
-            .service-grid,
-            .client-grid,
-            .project-grid,
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about img,
-            .contact img {
-                max-width: 100%;
-            }
-
-            .contact-form {
-                max-width: 100%;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <title>Fotograf Krzysztof Wątorowski - Strona Główna</title>
+    <meta name="description" content="Profesjonalna fotografia ślubna, portretowa i okolicznościowa w Warszawie i całej Polsce. Zarezerwuj sesję już dziś!">
+    <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Warszawa, fotografia okolicznościowa">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="admin.html">Admin</a></li>
-        </ul>
-    </nav>
+    <a href="#main" class="skip-link">Pomiń do treści</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+            </ul>
+        </nav>
+        <h1>Fotograf Krzysztof Wątorowski</h1>
+        <p>Tworzę niezapomniane sesje fotograficzne, które zatrzymują piękne chwile na zawsze.</p>
+        <button onclick="openModal('booking-modal')">Zarezerwuj teraz</button>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Fotograf Krzysztof Wątorowski</h1>
-            <p>Tworzę niezapomniane sesje fotograficzne, które zatrzymują piękne chwile.</p>
-            <a href="#contact" class="btn">Skontaktuj się</a>
-        </div>
-    </section>
+    <main id="main">
+        <section id="about">
+            <h2>O Mnie</h2>
+            <p>Jestem fotografem z 10-letnim doświadczeniem, specjalizującym się w fotografii ślubnej i portretowej. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024. Pracuję w Warszawie, ale realizuję sesje w całej Polsce, tworząc wyjątkowe wspomnienia.</p>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>O Mnie</h2>
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Fotograf w pracy">
-        <p>Z przyjemnością zrealizuję dla Państwa niezapomniane sesje w dziedzinie fotografii okolicznościowej. Moja oferta obejmuje także sesje portretowe zarówno w profesjonalnym studio, jak i malowniczych plenerach, ukazując wyjątkowe chwile w unikalny sposób. Zapraszam do współpracy, a każda sesja stanie się nie tylko fotograficzną podróżą, ale także niepowtarzalnym wspomnieniem.</p>
-    </section>
+        <section id="why-me">
+            <h2>Dlaczego Ja?</h2>
+            <ul>
+                <li>Indywidualne podejście do każdego klienta.</li>
+                <li>Profesjonalny sprzęt i zaawansowana obróbka zdjęć.</li>
+                <li>Elastyczne terminy i lokalizacje sesji.</li>
+            </ul>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Oferta</h2>
-        <div class="service-grid">
-            <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Fotografia Ślubna">
+        <section id="offerings">
+            <h2>Oferta</h2>
+            <article>
                 <h3>Fotografia Ślubna</h3>
-                <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób.</p>
-            </div>
-            <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesje Portretowe">
+                <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób, od przygotowań po wesele.</p>
+            </article>
+            <article>
                 <h3>Sesje Portretowe</h3>
                 <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją osobowość.</p>
-            </div>
-            <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Fotografia Okolicznościowa">
+            </article>
+            <article>
                 <h3>Fotografia Okolicznościowa</h3>
                 <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
-            </div>
-        </div>
-    </section>
+            </article>
+        </section>
 
-    <!-- Latest Projects Section -->
-    <section class="latest-projects">
-        <h2>Najnowsze Projekty</h2>
-        <div class="project-grid">
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Ślub w plenerze">
-                <p>Ślub w plenerze – Maj 2025</p>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesja portretowa">
-                <p>Sesja portretowa – Kwiecień 2025</p>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" alt="Chrzciny">
-                <p>Chrzciny – Marzec 2025</p>
-            </div>
-        </div>
-    </section>
+        <section id="latest-projects">
+            <h2>Najnowsze Projekty</h2>
+            <ul>
+                <li><img src="slub1.jpg" alt="Ślub plenerowy w Tatrach, maj 2025">Ślub w plenerze – Maj 2025</li>
+                <li><img src="portret1.jpg" alt="Sesja portretowa w studio, kwiecień 2025">Sesja portretowa – Kwiecień 2025</li>
+                <li><img src="chrzest1.jpg" alt="Chrzciny w Krakowie, marzec 2025">Chrzciny – Marzec 2025</li>
+            </ul>
+        </section>
 
-    <!-- Client Gallery Section -->
-    <section class="client-gallery">
-        <h2>Galeria Klientów</h2>
-        <div class="client-grid">
-            <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Zdjęcie klienta 1">
+        <section id="client-gallery">
+            <h2>Galeria Klientów</h2>
+            <div class="gallery-grid">
+                <img src="client1.jpg" alt="Sesja ślubna klienta">
+                <img src="client2.jpg" alt="Sesja portretowa klienta">
+                <img src="client3.jpg" alt="Sesja okolicznościowa klienta">
             </div>
-            <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Zdjęcie klienta 2">
+        </section>
+
+        <section id="work-process">
+            <h2>Mój Proces Pracy</h2>
+            <ol>
+                <li><strong>Konsultacja</strong>: Omawiamy Twoje potrzeby i ustalamy szczegóły sesji.</li>
+                <li><strong>Sesja</strong>: Realizujemy zdjęcia w wybranym miejscu i stylu.</li>
+                <li><strong>Obróbka</strong>: Profesjonalna edycja zdjęć, by wydobyć ich piękno.</li>
+                <li><strong>Dostawa</strong>: Otrzymujesz gotowe zdjęcia cyfrowo lub w albumie.</li>
+            </ol>
+        </section>
+
+        <section id="testimonials">
+            <h2>Rekomendacje</h2>
+            <blockquote>
+                <p>"Krzysztof uchwycił nasz ślub w sposób, który na zawsze pozostanie w naszej pamięci. Profesjonalizm na najwyższym poziomie!"</p>
+                <cite>– Anna i Marek</cite>
+            </blockquote>
+            <blockquote>
+                <p>"Fantastyczna sesja portretowa, zdjęcia są niesamowite. Polecam każdemu!"</p>
+                <cite>– Katarzyna</cite>
+            </blockquote>
+        </section>
+
+        <section id="faq">
+            <h2>Najczęściej Zadawane Pytania</h2>
+            <dl>
+                <dt>Jak przygotować się do sesji?</dt>
+                <dd>Wybierz wygodne ubrania pasujące do stylu sesji, np. eleganckie dla ślubnych, swobodne dla plenerowych. Przynieś rekwizyty, które mają dla Ciebie znaczenie, np. bukiet ślubny.</dd>
+                <dt>Ile trwa obróbka zdjęć?</dt>
+                <dd>Obróbka trwa od 2 do 4 tygodni, w zależności od liczby zdjęć i rodzaju sesji.</dd>
+                <dt>Czy oferujesz sesje plenerowe?</dt>
+                <dd>Tak, realizuję sesje w plenerze, np. w parkach, górach czy nad morzem. Wybierzemy miejsce zgodne z Twoją wizją.</dd>
+            </dl>
+        </section>
+
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Email: <a href="mailto:[email protected]">[email protected]</a></p>
+            <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
+            <form action="send_contact.php" method="post" id="contact-form">
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="subject">Temat:</label>
+                <input type="text" id="subject" name="subject">
+                <label for="message">Wiadomość:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Wyślij</button>
+            </form>
+        </section>
+
+        <div id="booking-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('booking-modal')">&times;</span>
+                <h2>Zarezerwuj Sesję</h2>
+                <form action="reserve.php" method="post" id="booking-form">
+                    <label for="booking-name">Imię:</label>
+                    <input type="text" id="booking-name" name="name" required>
+                    <label for="booking-email">Email:</label>
+                    <input type="email" id="booking-email" name="email" required>
+                    <label for="session-type">Rodzaj sesji:</label>
+                    <select id="session-type" name="session_type" required>
+                        <option value="slubna">Fotografia Ślubna</option>
+                        <option value="portretowa">Sesja Portretowa</option>
+                        <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
+                    </select>
+                    <label for="preferred-date">Preferowana data:</label>
+                    <input type="date" id="preferred-date" name="preferred_date" required>
+                    <label for="preferred-time">Preferowana godzina:</label>
+                    <input type="time" id="preferred-time" name="preferred_time">
+                    <label for="booking-message">Wiadomość:</label>
+                    <textarea id="booking-message" name="message"></textarea>
+                    <button type="submit">Wyślij Zapytanie</button>
+                </form>
             </div>
-            <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Zdjęcie klienta 3">
-            </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Process Section -->
-    <section class="process">
-        <h2>Mój Proces Pracy</h2>
-        <div class="process-grid">
-            <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1008/1008939.png" alt="Konsultacja">
-                <h3>1. Konsultacja</h3>
-                <p>Omawiamy Twoje potrzeby i ustalamy szczegóły sesji.</p>
-            </div>
-            <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048946.png" alt="Sesja">
-                <h3>2. Sesja</h3>
-                <p>Realizujemy sesję w wybranym miejscu i stylu.</p>
-            </div>
-            <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Obróbka">
-                <h3>3. Obróbka</h3>
-                <p>Profesjonalna obróbka zdjęć, by wydobyć ich piękno.</p>
-            </div>
-            <div class="process-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dostawa">
-                <h3>4. Dostawa</h3>
-                <p>Otrzymujesz gotowe zdjęcia w formie cyfrowej lub albumu.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>Rekomendacje</h2>
-        <div class="testimonial">
-            <p>"Krzysztof uchwycił nasz ślub w sposób, który na zawsze pozostanie w naszej pamięci. Profesjonalizm na najwyższym poziomie!"</p>
-            <p class="testimonial-author">– Anna i Marek</p>
-        </div>
-        <div class="testimonial">
-            <p>"Fantastyczna sesja portretowa, zdjęcia są niesamowite. Polecam każdemu!"</p>
-            <p class="testimonial-author">– Katarzyna</p>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <h2>Najczęściej Zadawane Pytania</h2>
-        <div class="faq-item">
-            <h3>Jak przygotować się do sesji?</h3>
-            <p>Zalecam wybrać wygodne ubrania, które pasują do stylu sesji. Przed sesją omówimy wszystkie szczegóły.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Ile trwa obróbka zdjęć?</h3>
-            <p>Obróbka trwa zazwyczaj od 2 do 4 tygodni, w zależności od rodzaju sesji i liczby zdjęć.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Czy oferujesz sesje plenerowe?</h3>
-            <p>Tak, realizuję sesje zarówno w studio, jak i w plenerze. Możemy wybrać miejsce, które najlepiej pasuje do Twojej wizji.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Kontakt</h2>
-        <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2" alt="Kontakt z fotografem">
-        <p>Skontaktuj się ze mną, aby omówić szczegóły sesji!</p>
-        <div class="contact-form">
-            <input type="text" placeholder="Twoje imię" required>
-            <input type="email" placeholder="Twój email" required>
-            <textarea placeholder="Twoja wiadomość" rows="4" required></textarea>
-            <button type="submit">Wyślij</button>
-        </div>
-        <div class="map">
-            <!-- Placeholder for map (replace with Google Maps embed code) -->
-            <p>Mapa lokalizacji (do zaimplementowania)</p>
-        </div>
-        <p>Email: <a href="mailto:kontakt@krzysztof-watorowski.pl">kontakt@krzysztof-watorowski.pl</a></p>
-        <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
-    </section>
-
-    <!-- Reservation Button -->
-    <a href="#" class="reservation-btn" onclick="openReservationPopup()">Zarezerwuj Sesję</a>
-
-    <!-- Reservation Popup -->
-    <div class="reservation-popup" id="reservationPopup">
-        <div class="reservation-form">
-            <span class="close-popup" onclick="closeReservationPopup()">&times;</span>
-            <h3>Zarezerwuj Sesję</h3>
-            <input type="text" placeholder="Twoje imię" required>
-            <input type="email" placeholder="Twój email" required>
-            <select required>
-                <option value="" disabled selected>Wybierz rodzaj sesji</option>
-                <option value="ślubna">Fotografia Ślubna</option>
-                <option value="portretowa">Sesja Portretowa</option>
-                <option value="okolicznościowa">Fotografia Okolicznościowa</option>
-            </select>
-            <input type="date" required>
-            <textarea placeholder="Dodatkowe uwagi" rows="3"></textarea>
-            <button type="submit">Wyślij Zapytanie</button>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Pinterest</a>
+        <ul class="social-links">
+            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+        </ul>
+        <div id="cookie-notice">
+            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies">Akceptuj</button>
         </div>
     </footer>
 
-    <!-- Cookie Popup -->
-    <div class="cookie-popup" id="cookiePopup">
-        <p>Ta strona korzysta z ciasteczek, aby zapewnić Ci najlepszą możliwą obsługę. Kontynuując, zgadzasz się na ich użycie.</p>
-        <button onclick="document.getElementById('cookiePopup').style.display='none'">Akceptuj</button>
-    </div>
-
     <script>
-        // Show cookie popup on page load
-        window.onload = function() {
-            document.getElementById('cookiePopup').style.display = 'block';
-        };
-
-        // Reservation Popup Functions
-        function openReservationPopup() {
-            document.getElementById('reservationPopup').style.display = 'flex';
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
-        function closeReservationPopup() {
-            document.getElementById('reservationPopup').style.display = 'none';
-        }
+        // Cookie notice
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
+
+        // Contact form validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (!name || !email || !message) {
+                e.preventDefault();
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                e.preventDefault();
+                alert('Proszę podać poprawny adres email.');
+            }
+        });
+
+        // Booking form validation
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            const name = document.getElementById('booking-name').value;
+            const email = document.getElementById('booking-email').value;
+            const date = document.getElementById('preferred-date').value;
+            if (!name || !email || !date) {
+                e.preventDefault();
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                e.preventDefault();
+                alert('Proszę podać poprawny adres email.');
+            }
+        });
     </script>
 </body>
 </html>

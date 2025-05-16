@@ -42,97 +42,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Fotograf Krzysztof Wątorowski</title>
-    <link rel="stylesheet" href="index.html#styles">
-    <style>
-        .blog {
-            padding: 60px 20px;
-            background: #fff;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .blog h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .blog-item {
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-item h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .blog-item p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .blog-item .date {
-            font-size: 14px;
-            color: #999;
-        }
-    </style>
+    <title>Blog - Krzysztof Wątorowski</title>
+    <meta name="description" content="Porady fotograficzne od Krzysztofa Wątorowskiego: jak przygotować się do sesji, najlepsze lokalizacje plenerowe i więcej.">
+    <meta name="keywords" content="blog, fotografia, ślubna, porady, plener, Warszawa">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="admin.html">Admin</a></li>
-        </ul>
-    </nav>
+    <a href="#main" class="skip-link">Pomiń do treści</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="active" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+            </ul>
+        </nav>
+        <h1>Blog</h1>
+        <p>Znajdź inspiracje i porady dotyczące fotografii ślubnej, portretowej i okolicznościowej.</p>
+    </header>
 
-    <section class="blog">
-        <h2>Blog</h2>
-        <div class="blog-grid">
-            <div class="blog-item">
-                <h3>Jak przygotować się do sesji ślubnej</h3>
-                <p>Praktyczne wskazówki, jak się przygotować, aby sesja przebiegła idealnie.</p>
-                <p class="date">17 maja 2025</p>
-            </div>
-            <div class="blog-item">
-                <h3>Najlepsze lokalizacje na sesje plenerowe</h3>
-                <p>Odkryj piękne miejsca w Polsce idealne do zdjęć w plenerze.</p>
-                <p class="date">15 maja 2025</p>
-            </div>
-        </div>
-    </section>
+    <main id="main">
+        <section id="blog-posts">
+            <article>
+                <h2>Jak przygotować się do sesji ślubnej</h2>
+                <img src="blog1.jpg" alt="Para młoda podczas sesji ślubnej">
+                <p>Przygotowanie do sesji ślubnej to klucz do uzyskania pięknych zdjęć. Wybierz strój pasujący do lokalizacji – elegancka suknia sprawdzi się w pałacu, a zwiewna kreacja w plenerze. Zadbaj o makijaż i fryzurę, najlepiej współpracując z profesjonalistami. Ustal harmonogram z fotografem, aby uwzględnić najlepsze światło dzienne, np. złota godzina o zachodzie słońca.</p>
+                <p><strong>Autor:</strong> Krzysztof Wątorowski | <strong>Data:</strong> 17 maja 2025 | <strong>Kategoria:</strong> Porady</p>
+                <a href="blog/post1.html">Czytaj więcej</a>
+            </article>
+            <article>
+                <h2>Najlepsze lokalizacje na sesje plenerowe</h2>
+                <img src="blog2.jpg" alt="Plenerowa sesja fotograficzna w górach">
+                <p>Polska oferuje wiele pięknych miejsc na sesje plenerowe. Tatry to idealny wybór dla miłośników gór, z malowniczymi widokami na Giewont. Nadbałtyckie plaże, takie jak w Sopocie, dodają romantyzmu sesjom ślubnym. W Warszawie polecam Łazienki Królewskie – klasyczna sceneria dla portretów.</p>
+                <p><strong>Autor:</strong> Krzysztof Wątorowski | <strong>Data:</strong> 15 maja 2025 | <strong>Kategoria:</strong> Inspiracje</p>
+                <a href="blog/post2.html">Czytaj więcej</a>
+            </article>
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Pinterest</a>
+        <ul class="social-links">
+            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+        </ul>
+        <div id="cookie-notice">
+            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies">Akceptuj</button>
         </div>
     </footer>
+
+    <script>
+        // Cookie notice
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
+    </script>
 </body>
 </html>

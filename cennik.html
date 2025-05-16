@@ -42,135 +42,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cennik - Fotograf Krzysztof Wątorowski</title>
-    <link rel="stylesheet" href="index.html#styles">
-    <style>
-        .pricing {
-            padding: 60px 20px;
-            background: #f9f9f9;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .pricing h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pricing-item {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            background: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pricing-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .pricing-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .pricing-item h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .pricing-item p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .pricing-item .price {
-            font-size: 28px;
-            color: #f0c14b;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .pricing-item .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f0c14b;
-            color: #333;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-        }
-
-        .pricing-item .btn:hover {
-            background: #d4a017;
-        }
-    </style>
+    <title>Cennik - Krzysztof Wątorowski</title>
+    <meta name="description" content="Sprawdź cennik usług fotograficznych Krzysztofa Wątorowskiego: fotografia ślubna, portretowa i okolicznościowa.">
+    <meta name="keywords" content="cennik, fotografia, ślubna, portretowa, Warszawa, ceny">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="admin.html">Admin</a></li>
-        </ul>
-    </nav>
+    <a href="#main" class="skip-link">Pomiń do treści</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="active" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" aria-label="Panel Administracyjny">Admin</a></li>
+            </ul>
+        </nav>
+        <h1>Cennik</h1>
+        <p>Zapoznaj się z moimi pakietami usług fotograficznych. Dojazd poza Warszawę: 1 zł/km.</p>
+    </header>
 
-    <section class="pricing">
-        <h2>Cennik</h2>
-        <div class="pricing-grid">
-            <div class="pricing-item">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Pakiet Ślubny Podstawowy">
-                <h3>Pakiet Ślubny Podstawowy</h3>
+    <main id="main">
+        <section id="pricing">
+            <article class="pricing-card">
+                <h2>Pakiet Ślubny Podstawowy</h2>
                 <p>4 godziny fotografowania, 100 obrobionych zdjęć, galeria online.</p>
-                <div class="price">2000 PLN</div>
-                <a href="#contact" class="btn">Zarezerwuj</a>
-            </div>
-            <div class="pricing-item">
-                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Pakiet Ślubny Premium">
-                <h3>Pakiet Ślubny Premium</h3>
+                <p class="price">2000 PLN</p>
+                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
+            </article>
+            <article class="pricing-card">
+                <h2>Pakiet Ślubny Premium</h2>
                 <p>8 godziny fotografowania, 200 obrobionych zdjęć, album premium.</p>
-                <div class="price">3500 PLN</div>
-                <a href="#contact" class="btn">Zarezerwuj</a>
-            </div>
-            <div class="pricing-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Sesja Portretowa">
-                <h3>Sesja Portretowa</h3>
+                <p class="price">3500 PLN</p>
+                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
+            </article>
+            <article class="pricing-card">
+                <h2>Sesja Portretowa</h2>
                 <p>2 godziny sesji, 20 obrobionych zdjęć, studio lub plener.</p>
-                <div class="price">800 PLN</div>
-                <a href="#contact" class="btn">Zarezerwuj</a>
+                <p class="price">800 PLN</p>
+                <button onclick="openModal('booking-modal')">Zarezerwuj</button>
+            </article>
+        </section>
+
+        <div id="booking-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('booking-modal')">&times;</span>
+                <h2>Zarezerwuj Sesję</h2>
+                <form action="reserve.php" method="post" id="booking-form">
+                    <label for="booking-name">Imię:</label>
+                    <input type="text" id="booking-name" name="name" required>
+                    <label for="booking-email">Email:</label>
+                    <input type="email" id="booking-email" name="email" required>
+                    <label for="session-type">Rodzaj sesji:</label>
+                    <select id="session-type" name="session_type" required>
+                        <option value="slubna">Fotografia Ślubna</option>
+                        <option value="portretowa">Sesja Portretowa</option>
+                        <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
+                    </select>
+                    <label for="preferred-date">Preferowana data:</label>
+                    <input type="date" id="preferred-date" name="preferred_date" required>
+                    <label for="preferred-time">Preferowana godzina:</label>
+                    <input type="time" id="preferred-time" name="preferred_time">
+                    <label for="booking-message">Wiadomość:</label>
+                    <textarea id="booking-message" name="message"></textarea>
+                    <button type="submit">Wyślij Zapytanie</button>
+                </form>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Pinterest</a>
+        <ul class="social-links">
+            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+        </ul>
+        <div id="cookie-notice">
+            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies">Akceptuj</button>
         </div>
     </footer>
+
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cookie notice
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
+
+        // Booking form validation
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            const name = document.getElementById('booking-name').value;
+            const email = document.getElementById('booking-email').value;
+            const date = document.getElementById('preferred-date').value;
+            if (!name || !email || !date) {
+                e.preventDefault();
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                e.preventDefault();
+                alert('Proszę podać poprawny adres email.');
+            }
+        });
+    </script>
 </body>
 </html>

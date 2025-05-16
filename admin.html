@@ -42,124 +42,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admina - Fotograf Krzysztof Wątorowski</title>
-    <link rel="stylesheet" href="index.html#styles">
-    <style>
-        .admin {
-            padding: 60px 20px;
-            background: #fff;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .admin h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .admin-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-        }
-
-        .admin-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .admin-form input,
-        .admin-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .admin-form button {
-            padding: 10px 20px;
-            background: #f0c14b;
-            color: #333;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .admin-form button:hover {
-            background: #d4a017;
-        }
-    </style>
+    <title>Panel Administracyjny - Krzysztof Wątorowski</title>
+    <meta name="description" content="Panel administracyjny do zarządzania artykułami na blogu Krzysztofa Wątorowskiego.">
+    <meta name="keywords" content="admin, blog, fotografia, zarządzanie">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="admin.html">Admin</a></li>
-        </ul>
-    </nav>
+    <a href="#main" class="skip-link">Pomiń do treści</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="active" aria-label="Panel Administracyjny">Admin</a></li>
+            </ul>
+        </nav>
+        <h1>Panel Administracyjny</h1>
+        <p>Zarządzaj artykułami na blogu: dodawaj, edytuj lub usuwaj wpisy.</p>
+    </header>
 
-    <section class="admin">
-        <h2>Panel Admina</h2>
-        <div class="admin-form">
-            <h3>Dodaj nowy artykuł</h3>
-            <form id="articleForm">
+    <main id="main">
+        <section id="add-post">
+            <h2>Dodaj nowy artykuł</h2>
+            <form action="save_post.php" method="post" id="add-post-form" enctype="multipart/form-data">
                 <label for="title">Tytuł:</label>
-                <input type="text" id="title" required>
+                <input type="text" id="title" name="title" required>
                 <label for="content">Treść:</label>
-                <textarea id="content" rows="5" required></textarea>
-                <label for="date">Data:</label>
-                <input type="date" id="date" required>
+                <textarea id="content" name="content" required></textarea>
+                <label for="date">Data publikacji:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="category">Kategoria:</label>
+                <select id="category" name="category" required>
+                    <option value="porady">Porady</option>
+                    <option value="inspiracje">Inspiracje</option>
+                    <option value="technika">Technika</option>
+                </select>
+                <label for="tags">Tagi (oddzielone przecinkami):</label>
+                <input type="text" id="tags" name="tags">
+                <label for="featured-image">Obrazek wyróżniający:</label>
+                <input type="file" id="featured-image" name="featured_image" accept="image/*">
                 <button type="submit">Dodaj artykuł</button>
             </form>
-        </div>
-    </section>
+        </section>
+
+        <section id="manage-posts">
+            <h2>Zarządzaj artykułami</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Data</th>
+                        <th>Kategoria</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jak przygotować się do sesji ślubnej</td>
+                        <td>17 maja 2025</td>
+                        <td>Porady</td>
+                        <td>
+                            <button onclick="editPost(1)">Edytuj</button>
+                            <button onclick="deletePost(1)">Usuń</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Najlepsze lokalizacje na sesje plenerowe</td>
+                        <td>15 maja 2025</td>
+                        <td>Inspiracje</td>
+                        <td>
+                            <button onclick="editPost(2)">Edytuj</button>
+                            <button onclick="deletePost(2)">Usuń</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Pinterest</a>
+        <ul class="social-links">
+            <li><a href="https://facebook.com" aria-label="Odwiedź nasz profil na Facebooku"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Odwiedź nasz profil na Instagramie"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Odwiedź nasz profil na Pintereście"><i class="fab fa-pinterest-p"></i></a></li>
+        </ul>
+        <div id="cookie-notice">
+            <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies">Akceptuj</button>
         </div>
     </footer>
 
     <script>
-        // Login check (simple for demo)
-        const adminPassword = "admin123";
-        if (prompt("Podaj hasło:") !== adminPassword) {
-            alert("Nieprawidłowe hasło!");
-            window.location.href = "index.html";
-        }
+        // Cookie notice
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
 
-        // Handle article submission
-        document.getElementById('articleForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Add post form validation
+        document.getElementById('add-post-form').addEventListener('submit', function(e) {
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
             const date = document.getElementById('date').value;
-
-            let articles = JSON.parse(localStorage.getItem('blogArticles') || '[]');
-            articles.push({ title, content, date });
-            localStorage.setItem('blogArticles', JSON.stringify(articles));
-
-            alert('Artykuł dodano pomyślnie!');
-            this.reset();
+            if (!title || !content || !date) {
+                e.preventDefault();
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            }
         });
+
+        // Placeholder functions for edit/delete (requires backend)
+        function editPost(id) {
+            alert('Edycja artykułu o ID: ' + id + ' (wymaga backendu)');
+        }
+        function deletePost(id) {
+            if (confirm('Czy na pewno chcesz usunąć artykuł o ID: ' + id + '?')) {
+                alert('Usunięto artykuł o ID: ' + id + ' (wymaga backendu)');
+            }
+        }
     </script>
 </body>
 </html>
