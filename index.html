@@ -243,11 +243,68 @@
             color: #666;
         }
 
+        /* Client Gallery Section */
+        .client-gallery {
+            padding: 60px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .client-gallery h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .client-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .client-item img:hover {
+            opacity: 0.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
         /* Contact Section */
         .contact {
             padding: 60px 20px;
             background: #f0c14b;
             text-align: center;
+            position: relative;
         }
 
         .contact h2 {
@@ -273,6 +330,44 @@
             color: #333;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact-form button:hover {
+            background: #555;
+        }
+
+        .map {
+            margin-top: 20px;
+            height: 200px;
+            background: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         /* Footer */
@@ -344,16 +439,23 @@
 
             .about h2,
             .services h2,
-            .contact h2 {
+            .contact h2,
+            .client-gallery h2,
+            .testimonials h2 {
                 font-size: 28px;
             }
 
-            .service-grid {
+            .service-grid,
+            .client-grid {
                 grid-template-columns: 1fr;
             }
 
             .about img,
             .contact img {
+                max-width: 100%;
+            }
+
+            .contact-form {
                 max-width: 100%;
             }
         }
@@ -409,11 +511,50 @@
         </div>
     </section>
 
+    <!-- Client Gallery Section -->
+    <section class="client-gallery">
+        <h2>Galeria Klientów</h2>
+        <div class="client-grid">
+            <div class="client-item">
+                <img src="https://images.unsplash.com/photo-1525562723837-d1a06b37fa6e" alt="Zdjęcie klienta 1">
+            </div>
+            <div class="client-item">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Zdjęcie klienta 2">
+            </div>
+            <div class="client-item">
+                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Zdjęcie klienta 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Rekomendacje</h2>
+        <div class="testimonial">
+            <p>"Krzysztof uchwycił nasz ślub w sposób, który na zawsze pozostanie w naszej pamięci. Profesjonalizm na najwyższym poziomie!"</p>
+            <p class="testimonial-author">– Anna i Marek</p>
+        </div>
+        <div class="testimonial">
+            <p>"Fantastyczna sesja portretowa, zdjęcia są niesamowite. Polecam każdemu!"</p>
+            <p class="testimonial-author">– Katarzyna</p>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Kontakt</h2>
         <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2" alt="Kontakt z fotografem">
         <p>Skontaktuj się ze mną, aby omówić szczegóły sesji!</p>
+        <div class="contact-form">
+            <input type="text" placeholder="Twoje imię" required>
+            <input type="email" placeholder="Twój email" required>
+            <textarea placeholder="Twoja wiadomość" rows="4" required></textarea>
+            <button type="submit">Wyślij</button>
+        </div>
+        <div class="map">
+            <!-- Placeholder for map (replace with Google Maps embed code) -->
+            <p>Mapa lokalizacji (do zaimplementowania)</p>
+        </div>
         <p>Email: <a href="mailto:kontakt@krzysztof-watorowski.pl">kontakt@krzysztof-watorowski.pl</a></p>
         <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
     </section>
