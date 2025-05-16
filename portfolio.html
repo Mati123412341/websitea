@@ -48,6 +48,13 @@
         .gallery {
             padding: 60px 20px;
             background: #fff;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .gallery h2 {
@@ -67,7 +74,8 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-item img {
@@ -130,7 +138,7 @@
                 <p>Fotografia krajobrazowa</p>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1537151625747-768ff16a8acc" alt="Sesja narzeczeńska">
+                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Sesja narzeczeńska">
                 <p>Sesja narzeczeńska</p>
             </div>
         </div>
@@ -138,6 +146,11 @@
 
     <footer>
         <p>© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Pinterest</a>
+        </div>
     </footer>
 </body>
 </html>
