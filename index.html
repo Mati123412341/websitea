@@ -93,20 +93,10 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
             position: relative;
+            overflow: hidden;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero::before {
@@ -116,12 +106,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .hero .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1519227458-3d0d33d6b07f') no-repeat center center/cover,
+                       url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+            background-blend-mode: overlay;
+            animation: parallax 15s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes parallax {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10%); }
+            100% { transform: translateY(0); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: center;
+            padding-top: 20vh;
         }
 
         .hero h1 {
@@ -187,7 +199,7 @@
         /* Services Section */
         .services {
             padding: 60px 20px;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8') no-repeat center center/cover;
             position: relative;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
@@ -544,8 +556,7 @@
 
         .map {
             margin-top: 20px;
-            height: 200px;
-            background: #ccc;
+            height: 300px;
             border-radius: 10px;
             overflow: hidden;
         }
@@ -767,6 +778,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="background"></div>
         <div class="hero-content">
             <h1>Fotograf Krzysztof Wątorowski</h1>
             <p>Tworzę niezapomniane sesje fotograficzne, które zatrzymują piękne chwile.</p>
@@ -786,7 +798,7 @@
         <h2>Oferta</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Fotografia Ślubna">
+                <img src="https://images.unsplash.com/photo-1525562723837-d1a06b37fa6e" alt="Fotografia Ślubna">
                 <h3>Fotografia Ślubna</h3>
                 <p>Uchwycę najważniejsze momenty Waszego dnia w wyjątkowy sposób.</p>
             </div>
@@ -827,13 +839,13 @@
         <h2>Galeria Klientów</h2>
         <div class="client-grid">
             <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1515962037614-c2d4f49e1d2a" alt="Zdjęcie klienta 1">
+                <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8" alt="Zdjęcie klienta 1">
             </div>
             <div class="client-item">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Zdjęcie klienta 2">
             </div>
             <div class="client-item">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475" alt="Zdjęcie klienta 3">
+                <img src="https://images.unsplash.com/photo-1525562723837-d1a06b37fa6e" alt="Zdjęcie klienta 3">
             </div>
         </div>
     </section>
@@ -907,8 +919,7 @@
             <button type="submit">Wyślij</button>
         </div>
         <div class="map">
-            <!-- Placeholder for map (replace with Google Maps embed code) -->
-            <p>Mapa lokalizacji (do zaimplementowania)</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.168785832686!2d19.74914831597188!3d51.79898767965743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a1b3f2e9a4f5d%3A0x4b8e0c6e8d7f5c!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2sus!4v1621456789012!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <p>Email: <a href="mailto:kontakt@krzysztof-watorowski.pl">kontakt@krzysztof-watorowski.pl</a></p>
         <p>Telefon: <a href="tel:+48790123456">+48 790 123 456</a></p>
@@ -920,7 +931,7 @@
     <!-- Reservation Popup -->
     <div class="reservation-popup" id="reservationPopup">
         <div class="reservation-form">
-            <span class="close-popup" onclick="closeReservationPopup()">&times;</span>
+            <span class="close-popup" onclick="closeReservationPopup()">×</span>
             <h3>Zarezerwuj Sesję</h3>
             <input type="text" placeholder="Twoje imię" required>
             <input type="email" placeholder="Twój email" required>
