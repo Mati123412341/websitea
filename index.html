@@ -1,0 +1,316 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twoje Imię - Wizytówka</title>
+    <meta name="description" content="Osobista strona internetowa Twojego Imienia, prezentująca portfolio, usługi i informacje kontaktowe.">
+    <meta name="keywords" content="Twoje Imię, portfolio, usługi, kontakt, strona internetowa">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                padding: 10px 20px;
+                display: block;
+            }
+            nav ul li a:hover {
+                background-color: #555;
+            }
+            .hero {
+                background-color: #fff;
+                text-align: center;
+                padding: 50px 20px;
+                position: relative;
+            }
+            .hero img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 5px solid #3498db;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+                margin: 10px 0;
+                color: #3498db;
+            }
+            .hero p {
+                font-size: 1.2em;
+                color: #666;
+            }
+            section {
+                padding: 40px 20px;
+                background-color: #fff;
+                margin: 20px 0;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            section h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #3498db;
+            }
+            .services {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .service-item {
+                flex: 1;
+                min-width: 250px;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                text-align: left;
+                transition: transform 0.3s ease;
+            }
+            .service-item:hover {
+                transform: scale(1.05);
+            }
+            .portfolio {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .portfolio-item {
+                flex: 1;
+                min-width: 250px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+            .portfolio-item:hover {
+                transform: scale(1.05);
+            }
+            .portfolio-item img {
+                width: 100%;
+                height: auto;
+            }
+            .portfolio-item h3 {
+                padding: 10px;
+                margin: 0;
+            }
+            .portfolio-item p {
+                padding: 0 10px 10px;
+            }
+            .portfolio-item a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+                background-color: #3498db;
+                color: #fff;
+                text-decoration: none;
+            }
+            .portfolio-item a:hover {
+ Stufe:
+                background-color: #2980b9;
+            }
+            .contact form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .contact input,
+            .contact textarea {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1em;
+            }
+            .contact button {
+                padding: 10px;
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s ease;
+            }
+            .contact button:hover {
+                background-color: #2980b9;
+            }
+            footer {
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+            }
+            footer a {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 10px;
+            }
+            footer a:hover {
+                text-decoration: underline;
+            }
+            @media (max-width: 600px) {
+                nav ul {
+                    flex-direction: column;
+                }
+                nav ul li {
+                    margin: 5px 0;
+                }
+                .hero img {
+                    width: 100px;
+                    height: 100px;
+                }
+                .hero h1 {
+                    font-size: 1.8em;
+                }
+                .service-item,
+                .portfolio-item {
+                    flex: 100%;
+                }
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#o-mnie">O mnie</a></li>
+                <li><a href="#uslugi">Usługi</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <img src="your_profile_picture.jpg" alt="Twoje zdjęcie">
+            <h1>Twoje Imię</h1>
+            <p>Twoja profesja, np. Freelancer / Programista / Designer</p>
+        </div>
+    </header>
+    <main>
+        <section id="o-mnie">
+            <h2>O mnie</h2>
+            <p>
+                Wstaw tutaj krótki opis o sobie. Na przykład: Jestem pasjonatem tworzenia stron internetowych z ponad 5-letnim doświadczeniem. Pomagam klientom budować ich obecność online.
+            </p>
+        </section>
+        <section id="uslugi">
+            <h2>Usługi</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Usługa 1</h3>
+                    <p>Opis usługi, np. Tworzenie responsywnych stron internetowych.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Usługa 2</h3>
+                    <p>Opis usługi, np. Projektowanie graficzne i branding.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Usługa 3</h3>
+                    <p>Opis usługi, np. Optymalizacja SEO dla lepszej widoczności w Google.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <img src="project1.jpg" alt="Projekt 1">
+                    <h3>Projekt 1</h3>
+                    <p>Opis projektu 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="link-do-projektu1" target="_blank">Zobacz więcej</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project2.jpg" alt="Projekt 2">
+                    <h3>Projekt 2</h3>
+                    <p>Opis projektu 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="link-do-projektu2" target="_blank">Zobacz więcej</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project3.jpg" alt="Projekt 3">
+                    <h3>Projekt 3</h3>
+                    <p>Opis projektu 3. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <a href="link-do-projektu3" target="_blank">Zobacz więcej</a>
+                </div>
+            </div>
+        </section>
+        <section id="kontakt" class="contact">
+            <h2>Kontakt</h2>
+            <form action="mailto:twoj.email@example.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Imię i nazwisko" required />
+                <input type="email" name="email" placeholder="Adres e-mail" required />
+                <textarea name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
+                <button type="submit">Wyślij</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Twoje Imię. Wszelkie prawa zastrzeżone.</p>
+        <a href="https://x.com/twoj_profil">X</a>
+        <a href="https://linkedin.com/in/twoj_profil">LinkedIn</a>
+        <a href="https://github.com/twoj_profil">GitHub</a>
+    </footer>
+</body>
+</html>
