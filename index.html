@@ -171,13 +171,34 @@
         /* Services Section */
         .services {
             padding: 60px 20px;
-            background: #fff;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(240, 193, 75, 0.3), rgba(0, 0, 0, 0.5));
+            animation: gradientShift 10s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .services h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .service-grid {
@@ -186,6 +207,8 @@
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .service-item {
@@ -194,6 +217,7 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .service-item:hover {
