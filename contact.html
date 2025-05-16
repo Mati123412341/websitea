@@ -42,9 +42,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twoje Imię - O mnie</title>
-    <meta name="description" content="Dowiedz się więcej o Twoim Imieniu, profesjonalnym fotografie z pasją do uchwycenia emocji.">
-    <meta name="keywords" content="fotografia, o mnie, fotograf, doświadczenie, Łódź, Poznań">
+    <title>Twoje Imię - Kontakt</title>
+    <meta name="description" content="Skontaktuj się z Twoim Imieniem, aby umówić sesję fotograficzną lub dowiedzieć się więcej o usługach.">
+    <meta name="keywords" content="fotografia, kontakt, fotograf, sesja fotograficzna, Łódź, Poznań">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,12 +91,40 @@
             color: #333;
             margin-bottom: 20px;
         }
-        .about img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid #3498db;
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.1em;
         }
         footer {
             background-color: #333;
@@ -114,10 +142,6 @@
             color: #3498db;
         }
         @media (max-width: 768px) {
-            .about img {
-                width: 150px;
-                height: 150px;
-            }
             nav ul li {
                 display: block;
                 margin: 10px 0;
@@ -139,13 +163,23 @@
         </nav>
     </header>
 
-    <!-- Sekcja o mnie -->
-    <section id="about" class="about">
-        <h2>O mnie</h2>
-        <img src="your_profile_picture.jpg" alt="Twoje zdjęcie">
-        <p>Cześć! Jestem [Twoje Imię], profesjonalny fotograf z pasją do uchwycenia piękna w codziennych chwilach. Pracuję w [Lokalizacja, np. Łódź, Poznań] i mam ponad [Liczba, np. 5] lat doświadczenia w fotografii. Moje podejście opiera się na naturalności, emocjach i indywidualnym kontakcie z każdym klientem.</p>
-        <p>Specjalizuję się w różnych rodzajach fotografii, od ślubów po sesje produktowe, zawsze dążąc do stworzenia zdjęć, które opowiadają historię. Moja praca była prezentowana w [np. lokalnych magazynach, wystawach], a klienci cenią mnie za zaangażowanie i dbałość o detale.</p>
-        <p>W wolnym czasie lubię [Hobby, np. podróże, sztuka], co inspiruje mnie do tworzenia unikalnych kadrów. Moim celem jest nie tylko dostarczenie pięknych zdjęć, ale także stworzenie komfortowej atmosfery podczas sesji, aby każdy czuł się swobodnie przed obiektywem.</p>
+    <!-- Sekcja kontakt -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Chcesz dowiedzieć się więcej o moich usługach lub umówić sesję? Skontaktuj się ze mną!</p>
+        <form action="mailto:twoj.email@example.com" method="post" enctype="text/plain">
+            <label for="name">Imię i nazwisko:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Wiadomość:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Wyślij</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:twoj.email@example.com">twoj.email@example.com</a></p>
+            <p>Telefon: +48 123 456 789</p>
+        </div>
     </section>
 
     <!-- Stopka -->

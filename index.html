@@ -43,10 +43,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twoje Imię - Profesjonalna Fotografia</title>
-    <meta name="description" content="Profesjonalna fotografia oferująca zdjęcia na najwyższym poziomie. Sprawdź moje portfolio i skontaktuj się, aby umówić sesję.">
+    <meta name="description" content="Profesjonalna fotografia na najwyższym poziomie. Uchwyć emocje i niezapomniane chwile z moimi zdjęciami.">
     <meta name="keywords" content="fotografia, fotografia ślubna, fotografia portretowa, fotografia eventowa, Łódź, Poznań">
     <style>
-        /* Globalne style */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -55,8 +54,6 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
-        /* Nagłówek i menu nawigacyjne */
         header {
             background-color: #333;
             color: #fff;
@@ -65,70 +62,57 @@
             top: 0;
             z-index: 100;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
             text-align: center;
         }
-
         nav ul li {
             display: inline;
             margin: 0 15px;
         }
-
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 1.1em;
             transition: color 0.3s ease;
         }
-
         nav ul li a:hover {
             color: #3498db;
         }
-
-        /* Style dla sekcji */
         section {
             padding: 50px 20px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         h2 {
             font-size: 2em;
             color: #333;
             margin-bottom: 20px;
         }
-
-        /* Sekcja główna (hero) */
         .hero {
             background-color: #fff;
             padding: 100px 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
         .hero img {
             width: 100%;
             max-width: 800px;
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
         .hero h1 {
             font-size: 2.5em;
             margin: 10px 0;
             color: #3498db;
         }
-
         .hero p {
             font-size: 1.2em;
             color: #666;
             max-width: 600px;
             margin: 0 auto;
         }
-
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -139,20 +123,16 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-
         .btn:hover {
             background-color: #2980b9;
         }
-
-        /* Sekcja usług */
-        .services-list {
+        .services-preview {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-
-        .service {
+        .service-preview {
             background-color: #fff;
             margin: 20px;
             padding: 20px;
@@ -162,128 +142,41 @@
             text-align: left;
             transition: transform 0.3s ease;
         }
-
-        .service:hover {
+        .service-preview:hover {
             transform: scale(1.05);
         }
-
-        .service h3 {
+        .service-preview h3 {
             font-size: 1.5em;
             color: #3498db;
             margin-bottom: 10px;
         }
-
-        /* Sekcja portfolio */
-        .portfolio-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .portfolio-item {
-            margin: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .portfolio-item img {
-            width: 300px;
-            height: auto;
-            display: block;
-        }
-
-        .portfolio-item p {
-            padding: 10px;
-            margin: 0;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        /* Sekcja kontakt */
-        .contact-info {
-            margin-top: 20px;
-            font-size: 1.1em;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 20px auto;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Stopka */
         footer {
             background-color: #333;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
-
         .social-media a {
             color: #fff;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.1em;
         }
-
         .social-media a:hover {
             color: #3498db;
         }
-
-        /* Responsywność */
         @media (max-width: 768px) {
-            .services-list {
+            .services-preview {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .service {
+            .service-preview {
                 width: 100%;
                 max-width: 400px;
             }
-
-            .portfolio-item img {
-                width: 100%;
-                max-width: 300px;
-            }
-
             .hero img {
                 max-width: 100%;
             }
-
             nav ul li {
                 display: block;
                 margin: 10px 0;
@@ -296,11 +189,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Usługi</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">O mnie</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Usługi</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">O mnie</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -311,120 +204,35 @@
             <img src="hero-image.jpg" alt="Zdjęcie reprezentacyjne">
             <h1>Twoje Imię</h1>
             <p>Profesjonalna fotografia na najwyższym poziomie. Uchwyć emocje i niezapomniane chwile z moimi zdjęciami.</p>
-            <a href="#portfolio" class="btn">Zobacz moje prace</a>
+            <a href="portfolio.html" class="btn">Zobacz moje prace</a>
         </div>
     </section>
 
-    <!-- Sekcja usług -->
-    <section id="services">
-        <h2>Usługi</h2>
-        <div class="services-list">
-            <div class="service">
+    <!-- Sekcja podglądu usług -->
+    <section id="services-preview">
+        <h2>Moje Usługi</h2>
+        <div class="services-preview">
+            <div class="service-preview">
                 <h3>Fotografia Ślubna</h3>
-                <p>Specjalizuję się w uchwyceniu magii Twojego dnia ślubu. Moje zdjęcia oddają emocje, miłość i atmosferę tego wyjątkowego wydarzenia. Oferuję pełną dokumentację ceremonii, wesela oraz sesje plenerowe, dostosowane do Waszych potrzeb.</p>
+                <p>Tworzę niezapomniane wspomnienia z Twojego dnia ślubu, łącząc emocje i naturalność.</p>
+                <a href="services.html#wedding" class="btn">Dowiedz się więcej</a>
             </div>
-            <div class="service">
+            <div class="service-preview">
                 <h3>Fotografia Portretowa</h3>
-                <p>Tworzę profesjonalne portrety, które podkreślają Twoją indywidualność. Idealne do portfolio zawodowego, mediów społecznościowych lub jako wyjątkowy prezent. Sesje mogą odbywać się w studio, plenerze lub w Twoim domu.</p>
+                <p>Indywidualne portrety, które podkreślają Twoją osobowość i styl.</p>
+                <a href="services.html#portrait" class="btn">Dowiedz się więcej</a>
             </div>
-            <div class="service">
+            <div class="service-preview">
                 <h3>Fotografia Eventowa</h3>
-                <p>Dokumentuję konferencje, imprezy firmowe, urodziny i inne wydarzenia. Moje zdjęcia zachowują kluczowe momenty i atmosferę, zapewniając wysokiej jakości wspomnienia, które możesz dzielić z innymi.</p>
+                <p>Dokumentuję kluczowe momenty Twoich wydarzeń, od konferencji po imprezy rodzinne.</p>
+                <a href="services.html#event" class="btn">Dowiedz się więcej</a>
             </div>
-            <div class="service">
-                <h3>Fotografia Rodzinna</h3>
-                <p>Tworzę ciepłe, naturalne zdjęcia rodzinne, które uwieczniają Wasze wspólne chwile. Sesje mogą odbywać się w plenerze, w domu lub w studio, z naciskiem na spontaniczność i emocje.</p>
-            </div>
-            <div class="service">
-                <h3>Fotografia Produktowa</h3>
-                <p>Oferuję profesjonalne zdjęcia produktów dla firm, idealne do sklepów online, katalogów czy mediów społecznościowych. Dbam o detale, oświetlenie i estetykę, aby Twoje produkty prezentowały się najlepiej.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcja portfolio -->
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <h3>Fotografia Ślubna</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="wedding1.jpg" alt="Zdjęcie ślubne 1">
-                <p>Romantyczna sesja plenerowa w parku.</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="wedding2.jpg" alt="Zdjęcie ślubne 2">
-                <p>Emocje podczas ceremonii zaślubin.</p>
-            </div>
-            <!-- Dodaj więcej zdjęć ślubnych -->
-        </div>
-        <h3>Fotografia Portretowa</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="portrait1.jpg" alt="Portret 1">
-                <p>Portret biznesowy w studio.</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="portrait2.jpg" alt="Portret 2">
-                <p>Naturalny portret w plenerze.</p>
-            </div>
-            <!-- Dodaj więcej portretów -->
-        </div>
-        <h3>Fotografia Eventowa</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="event1.jpg" alt="Zdjęcie eventowe 1">
-                <p>Konferencja firmowa w akcji.</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="event2.jpg" alt="Zdjęcie eventowe 2">
-                <p>Urodzinowa impreza w ogrodzie.</p>
-            </div>
-            <!-- Dodaj więcej zdjęć eventowych -->
-        </div>
-        <h3>Fotografia Rodzinna</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="family1.jpg" alt="Zdjęcie rodzinne 1">
-                <p>Spontaniczna sesja w parku.</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="family2.jpg" alt="Zdjęcie rodzinne 2">
-                <p>Rodzinne chwile w domu.</p>
-            </div>
-            <!-- Dodaj więcej zdjęć rodzinnych -->
-        </div>
-    </section>
-
-    <!-- Sekcja o mnie -->
-    <section id="about">
-        <h2>O mnie</h2>
-        <p>Cześć! Jestem [Twoje Imię], profesjonalny fotograf z pasją do uchwycenia piękna w codziennych chwilach. Pracuję w [Lokalizacja, np. Łódź, Poznań] i mam ponad [Liczba, np. 5] lat doświadczenia w fotografii. Moje podejście opiera się na naturalności, emocjach i indywidualnym kontakcie z każdym klientem.</p>
-        <p>Specjalizuję się w różnych rodzajach fotografii, od ślubów po sesje produktowe, zawsze dążąc do stworzenia zdjęć, które opowiadają historię. W wolnym czasie lubię [Hobby, np. podróże, sztuka], co inspiruje mnie do tworzenia unikalnych kadrów.</p>
-        <p>Moim celem jest nie tylko dostarczenie pięknych zdjęć, ale także stworzenie komfortowej atmosfery podczas sesji, aby każdy czuł się swobodnie przed obiektywem.</p>
-    </section>
-
-    <!-- Sekcja kontakt -->
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Chcesz dowiedzieć się więcej o moich usługach lub umówić sesję? Skontaktuj się ze mną!</p>
-        <form action="mailto:twoj.email@example.com" method="post" enctype="text/plain">
-            <label for="name">Imię i nazwisko:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Wiadomość:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <button type="submit">Wyślij</button>
-        </form>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:twoj.email@example.com">twoj.email@example.com</a></p>
-            <p>Telefon: +48 123 456 789</p>
         </div>
     </section>
 
     <!-- Stopka -->
     <footer>
-        <p>&copy; 2025 Twoje Imię. Wszelkie prawa zastrzeżone.</p>
+        <p>© 2025 Twoje Imię. Wszelkie prawa zastrzeżone.</p>
         <div class="social-media">
             <a href="https://facebook.com">Facebook</a>
             <a href="https://instagram.com">Instagram</a>

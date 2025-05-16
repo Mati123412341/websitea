@@ -42,9 +42,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twoje Imię - O mnie</title>
-    <meta name="description" content="Dowiedz się więcej o Twoim Imieniu, profesjonalnym fotografie z pasją do uchwycenia emocji.">
-    <meta name="keywords" content="fotografia, o mnie, fotograf, doświadczenie, Łódź, Poznań">
+    <title>Twoje Imię - Portfolio</title>
+    <meta name="description" content="Portfolio Twojego Imienia, prezentujące profesjonalne zdjęcia ślubne, portretowe, eventowe i rodzinne.">
+    <meta name="keywords" content="fotografia, portfolio, fotografia ślubna, fotografia portretowa, fotografia eventowa, Łódź, Poznań">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -86,17 +86,38 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        h2 {
+        h2, h3 {
             font-size: 2em;
             color: #333;
             margin-bottom: 20px;
         }
-        .about img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid #3498db;
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .portfolio-item {
+            margin: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+        .portfolio-item img {
+            width: 300px;
+            height: auto;
+            display: block;
+        }
+        .portfolio-item p {
+            padding: 10px;
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
         }
         footer {
             background-color: #333;
@@ -114,9 +135,9 @@
             color: #3498db;
         }
         @media (max-width: 768px) {
-            .about img {
-                width: 150px;
-                height: 150px;
+            .portfolio-item img {
+                width: 100%;
+                max-width: 300px;
             }
             nav ul li {
                 display: block;
@@ -139,13 +160,61 @@
         </nav>
     </header>
 
-    <!-- Sekcja o mnie -->
-    <section id="about" class="about">
-        <h2>O mnie</h2>
-        <img src="your_profile_picture.jpg" alt="Twoje zdjęcie">
-        <p>Cześć! Jestem [Twoje Imię], profesjonalny fotograf z pasją do uchwycenia piękna w codziennych chwilach. Pracuję w [Lokalizacja, np. Łódź, Poznań] i mam ponad [Liczba, np. 5] lat doświadczenia w fotografii. Moje podejście opiera się na naturalności, emocjach i indywidualnym kontakcie z każdym klientem.</p>
-        <p>Specjalizuję się w różnych rodzajach fotografii, od ślubów po sesje produktowe, zawsze dążąc do stworzenia zdjęć, które opowiadają historię. Moja praca była prezentowana w [np. lokalnych magazynach, wystawach], a klienci cenią mnie za zaangażowanie i dbałość o detale.</p>
-        <p>W wolnym czasie lubię [Hobby, np. podróże, sztuka], co inspiruje mnie do tworzenia unikalnych kadrów. Moim celem jest nie tylko dostarczenie pięknych zdjęć, ale także stworzenie komfortowej atmosfery podczas sesji, aby każdy czuł się swobodnie przed obiektywem.</p>
+    <!-- Sekcja portfolio -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <h3>Fotografia Ślubna</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="wedding1.jpg" alt="Zdjęcie ślubne 1">
+                <p>Romantyczna sesja plenerowa w parku.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="wedding2.jpg" alt="Zdjęcie ślubne 2">
+                <p>Emocje podczas ceremonii zaślubin.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="wedding3.jpg" alt="Zdjęcie ślubne 3">
+                <p>Weselna zabawa w świetle zachodzącego słońca.</p>
+            </div>
+            <!-- Dodaj więcej zdjęć ślubnych -->
+        </div>
+        <h3>Fotografia Portretowa</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="portrait1.jpg" alt="Portret 1">
+                <p>Portret biznesowy w studio.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="portrait2.jpg" alt="Portret 2">
+                <p>Naturalny portret w plenerze.</p>
+            </div>
+            <!-- Dodaj więcej portretów -->
+        </div>
+        <h3>Fotografia Eventowa</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="event1.jpg" alt="Zdjęcie eventowe 1">
+                <p>Konferencja firmowa w akcji.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="event2.jpg" alt="Zdjęcie eventowe 2">
+                <p>Urodzinowa impreza w ogrodzie.</p>
+            </div>
+            <!-- Dodaj więcej zdjęć eventowych -->
+        </div>
+        <h3>Fotografia Rodzinna</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="family1.jpg" alt="Zdjęcie rodzinne 1">
+                <p>Spontaniczna sesja w parku.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="family2.jpg" alt="Zdjęcie rodzinne 2">
+                <p>Rodzinne chwile w domu.</p>
+            </div>
+            <!-- Dodaj więcej zdjęć rodzinnych -->
+        </div>
     </section>
 
     <!-- Stopka -->
