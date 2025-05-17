@@ -43,9 +43,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotograf Krzysztof Wątorowski - Strona Główna</title>
-    <meta name="description" content="Profesjonalna fotografia ślubna, portretowa i okolicznościowa w Brzeziny, Polska. Zatrzymaj piękne chwile!">
-    <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Brzeziny, Polska, okolicznościowa">
-    <meta name="geo.position" content="51.8000;19.7500">
+    <meta name="description" content="Profesjonalna fotografia ślubna, portretowa i okolicznościowa w Warszawie i całej Polsce. Zatrzymaj piękne chwile!">
+    <meta name="keywords" content="fotograf, fotografia ślubna, sesja portretowa, Warszawa, okolicznościowa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -136,6 +135,15 @@
             font-weight: bold;
             color: #1f2937;
             font-size: 1.5rem;
+        }
+        .faq-item {
+            cursor: pointer;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-answer {
+            display: none;
         }
     </style>
 </head>
@@ -251,8 +259,8 @@
                         <p class="text-white">Portret, kwiecień 2025</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Brzeziny, marzec 2025')">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Brzeziny, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Chrzciny, marzec 2025</p>
                     </div>
@@ -283,9 +291,44 @@
             </div>
         </section>
 
+        <section id="faq" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Najczęściej Zadawane Pytania (FAQ)</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Jak długo trwa sesja zdjęciowa?</h3>
+                    <div class="faq-answer text-gray-300">
+                        <p>Czas trwania sesji zależy od wybranego pakietu. Sesje ślubne trwają od 4 do 12 godzin, portretowe zazwyczaj 1-2 godziny, a okolicznościowe 3-5 godzin.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Czy oferujesz albumy zdjęciowe?</h3>
+                    <div class="faq-answer text-gray-300">
+                        <p>Tak, albumy zdjęciowe są dostępne w pakietach Premium i Luksus. Można je również zamówić dodatkowo.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Jak szybko otrzymam zdjęcia?</h3>
+                    <div class="faq-answer text-gray-300">
+                        <p>Zdjęcia są gotowe w ciągu 2-4 tygodni od sesji, w zależności od ilości materiału i zakresu edycji.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Zapisz się do Newslettera</h2>
+            <p class="text-lg text-gray-300 text-center mb-6">Otrzymuj najnowsze informacje o promocjach, nowych projektach i poradach fotograficznych!</p>
+            <div class="max-w-md mx-auto">
+                <form action="subscribe.php" method="post" id="newsletter-form" class="flex flex-col items-center">
+                    <input type="email" name="email" id="newsletter-email" placeholder="Twój adres email" class="w-full p-2 rounded bg-gray-800 border border-gray-700 mb-4" required>
+                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zapisz się</button>
+                </form>
+            </div>
+        </section>
+
         <section id="contact" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Kontakt</h2>
-            <p class="text-lg text-gray-300 text-center mb-4">Skontaktuj się, aby omówić szczegóły Twojej sesji! Lokalizacja: Brzeziny, Polska (51.8000° N, 19.7500° E)</p>
+            <p class="text-lg text-gray-300 text-center mb-4">Skontaktuj się, aby omówić szczegóły Twojej sesji!</p>
             <div class="flex flex-col md:flex-row gap-8">
                 <div class="flex-1">
                     <form action="send_contact.php" method="post" id="contact-form" class="max-w-lg mx-auto">
@@ -312,39 +355,10 @@
                 <div class="flex-1">
                     <h3 class="text-2xl font-semibold mb-4 text-center">Znajdź mnie</h3>
                     <div class="w-full h-64">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509396!2d19.7500!3d51.8000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a2b7f0f0b2a5f%3A0x5045675218ce6e0!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2sus!4v1631234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Mapa lokalizacji w Brzeziny"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.1789159769925!2d19.74360731597483!3d52.15909117974749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471c3f3d5d7e4e4b%3A0x7e5b9d9c5e5d5c5!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2spl!4v1631234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Mapa lokalizacji w Brzezinach, Polska"></iframe>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="faq" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Często Zadawane Pytania</h2>
-            <div class="max-w-3xl mx-auto">
-                <details class="mb-4 bg-gray-800 p-4 rounded-lg">
-                    <summary class="text-lg font-semibold cursor-pointer">Ile trwa sesja zdjęciowa?</summary>
-                    <p class="text-gray-300 mt-2">Sesja trwa zazwyczaj od 2 do 6 godzin, w zależności od wybranego pakietu. Szczegóły ustalimy indywidualnie.</p>
-                </details>
-                <details class="mb-4 bg-gray-800 p-4 rounded-lg">
-                    <summary class="text-lg font-semibold cursor-pointer">Czy mogę zobaczyć zdjęcia przed edycją?</summary>
-                    <p class="text-gray-300 mt-2">Tak, mogę udostępnić surowe zdjęcia do wglądu, ale finalna wersja jest zawsze po profesjonalnej edycji.</p>
-                </details>
-                <details class="mb-4 bg-gray-800 p-4 rounded-lg">
-                    <summary class="text-lg font-semibold cursor-pointer">Jakie są koszty podróży?</summary>
-                    <p class="text-gray-300 mt-2">Koszty podróży są wliczone w pakiety sesji w Brzeziny i okolicach. Poza tym ustalamy indywidualnie.</p>
-                </details>
-            </div>
-        </section>
-
-        <section id="newsletter" class="py-12 bg-gray-800 text-center">
-            <h2 class="text-3xl font-bold mb-6">Subskrypcja Newslettera</h2>
-            <p class="text-gray-300 mb-4">Zapisz się, aby otrzymywać najnowsze aktualizacje i oferty specjalne!</p>
-            <form action="subscribe.php" method="post" id="newsletter-form" class="max-w-lg mx-auto">
-                <div class="mb-4">
-                    <input type="email" id="newsletter-email" name="email" placeholder="Twój email" class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white" required>
-                </div>
-                <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zapisz się</button>
-            </form>
         </section>
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
@@ -452,6 +466,19 @@
             }
         });
 
+        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+            const email = document.getElementById('newsletter-email').value;
+            if (!email) {
+                e.preventDefault();
+                alert('Proszę podać adres email.');
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                e.preventDefault();
+                alert('Proszę podać poprawny adres email.');
+            } else {
+                alert('Dziękujemy za zapisanie się do newslettera!');
+            }
+        });
+
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
@@ -522,6 +549,13 @@
         let testimonialInterval = setInterval(nextTestimonial, 6000);
         document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => clearInterval(testimonialInterval));
         document.querySelector('.testimonial-carousel').addEventListener('mouseleave', () => testimonialInterval = setInterval(nextTestimonial, 6000));
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
