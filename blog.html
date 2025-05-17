@@ -43,56 +43,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Krzysztof Wątorowski</title>
-    <meta name="description" content="Blog fotograficzny Krzysztofa Wątorowskiego: porady, inspiracje, techniki fotograficzne.">
-    <meta name="keywords" content="blog, fotografia, porady, inspiracje, technika">
+    <meta name="description" content="Blog fotograficzny Krzysztofa Wątorowskiego: porady, inspiracje i nowości.">
+    <meta name="keywords" content="blog, fotografia, porady, inspiracje">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: #facc15;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1f2937;
-            font-size: 1.5rem;
-        }
-        .blog-post:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
         :root {
             --bg-color: #1f2937;
             --text-color: #ffffff;
             --card-bg: #374151;
             --highlight: #facc15;
+            --secondary-bg: #2d3748;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
         body.light-mode {
             --bg-color: #f3f4f6;
             --text-color: #1f2937;
             --card-bg: #ffffff;
             --highlight: #facc15;
+            --secondary-bg: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
         }
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
         }
-        .bg-gray-900 {
-            background-color: var(--bg-color);
+        .bg-primary { background-color: var(--bg-color); }
+        .bg-secondary { background-color: var(--secondary-bg); }
+        .bg-card { background-color: var(--card-bg); }
+        .text-primary { color: var(--text-color); }
+        .text-highlight { color: var(--highlight); }
+        .shadow-custom { box-shadow: 0 4px 6px var(--shadow); }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--highlight);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-color);
+            font-size: 1.5rem;
         }
-        .text-white {
-            color: var(--text-color);
+        .blog-post {
+            transition: transform 0.3s ease;
         }
-        .bg-gray-800 {
-            background-color: var(--card-bg);
-        }
-        .text-gray-300 {
-            color: var(--text-color);
-            opacity: 0.8;
+        .blog-post:hover {
+            transform: translateY(-5px);
         }
         .mode-toggle {
             position: fixed;
@@ -102,36 +101,102 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-    <header class="bg-gray-800 p-6">
+<body class="bg-primary text-primary font-sans">
+    <header class="bg-secondary p-6">
         <nav class="max-w-7xl mx-auto flex items-center">
             <div class="logo">KW</div>
             <ul class="flex space-x-6 mx-auto">
-                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" class="text-white hover:text-yellow-400 active" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
+                <li><a href="index.html" class="text-primary hover:text-highlight" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-primary hover:text-highlight" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-primary hover:text-highlight" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-primary hover:text-highlight active" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-primary hover:text-highlight" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
         <div class="mode-toggle">
-            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+            <button id="mode-toggle-btn" class="bg-highlight text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
         <h1 class="text-4xl font-bold text-center mt-6">Blog</h1>
-        <p class="text-lg text-gray-300 text-center">Porady, inspiracje i techniki fotograficzne.</p>
+        <p class="text-lg text-primary text-center opacity-80">Najnowsze porady i inspiracje fotograficzne.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
         <section id="blog-posts" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Wpisy</h2>
+            <h2 class="text-3xl font-bold mb-6 text-center">Ostatnie Wpisy</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <article class="blog-post bg-gray-800 p-6 rounded-lg">
+                <article class="blog-post bg-card p-6 rounded-lg shadow-custom">
                     <h3 class="text-2xl font-semibold mb-2">Jak przygotować się do sesji ślubnej</h3>
-                    <p class="text-gray-400 mb-4">17 maja 2025 | Kategoria: Porady</p>
-                    <p class="text-gray-300">Dowiedz się, jak zaplanować idealną sesję ślubną – od wyboru lokalizacji po odpowiedni strój.</p>
-                    <a href="#" class="text-yellow-400 hover:text-yellow-500 mt-4 inline-block">Czytaj więcej</a>
+                    <p class="text-primary text-sm mb-2">Opublikowano: 15 maja 2025</p>
+                    <p class="text-primary">Oto kilka wskazówek, jak przygotować się do sesji ślubnej, aby zdjęcia były perfekcyjne. Od wyboru stroju po idealne oświetlenie – dowiedz się więcej!</p>
+                    <a href="#" class="text-highlight hover:underline mt-4 inline-block">Czytaj więcej</a>
                 </article>
-                <article class="blog-post bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-semibold mb
+                <article class="blog-post bg-card p-6 rounded-lg shadow-custom">
+                    <h3 class="text-2xl font-semibold mb-2">Najlepsze lokalizacje na sesje plenerowe</h3>
+                    <p class="text-primary text-sm mb-2">Opublikowano: 12 maja 2025</p>
+                    <p class="text-primary">Poznaj najpiękniejsze miejsca w Polsce na sesje plenerowe – od górskich krajobrazów po nadmorskie plaże.</p>
+                    <a href="#" class="text-highlight hover:underline mt-4 inline-block">Czytaj więcej</a>
+                </article>
+                <article class="blog-post bg-card p-6 rounded-lg shadow-custom">
+                    <h3 class="text-2xl font-semibold mb-2">Poradnik edycji zdjęć w Lightroom</h3>
+                    <p class="text-primary text-sm mb-2">Opublikowano: 10 maja 2025</p>
+                    <p class="text-primary">Poznaj podstawy edycji zdjęć w Adobe Lightroom, aby Twoje fotografie zyskały profesjonalny wygląd.</p>
+                    <a href="#" class="text-highlight hover:underline mt-4 inline-block">Czytaj więcej</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-secondary p-6 text-center">
+        <p class="text-primary">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+        <ul class="flex justify-center space-x-4 mt-4">
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-highlight hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-highlight hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
+        </ul>
+        <div class="mt-4 text-primary opacity-70">
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:28 CEST</p>
+        </div>
+        <div id="cookie-notice" class="mt-4">
+            <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-highlight text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-highlight text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
+
+        const modeToggleBtn = document.getElementById('mode-toggle-btn');
+        modeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = modeToggleBtn.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

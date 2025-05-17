@@ -87,22 +87,34 @@
             color: var(--bg-color);
             font-size: 1.5rem;
         }
-        .masonry {
-            column-count: 3;
-            column-gap: 1rem;
-        }
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1rem;
-            cursor: pointer;
-        }
-        .masonry-item img {
-            width: 100%;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
             border-radius: 8px;
+            height: 288px; /* Stała wysokość */
         }
-        .masonry-item:hover img {
-            transform: scale(1.03);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Efekt powiększenia */
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
         .lightbox {
             display: none;
@@ -164,24 +176,42 @@
                 <button class="filter-button bg-card py-2 px-4 rounded-full" data-filter="portretowe">Portretowe</button>
                 <button class="filter-button bg-card py-2 px-4 rounded-full" data-filter="okolicznosciowe">Okolicznościowe</button>
             </div>
-            <div class="masonry" id="gallery">
-                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="gallery">
+                <div class="gallery-item cursor-pointer" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
                     <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Ceremonia ślubna, maj 2025</p>
+                    </div>
                 </div>
-                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
+                <div class="gallery-item cursor-pointer" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
                     <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sesja portretowa w studio, kwiecień 2025" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Portret, kwiecień 2025</p>
+                    </div>
                 </div>
-                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
+                <div class="gallery-item cursor-pointer" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
                     <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Chrzciny, marzec 2025</p>
+                    </div>
                 </div>
-                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg', 'Sesja ślubna w lesie, lato 2025')">
+                <div class="gallery-item cursor-pointer" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg', 'Sesja ślubna w lesie, lato 2025')">
                     <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg" alt="Sesja ślubna w lesie, lato 2025" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Sesja ślubna, lato 2025</p>
+                    </div>
                 </div>
-                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg', 'Sesja rodzinna nad morzem, lato 2024')">
+                <div class="gallery-item cursor-pointer" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg', 'Sesja rodzinna nad morzem, lato 2024')">
                     <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg" alt="Sesja rodzinna nad morzem, lato 2024" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Sesja rodzinna, lato 2024</p>
+                    </div>
                 </div>
-                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/2108709/pexels-photo-2108709.jpeg', 'Ceremonia ślubna w plenerze, maj 2025')">
+                <div class="gallery-item cursor-pointer" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/2108709/pexels-photo-2108709.jpeg', 'Ceremonia ślubna w plenerze, maj 2025')">
                     <img src="https://images.pexels.com/photos/2108709/pexels-photo-2108709.jpeg" alt="Ceremonia ślubna w plenerze, maj 2025" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p class="text-primary">Ceremonia w plenerze, maj 2025</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -199,7 +229,7 @@
             <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
         <div class="mt-4 text-primary opacity-70">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:17 CEST</p>
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:28 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
             <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
@@ -229,7 +259,7 @@
         }
 
         const filterButtons = document.querySelectorAll('.filter-button');
-        const galleryItems = document.querySelectorAll('.masonry-item');
+        const galleryItems = document.querySelectorAll('.gallery-item');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
