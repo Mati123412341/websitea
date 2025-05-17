@@ -145,6 +145,41 @@
         .faq-answer {
             display: none;
         }
+        :root {
+            --bg-color: #1f2937;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --highlight: #facc15;
+        }
+        body.light-mode {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --highlight: #facc15;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .bg-gray-900 {
+            background-color: var(--bg-color);
+        }
+        .text-white {
+            color: var(--text-color);
+        }
+        .bg-gray-800 {
+            background-color: var(--card-bg);
+        }
+        .text-gray-300 {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -159,6 +194,11 @@
                 <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
+        <div class="mode-toggle">
+            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
         <div class="relative h-full">
             <div class="carousel h-full" role="region" aria-label="Karuzela zdjęć">
                 <div class="carousel-slide active parallax" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg')">
@@ -326,6 +366,28 @@
             </div>
         </section>
 
+        <section id="availability" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Najbliższe Wolne Terminy</h2>
+            <p class="text-lg text-gray-300 text-center mb-6">Sprawdź, kiedy mogę dla Ciebie fotografować!</p>
+            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <p class="text-yellow-400 font-semibold">20 maja 2025</p>
+                    <p class="text-gray-300">Sesja ślubna (cały dzień)</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <p class="text-yellow-400 font-semibold">25 maja 2025</p>
+                    <p class="text-gray-300">Sesja portretowa (2 godziny)</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <p class="text-yellow-400 font-semibold">1 czerwca 2025</p>
+                    <p class="text-gray-300">Fotografia okolicznościowa</p>
+                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Kontakt</h2>
             <p class="text-lg text-gray-300 text-center mb-4">Skontaktuj się, aby omówić szczegóły Twojej sesji!</p>
@@ -419,6 +481,10 @@
             <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
+
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-400 text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         function openModal(modalId) {
@@ -558,6 +624,31 @@
             item.addEventListener('click', () => {
                 item.classList.toggle('active');
             });
+        });
+
+        const modeToggleBtn = document.getElementById('mode-toggle-btn');
+        modeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = modeToggleBtn.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
