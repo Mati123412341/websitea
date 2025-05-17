@@ -67,11 +67,33 @@
         .carousel:hover .carousel-slide {
             animation-play-state: paused;
         }
+        .testimonial-carousel-slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .testimonial-carousel-slide.active {
+            display: block;
+            opacity: 1;
+        }
+        .photo-of-month:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end) forwards;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
-    <header class="bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1591601441798-360b6b7cc9e5?w=1200')">
+    <header class="bg-cover bg-center h-screen" style="background-image: url('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress')">
         <nav class="bg-black bg-opacity-50 p-4">
             <ul class="flex justify-center space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
@@ -84,13 +106,13 @@
         <div class="relative max-w-7xl mx-auto mt-8">
             <div class="carousel" role="region" aria-label="Karuzela zdjęć">
                 <div class="carousel-slide active">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200" alt="Plenerowa sesja ślubna na łące, lato 2025" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress" alt="Plenerowa sesja ślubna na łące, lato 2025" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1200" alt="Portret kobiety w studio, wiosna 2025" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Portret w studio, zima 2025" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200" alt="Sesja rodzinna nad morzem, lato 2024" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress" alt="Sesja rodzinna nad morzem, lato 2024" class="w-full h-64 md:h-96 object-cover rounded-lg" loading="lazy">
                 </div>
                 <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
                     <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do slajdu 1"></button>
@@ -100,7 +122,10 @@
             </div>
         </div>
         <div class="text-center mt-8 animate-fade-in">
-            <h1 class="text-5xl font-bold mb-2">Krzysztof Wątorowski</h1>
+            <h1 class="text-5xl font-bold mb-2">
+                Krzysztof Wątorowski
+                <span class="block text-2xl mt-2 text-yellow-400 typing-effect" id="dynamic-text" aria-live="polite"></span>
+            </h1>
             <div class="w-32 h-1 bg-gradient-to-r from-yellow-400 to-white mx-auto mb-4"></div>
             <p class="text-xl mb-6 flex items-center justify-center">
                 <i class="fas fa-camera text-yellow-400 mr-2"></i>
@@ -117,18 +142,32 @@
             <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024. Pracuję w Warszawie, ale chętnie podróżuję po całej Polsce, by uchwycić Twoją historię.</p>
         </section>
 
+        <section id="photo-of-month" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Zdjęcie Miesiąca</h2>
+            <div class="photo-of-month relative bg-gray-800 p-6 rounded-lg max-w-lg mx-auto group">
+                <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-80 object-cover rounded-lg shadow-lg" loading="lazy">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <p class="text-white text-center">Przygotowania ślubne w pałacu, wiosna 2025. Kliknij, aby poznać historię!</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-300 mt-4">Każdy miesiąc to nowa historia uchwycona w kadrze. <a href="#contact" class="text-yellow-400 hover:text-yellow-500">Skontaktuj się, by stworzyć swoją!</a></p>
+        </section>
+
         <section id="offerings" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Oferta</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article class="bg-gray-800 p-6 rounded-lg">
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-ring text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
                     <h3 class="text-2xl font-semibold mb-4">Fotografia Ślubna</h3>
                     <p>Od przygotowań po pierwszy taniec – uchwycę każdy moment Twojego wyjątkowego dnia.</p>
                 </article>
-                <article class="bg-gray-800 p-6 rounded-lg">
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-portrait text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
                     <h3 class="text-2xl font-semibold mb-4">Sesje Portretowe</h3>
                     <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją unikalną osobowość.</p>
                 </article>
-                <article class="bg-gray-800 p-6 rounded-lg">
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-users text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
                     <h3 class="text-2xl font-semibold mb-4">Fotografia Okolicznościowa</h3>
                     <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
                 </article>
@@ -145,7 +184,7 @@
                     </div>
                 </div>
                 <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=800" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Portret, kwiecień 2025</p>
                     </div>
@@ -159,26 +198,25 @@
             </div>
         </section>
 
-        <section id="client-gallery" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Galeria Klientów</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800" alt="Sesja ślubna w parku" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Sesja ślubna w parku</p>
-                    </div>
+        <section id="testimonials" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Opinie Klientów</h2>
+            <div class="testimonial-carousel max-w-lg mx-auto" role="region" aria-label="Karuzela opinii klientów">
+                <div class="testimonial-carousel-slide active bg-gray-800 p-6 rounded-lg text-center">
+                    <p class="text-gray-300 italic">"Krzysztof uchwycił magię naszego ślubu! Zdjęcia są przepiękne, pełne emocji."</p>
+                    <p class="text-yellow-400 mt-4">– Anna i Michał, maj 2025</p>
                 </div>
-                <div class="relative group">
-                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress" alt="Sesja portretowa mężczyzny" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret mężczyzny</p>
-                    </div>
+                <div class="testimonial-carousel-slide bg-gray-800 p-6 rounded-lg text-center">
+                    <p class="text-gray-300 italic">"Sesja portretowa w studio była niesamowita. Pełen profesjonalizm!"</p>
+                    <p class="text-yellow-400 mt-4">– Karolina, kwiecień 2025</p>
                 </div>
-                <div class="relative group">
-                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800" alt="Sesja rodzinna na pikniku" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Sesja rodzinna</p>
-                    </div>
+                <div class="testimonial-carousel-slide bg-gray-800 p-6 rounded-lg text-center">
+                    <p class="text-gray-300 italic">"Zdjęcia z chrztu naszej córki to cudowna pamiątka. Dziękujemy!"</p>
+                    <p class="text-yellow-400 mt-4">– Paulina i Jakub, marzec 2025</p>
+                </div>
+                <div class="flex justify-center space-x-2 mt-4">
+                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do opinii 1"></button>
+                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 2"></button>
+                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 3"></button>
                 </div>
             </div>
         </section>
@@ -205,7 +243,7 @@
                 </div>
                 <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij</button>
             </form>
-            <p class="text-center mt-4">Email: <a href="mailto:[email protected]" class="text-yellow-400">[email protected]</a> | Telefon: <a href="tel:+48790123456" class="text-yellow-400">+48 790 123 456</a></p>
+            <p class="text-center mt-4">Email: <a href="mailto:krzysztof.watorowski@example.com" class="text-yellow-400">krzysztof.watorowski@example.com</a> | Telefon: <a href="tel:+48790123456" class="text-yellow-400">+48 790 123 456</a></p>
         </section>
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
@@ -326,6 +364,51 @@
         let slideInterval = setInterval(nextSlide, 5000);
         document.querySelector('.carousel').addEventListener('mouseenter', () => clearInterval(slideInterval));
         document.querySelector('.carousel').addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+
+        // Dynamic text for header
+        const dynamicText = document.getElementById('dynamic-text');
+        const phrases = ['Uchwyć chwilę', 'Twoje wspomnienia', 'Niepowtarzalne emocje'];
+        let phraseIndex = 0;
+
+        function updateDynamicText() {
+            dynamicText.style.animation = 'none';
+            dynamicText.textContent = phrases[phraseIndex];
+            dynamicText.offsetHeight; // Trigger reflow
+            dynamicText.style.animation = 'typing 2s steps(40, end) forwards';
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+
+        updateDynamicText();
+        setInterval(updateDynamicText, 4000);
+
+        // Testimonial carousel
+        const testimonialSlides = document.querySelectorAll('.testimonial-carousel-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                testimonialDots[i].classList.toggle('opacity-75', i === index);
+                testimonialDots[i].classList.toggle('opacity-50', i !== index);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialSlides.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
+        });
+
+        let testimonialInterval = setInterval(nextTestimonial, 6000);
+        document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => clearInterval(testimonialInterval));
+        document.querySelector('.testimonial-carousel').addEventListener('mouseleave', () => testimonialInterval = setInterval(nextTestimonial, 6000));
     </script>
 </body>
 </html>
