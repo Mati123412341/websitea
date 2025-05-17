@@ -43,16 +43,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cennik - Krzysztof Wątorowski</title>
-    <meta name="description" content="Cennik usług fotograficznych Krzysztofa Wątorowskiego: pakiety ślubne, sesje portretowe i okolicznościowe.">
-    <meta name="keywords" content="cennik, fotografia, ślubna, portretowa, Warszawa, ceny">
+    <meta name="description" content="Cennik usług fotograficznych Krzysztofa Wątorowskiego - ślubne, portretowe i okolicznościowe.">
+    <meta name="keywords" content="cennik, fotograf, fotografia ślubna, sesja portretowa, Warszawa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
-    <header class="bg-cover bg-center h-96" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200')">
-        <nav class="bg-black bg-opacity-50 p-4">
-            <ul class="flex justify-center space-x-6">
+    <header class="bg-gray-800 p-6">
+        <nav class="max-w-7xl mx-auto flex justify-center items-center">
+            <div class="logo">KW</div>
+            <ul class="flex space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
                 <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
                 <li><a href="cennik.html" class="text-white hover:text-yellow-400 active" aria-label="Cennik">Cennik</a></li>
@@ -60,71 +62,75 @@
                 <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
-        <h1 class="text-4xl font-bold text-center mt-12">Cennik</h1>
-        <p class="text-lg text-gray-300 text-center">Wybierz pakiet idealny dla Ciebie. Dojazd poza Warszawę: 1 zł/km.</p>
+        <h1 class="text-4xl font-bold text-center mt-6">Cennik</h1>
+        <p class="text-lg text-gray-300 text-center">Przejrzyste ceny dla każdej sesji fotograficznej.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
         <section id="pricing" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Pakiety Cenowe</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <h2 class="text-2xl font-semibold mb-4">Pakiet Ślubny Podstawowy</h2>
-                    <p class="text-gray-300 mb-4">4 godziny fotografowania, 100 obrobionych zdjęć, galeria online.</p>
-                    <p class="text-3xl font-bold mb-4">2000 PLN</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <h3 class="text-2xl font-semibold mb-4">Pakiet Standard</h3>
+                    <p class="text-gray-300 mb-4">Sesja ślubna (4 godziny)</p>
+                    <p class="text-2xl font-bold text-yellow-400 mb-4">1200 PLN</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li>100 zdjęć w wysokiej rozdzielczości</li>
+                        <li>Edycja zdjęć</li>
+                        <li>Galeria online</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wybierz</button>
                 </article>
                 <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <h2 class="text-2xl font-semibold mb-4">Pakiet Ślubny Premium</h2>
-                    <p class="text-gray-300 mb-4">8 godziny fotografowania, 200 obrobionych zdjęć, album premium.</p>
-                    <p class="text-3xl font-bold mb-4">3500 PLN</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <h3 class="text-2xl font-semibold mb-4">Pakiet Premium</h3>
+                    <p class="text-gray-300 mb-4">Sesja ślubna (8 godzin)</p>
+                    <p class="text-2xl font-bold text-yellow-400 mb-4">2000 PLN</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li>200 zdjęć w wysokiej rozdzielczości</li>
+                        <li>Edycja zdjęć + retusz</li>
+                        <li>Galeria online + druk 20 zdjęć</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wybierz</button>
                 </article>
                 <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <h2 class="text-2xl font-semibold mb-4">Sesja Portretowa</h2>
-                    <p class="text-gray-300 mb-4">2 godziny sesji, 20 obrobionych zdjęć, studio lub plener.</p>
-                    <p class="text-3xl font-bold mb-4">800 PLN</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <h3 class="text-2xl font-semibold mb-4">Pakiet Luksus</h3>
+                    <p class="text-gray-300 mb-4">Sesja ślubna (cały dzień)</p>
+                    <p class="text-2xl font-bold text-yellow-400 mb-4">3000 PLN</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li>300 zdjęć w wysokiej rozdzielczości</li>
+                        <li>Edycja + retusz + album foto</li>
+                        <li>Galeria online + druk 50 zdjęć</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wybierz</button>
                 </article>
             </div>
         </section>
 
-        <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
-            <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
-                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">×</span>
-                <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
-                <form action="reserve.php" method="post" id="booking-form">
-                    <div class="mb-4">
-                        <label for="booking-name" class="block text-sm font-medium">Imię:</label>
-                        <input type="text" id="booking-name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="booking-email" class="block text-sm font-medium">Email:</label>
-                        <input type="email" id="booking-email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="session-type" class="block text-sm font-medium">Rodzaj sesji:</label>
-                        <select id="session-type" name="session_type" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
-                            <option value="slubna">Fotografia Ślubna</option>
-                            <option value="portretowa">Sesja Portretowa</option>
-                            <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="preferred-date" class="block text-sm font-medium">Data:</label>
-                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="preferred-time" class="block text-sm font-medium">Godzina:</label>
-                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
-                    </div>
-                    <div class="mb-4">
-                        <label for="booking-message" class="block text-sm font-medium">Wiadomość:</label>
-                        <textarea id="booking-message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700"></textarea>
-                    </div>
-                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
-                </form>
+        <section id="additional-services" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Dodatkowe Usługi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <h3 class="text-2xl font-semibold mb-4">Sesja Portretowa</h3>
+                    <p class="text-gray-300 mb-4">1 godzina</p>
+                    <p class="text-2xl font-bold text-yellow-400 mb-4">500 PLN</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li>50 zdjęć w wysokiej rozdzielczości</li>
+                        <li>Edycja zdjęć</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wybierz</button>
+                </article>
+                <article class="bg-gray-800 p-6 rounded-lg text-center">
+                    <h3 class="text-2xl font-semibold mb-4">Fotografia Okolicznościowa</h3>
+                    <p class="text-gray-300 mb-4">3 godziny</p>
+                    <p class="text-2xl font-bold text-yellow-400 mb-4">800 PLN</p>
+                    <ul class="text-gray-300 list-disc list-inside mb-4">
+                        <li>100 zdjęć w wysokiej rozdzielczości</li>
+                        <li>Edycja zdjęć</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wybierz</button>
+                </article>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 p-6 text-center">
@@ -141,28 +147,8 @@
     </footer>
 
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-
         document.getElementById('accept-cookies').addEventListener('click', () => {
             document.getElementById('cookie-notice').style.display = 'none';
-        });
-
-        document.getElementById('booking-form').addEventListener('submit', (e) => {
-            const name = document.getElementById('booking-name').value;
-            const email = document.getElementById('booking-email').value;
-            const date = document.getElementById('preferred-date').value;
-            if (!name || !email || !date) {
-                e.preventDefault();
-                alert('Proszę wypełnić wszystkie wymagane pola.');
-            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-                e.preventDefault();
-                alert('Proszę podać poprawny adres email.');
-            }
         });
     </script>
 </body>
