@@ -119,13 +119,40 @@
             transform: scale(1.1);
             transition: all 0.3s ease;
         }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #facc15;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
+        @keyframes countUp {
+            from { counter-increment: value 0; }
+            to { counter-increment: value 500; }
+        }
+        .counter {
+            counter-reset: value 0;
+            animation: countUp 2s forwards;
+        }
+        .counter::after {
+            content: counter(value);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #facc15;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
     <header class="relative bg-gray-900 h-screen">
-        <nav class="bg-blue-900 bg-opacity-90 p-4">
-            <ul class="flex justify-center space-x-6">
+        <nav class="bg-blue-900 bg-opacity-90 p-4 flex justify-between items-center max-w-7xl mx-auto">
+            <div class="logo">KW</div>
+            <ul class="flex space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
                 <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
                 <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
@@ -135,14 +162,14 @@
         </nav>
         <div class="relative max-w-7xl mx-auto h-full">
             <div class="carousel h-full" role="region" aria-label="Karuzela zdjęć">
-                <div class="carousel-slide active parallax" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress')">
-                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress" alt="Plenerowa sesja ślubna na łące, lato 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
+                <div class="carousel-slide active parallax" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg')">
+                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Plenerowa sesja ślubna na łące, lato 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
                 </div>
-                <div class="carousel-slide parallax" style="background-image: url('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress')">
-                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress" alt="Sesja ślubna w lesie, lato 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
+                <div class="carousel-slide parallax" style="background-image: url('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg')">
+                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg" alt="Sesja ślubna w lesie, lato 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
                 </div>
-                <div class="carousel-slide parallax" style="background-image: url('https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress')">
-                    <img src="https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress" alt="Ceremonia ślubna w plenerze, maj 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
+                <div class="carousel-slide parallax" style="background-image: url('https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg')">
+                    <img src="https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg" alt="Ceremonia ślubna w plenerze, maj 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
                 </div>
                 <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
                     <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do slajdu 1"></button>
@@ -176,11 +203,19 @@
             <h2 class="text-3xl font-bold mb-6 text-center">O Mnie</h2>
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-1">
-                    <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak "Wedding Vogue". Przeprowadziłem ponad 500 sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
+                    <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak 'Wedding Vogue'. Przeprowadziłem ponad <span class="counter" data-target="500"></span>+ sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
+                    <div class="flex justify-around mt-6 text-center">
+                        <div>
+                            <div class="counter" data-target="10"></div> lat doświadczenia
+                        </div>
+                        <div>
+                            <div class="counter" data-target="50"></div> publikacji
+                        </div>
+                    </div>
                 </div>
                 <div class="flex-1">
                     <div class="relative w-64 h-80 mx-auto">
-                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Krzysztof Wątorowski podczas pracy, 2025" class="w-full h-full object-cover transform rotate-3 shadow-lg bg-white p-4" loading="lazy">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Krzysztof Wątorowski podczas pracy, 2025" class="w-full h-full object-cover transform rotate-3 shadow-lg bg-white p-4" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -189,7 +224,7 @@
         <section id="photo-of-month" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Zdjęcie Miesiąca</h2>
             <div class="photo-of-month relative bg-gray-800 p-6 rounded-lg max-w-lg mx-auto group">
-                <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-80 object-cover rounded-lg shadow-lg" loading="lazy">
+                <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-80 object-cover rounded-lg shadow-lg" loading="lazy">
                 <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <p class="text-white text-center">Przygotowania ślubne w pałacu, wiosna 2025. Kliknij, aby poznać historię!</p>
                 </div>
@@ -221,20 +256,20 @@
         <section id="latest-projects" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Projekty</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress', 'Ceremonia ślubna w kościele, maj 2025')">
-                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Ślub w kościele, maj 2025</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress', 'Sesja portretowa w studio, kwiecień 2025')">
-                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Portret, kwiecień 2025</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress', 'Chrzciny w Krakowie, marzec 2025')">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <p class="text-white">Chrzciny, marzec 2025</p>
                     </div>
@@ -465,6 +500,25 @@
         let testimonialInterval = setInterval(nextTestimonial, 6000);
         document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => clearInterval(testimonialInterval));
         document.querySelector('.testimonial-carousel').addEventListener('mouseleave', () => testimonialInterval = setInterval(nextTestimonial, 6000));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let start = 0;
+                const duration = 2000;
+                const step = target / (duration / 100);
+                const updateCounter = setInterval(() => {
+                    start += step;
+                    if (start >= target) {
+                        clearInterval(updateCounter);
+                        counter.innerHTML = Math.floor(target);
+                    } else {
+                        counter.innerHTML = Math.floor(start);
+                    }
+                }, 100);
+            });
+        });
     </script>
 </body>
 </html>

@@ -69,10 +69,6 @@
             background-color: #facc15;
             color: black;
         }
-        .pagination-button.active {
-            background-color: #facc15;
-            color: black;
-        }
         .lightbox {
             display: none;
             position: fixed;
@@ -91,13 +87,26 @@
             border: 5px solid white;
             border-radius: 10px;
         }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #facc15;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
     <header class="bg-gray-800 p-6">
-        <nav class="max-w-7xl mx-auto">
-            <ul class="flex justify-center space-x-6">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="logo">KW</div>
+            <ul class="flex space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
                 <li><a href="portfolio.html" class="text-white hover:text-yellow-400 active" aria-label="Portfolio">Portfolio</a></li>
                 <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
@@ -113,10 +122,10 @@
         <section id="featured-project" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Wyróżniony Projekt</h2>
             <div class="relative bg-gray-800 p-6 rounded-lg max-w-3xl mx-auto group">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress" alt="Ślub w Tatrach, maj 2025" class="w-full h-96 object-cover rounded-lg shadow-lg" loading="lazy">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Ślub w Tatrach, maj 2025" class="w-full h-96 object-cover rounded-lg shadow-lg" loading="lazy">
                 <div class="mt-4">
                     <h3 class="text-2xl font-semibold">Ślub w Tatrach, maj 2025</h3>
-                    <p class="text-gray-300">Plenerowa sesja ślubna w majestatycznych Tatrach, pełna emocji i naturalnego piękna. Ta sesja zdobyła wyróżnienie w konkursie "Wedding Moments 2025".</p>
+                    <p class="text-gray-300">Plenerowa sesja ślubna w majestatycznych Tatrach, pełna emocji i naturalnego piękna. Ta sesja zdobyła wyróżnienie w konkursie 'Wedding Moments 2025'.</p>
                 </div>
             </div>
         </section>
@@ -130,29 +139,24 @@
                 <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="okolicznosciowe">Okolicznościowe</button>
             </div>
             <div class="masonry" id="gallery">
-                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress', 'Ceremonia ślubna w kościele, maj 2025')">
-                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress" alt="Ceremonia ślubna w kościele, maj 2025" loading="lazy">
+                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" loading="lazy">
                 </div>
-                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress', 'Sesja portretowa w studio, kwiecień 2025')">
-                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Sesja portretowa w studio, kwiecień 2025" loading="lazy">
+                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sesja portretowa w studio, kwiecień 2025" loading="lazy">
                 </div>
-                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress', 'Chrzciny w Krakowie, marzec 2025')">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress" alt="Chrzciny w Krakowie, marzec 2025" loading="lazy">
+                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" loading="lazy">
                 </div>
-                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress', 'Sesja ślubna w lesie, lato 2025')">
-                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress" alt="Sesja ślubna w lesie, lato 2025" loading="lazy">
+                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg', 'Sesja ślubna w lesie, lato 2025')">
+                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg" alt="Sesja ślubna w lesie, lato 2025" loading="lazy">
                 </div>
-                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress', 'Sesja rodzinna nad morzem, lato 2024')">
-                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress" alt="Sesja rodzinna nad morzem, lato 2024" loading="lazy">
+                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg', 'Sesja rodzinna nad morzem, lato 2024')">
+                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg" alt="Sesja rodzinna nad morzem, lato 2024" loading="lazy">
                 </div>
-                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress', 'Ceremonia ślubna w plenerze, maj 2025')">
-                    <img src="https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress" alt="Ceremonia ślubna w plenerze, maj 2025" loading="lazy">
+                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg', 'Ceremonia ślubna w plenerze, maj 2025')">
+                    <img src="https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg" alt="Ceremonia ślubna w plenerze, maj 2025" loading="lazy">
                 </div>
-            </div>
-            <div class="flex justify-center space-x-4 mt-8">
-                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black active" data-page="1">1</button>
-                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-page="2">2</button>
-                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-page="3">3</button>
             </div>
         </section>
 
@@ -207,15 +211,6 @@
                         item.style.display = 'none';
                     }
                 });
-            });
-        });
-
-        const paginationButtons = document.querySelectorAll('.pagination-button');
-        paginationButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                paginationButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                alert(`Przejdź do strony ${button.getAttribute('data-page')} (wymaga backendu)`);
             });
         });
     </script>
