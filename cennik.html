@@ -49,50 +49,47 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: #facc15;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1f2937;
-            font-size: 1.5rem;
-        }
-        .pricing-card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
         :root {
             --bg-color: #1f2937;
             --text-color: #ffffff;
             --card-bg: #374151;
             --highlight: #facc15;
+            --secondary-bg: #2d3748;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
         body.light-mode {
             --bg-color: #f3f4f6;
             --text-color: #1f2937;
             --card-bg: #ffffff;
             --highlight: #facc15;
+            --secondary-bg: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
         }
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
         }
-        .bg-gray-900 {
-            background-color: var(--bg-color);
+        .bg-primary { background-color: var(--bg-color); }
+        .bg-secondary { background-color: var(--secondary-bg); }
+        .bg-card { background-color: var(--card-bg); }
+        .text-primary { color: var(--text-color); }
+        .text-highlight { color: var(--highlight); }
+        .shadow-custom { box-shadow: 0 4px 6px var(--shadow); }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--highlight);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-color);
+            font-size: 1.5rem;
         }
-        .text-white {
-            color: var(--text-color);
-        }
-        .bg-gray-800 {
-            background-color: var(--card-bg);
-        }
-        .text-gray-300 {
-            color: var(--text-color);
-            opacity: 0.8;
+        .pricing-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
         .mode-toggle {
             position: fixed;
@@ -100,85 +97,90 @@
             right: 20px;
             z-index: 1000;
         }
+        .contact-input, .contact-textarea {
+            background-color: var(--card-bg);
+            border: 1px solid var(--secondary-bg);
+            color: var(--text-color);
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-    <header class="bg-gray-800 p-6">
+<body class="bg-primary text-primary font-sans">
+    <header class="bg-secondary p-6">
         <nav class="max-w-7xl mx-auto flex items-center">
             <div class="logo">KW</div>
             <ul class="flex space-x-6 mx-auto">
-                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" class="text-white hover:text-yellow-400 active" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
+                <li><a href="index.html" class="text-primary hover:text-highlight" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-primary hover:text-highlight" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-primary hover:text-highlight active" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-primary hover:text-highlight" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-primary hover:text-highlight" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
         <div class="mode-toggle">
-            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+            <button id="mode-toggle-btn" class="bg-highlight text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
         <h1 class="text-4xl font-bold text-center mt-6">Cennik</h1>
-        <p class="text-lg text-gray-300 text-center">Poznaj moje pakiety usług fotograficznych.</p>
+        <p class="text-lg text-primary text-center opacity-80">Poznaj moje pakiety usług fotograficznych.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
         <section id="pricing" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Cennik Usług</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="pricing-card bg-gray-800 p-6 rounded-lg text-center">
+                <div class="pricing-card bg-card p-6 rounded-lg text-center shadow-custom">
                     <h3 class="text-2xl font-semibold mb-4">Pakiet Podstawowy</h3>
-                    <p class="text-gray-300 mb-4">Idealny na krótkie sesje portretowe.</p>
-                    <p class="text-yellow-400 text-3xl font-bold mb-4">500 zł</p>
-                    <ul class="text-gray-300 mb-6">
+                    <p class="text-primary mb-4">Idealny na krótkie sesje portretowe.</p>
+                    <p class="text-highlight text-3xl font-bold mb-4">500 zł</p>
+                    <ul class="text-primary mb-6">
                         <li>1 godzina sesji</li>
                         <li>10 obrobionych zdjęć</li>
                         <li>Galeria online</li>
                     </ul>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
-                <div class="pricing-card bg-gray-800 p-6 rounded-lg text-center">
+                <div class="pricing-card bg-card p-6 rounded-lg text-center shadow-custom">
                     <h3 class="text-2xl font-semibold mb-4">Pakiet Standard</h3>
-                    <p class="text-gray-300 mb-4">Świetny na sesje ślubne i okolicznościowe.</p>
-                    <p class="text-yellow-400 text-3xl font-bold mb-4">1500 zł</p>
-                    <ul class="text-gray-300 mb-6">
+                    <p class="text-primary mb-4">Świetny na sesje ślubne i okolicznościowe.</p>
+                    <p class="text-highlight text-3xl font-bold mb-4">1500 zł</p>
+                    <ul class="text-primary mb-6">
                         <li>4 godziny sesji</li>
                         <li>50 obrobionych zdjęć</li>
                         <li>Galeria online + album 20x20 cm</li>
                     </ul>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
-                <div class="pricing-card bg-gray-800 p-6 rounded-lg text-center">
+                <div class="pricing-card bg-card p-6 rounded-lg text-center shadow-custom">
                     <h3 class="text-2xl font-semibold mb-4">Pakiet Premium</h3>
-                    <p class="text-gray-300 mb-4">Pełna relacja z Twojego wydarzenia.</p>
-                    <p class="text-yellow-400 text-3xl font-bold mb-4">3000 zł</p>
-                    <ul class="text-gray-300 mb-6">
+                    <p class="text-primary mb-4">Pełna relacja z Twojego wydarzenia.</p>
+                    <p class="text-highlight text-3xl font-bold mb-4">3000 zł</p>
+                    <ul class="text-primary mb-6">
                         <li>8 godzin sesji</li>
                         <li>100 obrobionych zdjęć</li>
                         <li>Galeria online + album 30x30 cm</li>
                     </ul>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
             </div>
         </section>
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
-            <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
-                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">×</span>
+            <div class="bg-card p-6 rounded-lg max-w-lg w-full shadow-custom">
+                <span class="text-2xl cursor-pointer float-right text-primary" onclick="closeModal('booking-modal')">×</span>
                 <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
                 <form action="reserve.php" method="post" id="booking-form">
                     <div class="mb-4">
                         <label for="booking-name" class="block text-sm font-medium">Imię:</label>
-                        <input type="text" id="booking-name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="text" id="booking-name" name="name" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="booking-email" class="block text-sm font-medium">Email:</label>
-                        <input type="email" id="booking-email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="email" id="booking-email" name="email" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="session-type" class="block text-sm font-medium">Rodzaj sesji:</label>
-                        <select id="session-type" name="session_type" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <select id="session-type" name="session_type" class="w-full p-3 rounded contact-input" required>
                             <option value="slubna">Fotografia Ślubna</option>
                             <option value="portretowa">Sesja Portretowa</option>
                             <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
@@ -186,39 +188,39 @@
                     </div>
                     <div class="mb-4">
                         <label for="preferred-date" class="block text-sm font-medium">Data:</label>
-                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="preferred-time" class="block text-sm font-medium">Godzina:</label>
-                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-3 rounded contact-input">
                     </div>
                     <div class="mb-4">
                         <label for="booking-message" class="block text-sm font-medium">Wiadomość:</label>
-                        <textarea id="booking-message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700"></textarea>
+                        <textarea id="booking-message" name="message" class="w-full p-3 rounded contact-textarea h-32"></textarea>
                     </div>
-                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
+                    <button type="submit" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer class="bg-gray-800 p-6 text-center">
-        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+    <footer class="bg-secondary p-6 text-center">
+        <p class="text-primary">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
         <ul class="flex justify-center space-x-4 mt-4">
-            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-highlight hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-highlight hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div class="mt-4 text-gray-400">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:10 CEST</p>
+        <div class="mt-4 text-primary opacity-70">
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:17 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
-            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
+            <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-highlight text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-400 text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-highlight text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
         <i class="fas fa-arrow-up"></i>
     </button>
 

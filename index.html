@@ -49,13 +49,49 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --bg-color: #1f2937;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --highlight: #facc15;
+            --secondary-bg: #2d3748;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+        body.light-mode {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --highlight: #facc15;
+            --secondary-bg: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        /* Ogólne style */
+        .bg-primary { background-color: var(--bg-color); }
+        .bg-secondary { background-color: var(--secondary-bg); }
+        .bg-card { background-color: var(--card-bg); }
+        .text-primary { color: var(--text-color); }
+        .text-highlight { color: var(--highlight); }
+        .shadow-custom { box-shadow: 0 4px 6px var(--shadow); }
+        /* Animacje */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out;
+        .animate-fade-in { animation: fadeIn 1s ease-out; }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end) forwards;
+        }
+        /* Karuzela */
         .carousel-slide {
             display: none;
             opacity: 0;
@@ -71,9 +107,14 @@
             display: block;
             opacity: 1;
         }
-        .carousel:hover .carousel-slide {
-            animation-play-state: paused;
+        .carousel:hover .carousel-slide { animation-play-state: paused; }
+        .carousel-dot { background-color: var(--text-color); }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
         }
+        /* Karuzela opinii */
         .testimonial-carousel-slide {
             display: none;
             opacity: 0;
@@ -83,24 +124,8 @@
             display: block;
             opacity: 1;
         }
-        .photo-of-month:hover img {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        .typing-effect {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 2s steps(40, end) forwards;
-        }
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
+        .testimonial-dot { background-color: var(--text-color); }
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -116,86 +141,139 @@
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
-            border: 5px solid white;
+            border: 5px solid var(--card-bg);
             border-radius: 10px;
         }
+        /* Przyciski */
         .cta-button:hover {
-            background: linear-gradient(to right, #facc15, #ffffff);
+            background: linear-gradient(to right, var(--highlight), var(--text-color));
             transform: scale(1.1);
             transition: all 0.3s ease;
         }
+        /* Logo */
         .logo {
             width: 50px;
             height: 50px;
-            background: #facc15;
+            background: var(--highlight);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #1f2937;
+            color: var(--bg-color);
             font-size: 1.5rem;
         }
-        .faq-item {
-            cursor: pointer;
-        }
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        .faq-answer {
-            display: none;
-        }
-        :root {
-            --bg-color: #1f2937;
-            --text-color: #ffffff;
-            --card-bg: #374151;
-            --highlight: #facc15;
-        }
-        body.light-mode {
-            --bg-color: #f3f4f6;
-            --text-color: #1f2937;
-            --card-bg: #ffffff;
-            --highlight: #facc15;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        .bg-gray-900 {
-            background-color: var(--bg-color);
-        }
-        .text-white {
-            color: var(--text-color);
-        }
-        .bg-gray-800 {
-            background-color: var(--card-bg);
-        }
-        .text-gray-300 {
-            color: var(--text-color);
-            opacity: 0.8;
-        }
+        /* FAQ */
+        .faq-item { cursor: pointer; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-answer { display: none; }
+        /* Przełącznik trybu */
         .mode-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
         }
+        /* Sekcja "O Mnie" */
+        .about-img {
+            border-radius: 15px;
+            box-shadow: 0 4px 10px var(--shadow);
+            transform: rotate(3deg);
+        }
+        /* Sekcja "Zdjęcie Miesiąca" */
+        .photo-of-month {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .photo-of-month img {
+            transition: transform 0.3s ease;
+        }
+        .photo-of-month:hover img {
+            transform: scale(1.05);
+        }
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .photo-of-month:hover .photo-overlay {
+            opacity: 1;
+        }
+        /* Sekcja "Oferta" */
+        .offer-card {
+            transition: transform 0.3s ease;
+        }
+        .offer-card:hover {
+            transform: translateY(-10px);
+        }
+        .offer-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--highlight);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        /* Sekcja "Najnowsze Projekty" */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        /* Sekcja "Najbliższe Wolne Terminy" */
+        .availability-card {
+            transition: transform 0.3s ease;
+        }
+        .availability-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Sekcja "Kontakt" */
+        .contact-input, .contact-textarea {
+            background-color: var(--card-bg);
+            border: 1px solid var(--secondary-bg);
+            color: var(--text-color);
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-    <header class="relative bg-gray-900 h-screen">
-        <nav class="bg-gray-800 bg-opacity-90 p-4 flex items-center fixed top-0 left-0 right-0 z-10">
+<body class="bg-primary text-primary font-sans">
+    <header class="relative h-screen">
+        <nav class="bg-secondary bg-opacity-90 p-4 flex items-center fixed top-0 left-0 right-0 z-10">
             <div class="logo">KW</div>
             <ul class="flex space-x-6 mx-auto">
-                <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
+                <li><a href="index.html" class="text-primary hover:text-highlight active" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-primary hover:text-highlight" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-primary hover:text-highlight" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-primary hover:text-highlight" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-primary hover:text-highlight" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
         <div class="mode-toggle">
-            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+            <button id="mode-toggle-btn" class="bg-highlight text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
@@ -211,26 +289,26 @@
                     <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg" alt="Sesja ślubna w górach, maj 2025" class="w-full h-full object-cover opacity-0" loading="lazy">
                 </div>
                 <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do slajdu 1"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 2"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 3"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do slajdu 1"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 2"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 3"></button>
                 </div>
             </div>
             <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-                <div class="text-center p-6 bg-gray-800 bg-opacity-70 rounded-lg">
+                <div class="text-center p-8 bg-secondary bg-opacity-70 rounded-lg shadow-custom">
                     <h1 class="text-5xl font-bold mb-2">
                         Krzysztof Wątorowski
-                        <span class="block text-2xl mt-2 text-yellow-400 typing-effect" id="dynamic-text" aria-live="polite"></span>
+                        <span class="block text-2xl mt-2 text-highlight typing-effect" id="dynamic-text" aria-live="polite"></span>
                     </h1>
-                    <div class="w-32 h-1 bg-gradient-to-r from-yellow-400 to-white mx-auto mb-4"></div>
+                    <div class="w-32 h-1 bg-gradient-to-r from-highlight to-primary mx-auto mb-4"></div>
                     <p class="text-xl mb-6 flex items-center justify-center">
-                        <i class="fas fa-camera text-yellow-400 mr-2"></i>
+                        <i class="fas fa-camera text-highlight mr-2"></i>
                         Tworzę sztukę z Twoich wspomnień
-                        <i class="fas fa-camera text-yellow-400 ml-2"></i>
+                        <i class="fas fa-camera text-highlight ml-2"></i>
                     </p>
                     <div class="flex justify-center space-x-4">
-                        <button onclick="openModal('booking-modal')" class="cta-button bg-yellow-400 text-black py-2 px-6 rounded-full">Zarezerwuj sesję</button>
-                        <a href="portfolio.html" class="cta-button bg-transparent border border-yellow-400 text-yellow-400 py-2 px-6 rounded-full hover:text-black">Zobacz Portfolio</a>
+                        <button onclick="openModal('booking-modal')" class="cta-button bg-highlight text-black py-2 px-6 rounded-full">Zarezerwuj sesję</button>
+                        <a href="portfolio.html" class="cta-button bg-transparent border border-highlight text-highlight py-2 px-6 rounded-full hover:text-black">Zobacz Portfolio</a>
                     </div>
                 </div>
             </div>
@@ -238,185 +316,191 @@
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
-        <section id="about" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">O Mnie</h2>
-            <div class="flex flex-col md:flex-row items-center gap-8">
+        <section id="about" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">O Mnie</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-1">
-                    <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak 'Wedding Vogue'. Przeprowadziłem ponad 500 sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
+                    <p class="text-lg text-primary leading-relaxed">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak 'Wedding Vogue'. Przeprowadziłem ponad 500 sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
                 </div>
                 <div class="flex-1">
-                    <div class="relative w-64 h-80 mx-auto">
-                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Krzysztof Wątorowski podczas pracy, 2025" class="w-full h-full object-cover transform rotate-3 shadow-lg bg-white p-4" loading="lazy">
+                    <div class="relative w-72 h-96 mx-auto">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Krzysztof Wątorowski podczas pracy, 2025" class="w-full h-full object-cover about-img" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="photo-of-month" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Zdjęcie Miesiąca</h2>
-            <div class="photo-of-month relative bg-gray-800 p-6 rounded-lg max-w-lg mx-auto group">
-                <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-80 object-cover rounded-lg shadow-lg" loading="lazy">
-                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <p class="text-white text-center">Przygotowania ślubne w pałacu, wiosna 2025. Kliknij, aby poznać historię!</p>
+        <section id="photo-of-month" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Zdjęcie Miesiąca</h2>
+            <div class="photo-of-month bg-card p-8 rounded-lg max-w-xl mx-auto shadow-custom">
+                <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-96 object-cover rounded-lg" loading="lazy">
+                <div class="photo-overlay">
+                    <p class="text-primary text-center">Przygotowania ślubne w pałacu, wiosna 2025. Kliknij, aby poznać historię!</p>
                 </div>
             </div>
-            <p class="text-center text-gray-300 mt-4">Każdy miesiąc to nowa historia uchwycona w kadrze. <a href="#contact" class="text-yellow-400 hover:text-yellow-500">Skontaktuj się, by stworzyć swoją!</a></p>
+            <p class="text-center text-primary mt-6">Każdy miesiąc to nowa historia uchwycona w kadrze. <a href="#contact" class="text-highlight hover:underline">Skontaktuj się, by stworzyć swoją!</a></p>
         </section>
 
-        <section id="offerings" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Oferta</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-ring text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
+        <section id="offerings" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Oferta</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <article class="offer-card bg-card p-8 rounded-lg text-center shadow-custom">
+                    <div class="offer-icon">
+                        <i class="fas fa-ring text-black text-2xl" aria-hidden="true"></i>
+                    </div>
                     <h3 class="text-2xl font-semibold mb-4">Fotografia Ślubna</h3>
-                    <p>Od przygotowań po pierwszy taniec – uchwycę każdy moment Twojego wyjątkowego dnia.</p>
+                    <p class="text-primary">Od przygotowań po pierwszy taniec – uchwycę każdy moment Twojego wyjątkowego dnia.</p>
                 </article>
-                <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-portrait text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
+                <article class="offer-card bg-card p-8 rounded-lg text-center shadow-custom">
+                    <div class="offer-icon">
+                        <i class="fas fa-portrait text-black text-2xl" aria-hidden="true"></i>
+                    </div>
                     <h3 class="text-2xl font-semibold mb-4">Sesje Portretowe</h3>
-                    <p>Indywidualne sesje w studio lub plenerze, które podkreślą Twoją unikalną osobowość.</p>
+                    <p class="text-primary">Indywidualne sesje w studio lub plenerze, które podkreślą Twoją unikalną osobowość.</p>
                 </article>
-                <article class="bg-gray-800 p-6 rounded-lg text-center">
-                    <i class="fas fa-users text-yellow-400 text-4xl mb-4 hover:animate-pulse" aria-hidden="true"></i>
+                <article class="offer-card bg-card p-8 rounded-lg text-center shadow-custom">
+                    <div class="offer-icon">
+                        <i class="fas fa-users text-black text-2xl" aria-hidden="true"></i>
+                    </div>
                     <h3 class="text-2xl font-semibold mb-4">Fotografia Okolicznościowa</h3>
-                    <p>Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
+                    <p class="text-primary">Chrzciny, komunie, imprezy firmowe – każda okazja zasługuje na piękne zdjęcia.</p>
                 </article>
             </div>
         </section>
 
-        <section id="latest-projects" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Projekty</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
-                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Ślub w kościele, maj 2025</p>
+        <section id="latest-projects" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Najnowsze Projekty</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="project-card cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg" alt="Ceremonia ślubna w kościele, maj 2025" class="w-full h-72 object-cover rounded-lg" loading="lazy">
+                    <div class="project-overlay">
+                        <p class="text-primary">Ślub w kościele, maj 2025</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
-                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret, kwiecień 2025</p>
+                <div class="project-card cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg', 'Sesja portretowa w studio, kwiecień 2025')">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg" alt="Sesja portretowa w studio, kwiecień 2025" class="w-full h-72 object-cover rounded-lg" loading="lazy">
+                    <div class="project-overlay">
+                        <p class="text-primary">Portret, kwiecień 2025</p>
                     </div>
                 </div>
-                <div class="relative group cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Chrzciny, marzec 2025</p>
+                <div class="project-card cursor-pointer" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg', 'Chrzciny w Krakowie, marzec 2025')">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-72 object-cover rounded-lg" loading="lazy">
+                    <div class="project-overlay">
+                        <p class="text-primary">Chrzciny, marzec 2025</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Opinie Klientów</h2>
-            <div class="testimonial-carousel max-w-lg mx-auto" role="region" aria-label="Karuzela opinii klientów">
-                <div class="testimonial-carousel-slide active bg-gray-800 p-6 rounded-lg text-center">
-                    <p class="text-gray-300 italic">"Krzysztof uchwycił magię naszego ślubu! Zdjęcia są przepiękne, pełne emocji."</p>
-                    <p class="text-yellow-400 mt-4">– Anna i Michał, maj 2025</p>
+        <section id="testimonials" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Opinie Klientów</h2>
+            <div class="testimonial-carousel max-w-3xl mx-auto" role="region" aria-label="Karuzela opinii klientów">
+                <div class="testimonial-carousel-slide active bg-card p-8 rounded-lg text-center shadow-custom">
+                    <p class="text-primary italic">"Krzysztof uchwycił magię naszego ślubu! Zdjęcia są przepiękne, pełne emocji."</p>
+                    <p class="text-highlight mt-4">– Anna i Michał, maj 2025</p>
                 </div>
-                <div class="testimonial-carousel-slide bg-gray-800 p-6 rounded-lg text-center">
-                    <p class="text-gray-300 italic">"Sesja portretowa w studio była niesamowita. Pełen profesjonalizm!"</p>
-                    <p class="text-yellow-400 mt-4">– Karolina, kwiecień 2025</p>
+                <div class="testimonial-carousel-slide bg-card p-8 rounded-lg text-center shadow-custom">
+                    <p class="text-primary italic">"Sesja portretowa w studio była niesamowita. Pełen profesjonalizm!"</p>
+                    <p class="text-highlight mt-4">– Karolina, kwiecień 2025</p>
                 </div>
-                <div class="testimonial-carousel-slide bg-gray-800 p-6 rounded-lg text-center">
-                    <p class="text-gray-300 italic">"Zdjęcia z chrztu naszej córki to cudowna pamiątka. Dziękujemy!"</p>
-                    <p class="text-yellow-400 mt-4">– Paulina i Jakub, marzec 2025</p>
+                <div class="testimonial-carousel-slide bg-card p-8 rounded-lg text-center shadow-custom">
+                    <p class="text-primary italic">"Zdjęcia z chrztu naszej córki to cudowna pamiątka. Dziękujemy!"</p>
+                    <p class="text-highlight mt-4">– Paulina i Jakub, marzec 2025</p>
                 </div>
                 <div class="flex justify-center space-x-2 mt-4">
-                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do opinii 1"></button>
-                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 2"></button>
-                    <button class="testimonial-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 3"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do opinii 1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 2"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do opinii 3"></button>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Najczęściej Zadawane Pytania (FAQ)</h2>
+        <section id="faq" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Najczęściej Zadawane Pytania (FAQ)</h2>
             <div class="max-w-3xl mx-auto">
-                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                <div class="faq-item bg-card p-6 rounded-lg mb-4 shadow-custom">
                     <h3 class="text-xl font-semibold mb-2">Jak długo trwa sesja zdjęciowa?</h3>
-                    <div class="faq-answer text-gray-300">
+                    <div class="faq-answer text-primary">
                         <p>Czas trwania sesji zależy od wybranego pakietu. Sesje ślubne trwają od 4 do 12 godzin, portretowe zazwyczaj 1-2 godziny, a okolicznościowe 3-5 godzin.</p>
                     </div>
                 </div>
-                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                <div class="faq-item bg-card p-6 rounded-lg mb-4 shadow-custom">
                     <h3 class="text-xl font-semibold mb-2">Czy oferujesz albumy zdjęciowe?</h3>
-                    <div class="faq-answer text-gray-300">
+                    <div class="faq-answer text-primary">
                         <p>Tak, albumy zdjęciowe są dostępne w pakietach Premium i Luksus. Można je również zamówić dodatkowo.</p>
                     </div>
                 </div>
-                <div class="faq-item bg-gray-800 p-4 rounded-lg mb-4">
+                <div class="faq-item bg-card p-6 rounded-lg mb-4 shadow-custom">
                     <h3 class="text-xl font-semibold mb-2">Jak szybko otrzymam zdjęcia?</h3>
-                    <div class="faq-answer text-gray-300">
+                    <div class="faq-answer text-primary">
                         <p>Zdjęcia są gotowe w ciągu 2-4 tygodni od sesji, w zależności od ilości materiału i zakresu edycji.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="newsletter" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Zapisz się do Newslettera</h2>
-            <p class="text-lg text-gray-300 text-center mb-6">Otrzymuj najnowsze informacje o promocjach, nowych projektach i poradach fotograficznych!</p>
+        <section id="newsletter" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Zapisz się do Newslettera</h2>
+            <p class="text-lg text-primary text-center mb-6">Otrzymuj najnowsze informacje o promocjach, nowych projektach i poradach fotograficznych!</p>
             <div class="max-w-md mx-auto">
                 <form action="subscribe.php" method="post" id="newsletter-form" class="flex flex-col items-center">
-                    <input type="email" name="email" id="newsletter-email" placeholder="Twój adres email" class="w-full p-2 rounded bg-gray-800 border border-gray-700 mb-4" required>
-                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zapisz się</button>
+                    <input type="email" name="email" id="newsletter-email" placeholder="Twój adres email" class="w-full p-3 rounded bg-card border border-secondary-bg mb-4 contact-input" required>
+                    <button type="submit" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Zapisz się</button>
                 </form>
             </div>
         </section>
 
-        <section id="availability" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Najbliższe Wolne Terminy</h2>
-            <p class="text-lg text-gray-300 text-center mb-6">Sprawdź, kiedy mogę dla Ciebie fotografować!</p>
-            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-gray-800 p-4 rounded-lg text-center">
-                    <p class="text-yellow-400 font-semibold">20 maja 2025</p>
-                    <p class="text-gray-300">Sesja ślubna (cały dzień)</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+        <section id="availability" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Najbliższe Wolne Terminy</h2>
+            <p class="text-lg text-primary text-center mb-6">Sprawdź, kiedy mogę dla Ciebie fotografować!</p>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="availability-card bg-card p-6 rounded-lg text-center shadow-custom">
+                    <p class="text-highlight font-semibold text-xl">20 maja 2025</p>
+                    <p class="text-primary mt-2">Sesja ślubna (cały dzień)</p>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full mt-4 hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
-                <div class="bg-gray-800 p-4 rounded-lg text-center">
-                    <p class="text-yellow-400 font-semibold">25 maja 2025</p>
-                    <p class="text-gray-300">Sesja portretowa (2 godziny)</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+                <div class="availability-card bg-card p-6 rounded-lg text-center shadow-custom">
+                    <p class="text-highlight font-semibold text-xl">25 maja 2025</p>
+                    <p class="text-primary mt-2">Sesja portretowa (2 godziny)</p>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full mt-4 hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
-                <div class="bg-gray-800 p-4 rounded-lg text-center">
-                    <p class="text-yellow-400 font-semibold">1 czerwca 2025</p>
-                    <p class="text-gray-300">Fotografia okolicznościowa</p>
-                    <button onclick="openModal('booking-modal')" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Zarezerwuj</button>
+                <div class="availability-card bg-card p-6 rounded-lg text-center shadow-custom">
+                    <p class="text-highlight font-semibold text-xl">1 czerwca 2025</p>
+                    <p class="text-primary mt-2">Fotografia okolicznościowa</p>
+                    <button onclick="openModal('booking-modal')" class="bg-highlight text-black py-2 px-6 rounded-full mt-4 hover:bg-yellow-500">Zarezerwuj</button>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Kontakt</h2>
-            <p class="text-lg text-gray-300 text-center mb-4">Skontaktuj się, aby omówić szczegóły Twojej sesji!</p>
-            <div class="flex flex-col md:flex-row gap-8">
+        <section id="contact" class="py-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Kontakt</h2>
+            <p class="text-lg text-primary text-center mb-6">Skontaktuj się, aby omówić szczegóły Twojej sesji!</p>
+            <div class="flex flex-col md:flex-row gap-12">
                 <div class="flex-1">
                     <form action="send_contact.php" method="post" id="contact-form" class="max-w-lg mx-auto">
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium">Imię:</label>
-                            <input type="text" id="name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                            <input type="text" id="name" name="name" class="w-full p-3 rounded contact-input" required>
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium">Email:</label>
-                            <input type="email" id="email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                            <input type="email" id="email" name="email" class="w-full p-3 rounded contact-input" required>
                         </div>
                         <div class="mb-4">
                             <label for="subject" class="block text-sm font-medium">Temat:</label>
-                            <input type="text" id="subject" name="subject" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                            <input type="text" id="subject" name="subject" class="w-full p-3 rounded contact-input">
                         </div>
                         <div class="mb-4">
                             <label for="message" class="block text-sm font-medium">Wiadomość:</label>
-                            <textarea id="message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required></textarea>
+                            <textarea id="message" name="message" class="w-full p-3 rounded contact-textarea h-32" required></textarea>
                         </div>
-                        <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij</button>
+                        <button type="submit" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij</button>
                     </form>
-                    <p class="text-center text-gray-300 mt-4">Email: <a href="mailto:krzysztof.watorowski@example.com" class="text-yellow-400">krzysztof.watorowski@example.com</a> | Telefon: <a href="tel:+48790123456" class="text-yellow-400">+48 790 123 456</a></p>
+                    <p class="text-center text-primary mt-6">Email: <a href="mailto:krzysztof.watorowski@example.com" class="text-highlight hover:underline">krzysztof.watorowski@example.com</a> | Telefon: <a href="tel:+48790123456" class="text-highlight hover:underline">+48 790 123 456</a></p>
                 </div>
                 <div class="flex-1">
                     <h3 class="text-2xl font-semibold mb-4 text-center">Znajdź mnie</h3>
-                    <div class="w-full h-64">
+                    <div class="w-full h-72 rounded-lg shadow-custom">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.1789159769925!2d19.74360731597483!3d52.15909117974749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471c3f3d5d7e4e4b%3A0x7e5b9d9c5e5d5c5!2sBrzeziny%2C%20Poland!5e0!3m2!1sen!2spl!4v1631234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Mapa lokalizacji w Brzezinach, Polska"></iframe>
                     </div>
                 </div>
@@ -424,21 +508,21 @@
         </section>
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
-            <div class="bg-gray-800 p-6 rounded-lg max-w-lg w-full">
-                <span class="text-2xl cursor-pointer float-right" onclick="closeModal('booking-modal')">×</span>
+            <div class="bg-card p-6 rounded-lg max-w-lg w-full shadow-custom">
+                <span class="text-2xl cursor-pointer float-right text-primary" onclick="closeModal('booking-modal')">×</span>
                 <h2 class="text-2xl font-bold mb-4">Zarezerwuj Sesję</h2>
                 <form action="reserve.php" method="post" id="booking-form">
                     <div class="mb-4">
                         <label for="booking-name" class="block text-sm font-medium">Imię:</label>
-                        <input type="text" id="booking-name" name="name" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="text" id="booking-name" name="name" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="booking-email" class="block text-sm font-medium">Email:</label>
-                        <input type="email" id="booking-email" name="email" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="email" id="booking-email" name="email" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="session-type" class="block text-sm font-medium">Rodzaj sesji:</label>
-                        <select id="session-type" name="session_type" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <select id="session-type" name="session_type" class="w-full p-3 rounded contact-input" required>
                             <option value="slubna">Fotografia Ślubna</option>
                             <option value="portretowa">Sesja Portretowa</option>
                             <option value="okolicznosciowa">Fotografia Okolicznościowa</option>
@@ -446,17 +530,17 @@
                     </div>
                     <div class="mb-4">
                         <label for="preferred-date" class="block text-sm font-medium">Data:</label>
-                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-2 rounded bg-gray-800 border border-gray-700" required>
+                        <input type="date" id="preferred-date" name="preferred_date" class="w-full p-3 rounded contact-input" required>
                     </div>
                     <div class="mb-4">
                         <label for="preferred-time" class="block text-sm font-medium">Godzina:</label>
-                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                        <input type="time" id="preferred-time" name="preferred_time" class="w-full p-3 rounded contact-input">
                     </div>
                     <div class="mb-4">
                         <label for="booking-message" class="block text-sm font-medium">Wiadomość:</label>
-                        <textarea id="booking-message" name="message" class="w-full p-2 rounded bg-gray-800 border border-gray-700"></textarea>
+                        <textarea id="booking-message" name="message" class="w-full p-3 rounded contact-textarea h-32"></textarea>
                     </div>
-                    <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
+                    <button type="submit" class="bg-highlight text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij Zapytanie</button>
                 </form>
             </div>
         </div>
@@ -466,23 +550,23 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 p-6 text-center">
-        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+    <footer class="bg-secondary p-6 text-center">
+        <p class="text-primary">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
         <ul class="flex justify-center space-x-4 mt-4">
-            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-highlight hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-highlight hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div class="mt-4 text-gray-400">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:10 CEST</p>
+        <div class="mt-4 text-primary opacity-70">
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:17 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
-            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
+            <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-highlight text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-400 text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-highlight text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
         <i class="fas fa-arrow-up"></i>
     </button>
 

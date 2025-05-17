@@ -49,16 +49,42 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --bg-color: #1f2937;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --highlight: #facc15;
+            --secondary-bg: #2d3748;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+        body.light-mode {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --highlight: #facc15;
+            --secondary-bg: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .bg-primary { background-color: var(--bg-color); }
+        .bg-secondary { background-color: var(--secondary-bg); }
+        .bg-card { background-color: var(--card-bg); }
+        .text-primary { color: var(--text-color); }
+        .text-highlight { color: var(--highlight); }
+        .shadow-custom { box-shadow: 0 4px 6px var(--shadow); }
         .logo {
             width: 50px;
             height: 50px;
-            background: #facc15;
+            background: var(--highlight);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #1f2937;
+            color: var(--bg-color);
             font-size: 1.5rem;
         }
         .masonry {
@@ -93,37 +119,12 @@
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
-            border: 5px solid white;
+            border: 5px solid var(--card-bg);
             border-radius: 10px;
         }
-        :root {
-            --bg-color: #1f2937;
-            --text-color: #ffffff;
-            --card-bg: #374151;
-            --highlight: #facc15;
-        }
-        body.light-mode {
-            --bg-color: #f3f4f6;
-            --text-color: #1f2937;
-            --card-bg: #ffffff;
-            --highlight: #facc15;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        .bg-gray-900 {
-            background-color: var(--bg-color);
-        }
-        .text-white {
-            color: var(--text-color);
-        }
-        .bg-gray-800 {
-            background-color: var(--card-bg);
-        }
-        .text-gray-300 {
-            color: var(--text-color);
-            opacity: 0.8;
+        .filter-button:hover, .filter-button.active {
+            background-color: var(--highlight);
+            color: var(--bg-color);
         }
         .mode-toggle {
             position: fixed;
@@ -133,35 +134,35 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-    <header class="bg-gray-800 p-6">
+<body class="bg-primary text-primary font-sans">
+    <header class="bg-secondary p-6">
         <nav class="max-w-7xl mx-auto flex items-center">
             <div class="logo">KW</div>
             <ul class="flex space-x-6 mx-auto">
-                <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
-                <li><a href="portfolio.html" class="text-white hover:text-yellow-400 active" aria-label="Portfolio">Portfolio</a></li>
-                <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
-                <li><a href="blog.html" class="text-white hover:text-yellow-400" aria-label="Blog">Blog</a></li>
-                <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
+                <li><a href="index.html" class="text-primary hover:text-highlight" aria-label="Strona Główna">Strona Główna</a></li>
+                <li><a href="portfolio.html" class="text-primary hover:text-highlight active" aria-label="Portfolio">Portfolio</a></li>
+                <li><a href="cennik.html" class="text-primary hover:text-highlight" aria-label="Cennik">Cennik</a></li>
+                <li><a href="blog.html" class="text-primary hover:text-highlight" aria-label="Blog">Blog</a></li>
+                <li><a href="admin.html" class="text-primary hover:text-highlight" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
         <div class="mode-toggle">
-            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+            <button id="mode-toggle-btn" class="bg-highlight text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
         <h1 class="text-4xl font-bold text-center mt-6">Portfolio</h1>
-        <p class="text-lg text-gray-300 text-center">Przeglądaj moje najnowsze prace – od ślubów po portrety.</p>
+        <p class="text-lg text-primary text-center opacity-80">Przeglądaj moje najnowsze prace – od ślubów po portrety.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
         <section id="portfolio-gallery" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Galeria</h2>
             <div class="flex justify-center space-x-4 mb-8">
-                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black active" data-filter="all">Wszystkie</button>
-                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="slubne">Ślubne</button>
-                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="portretowe">Portretowe</button>
-                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="okolicznosciowe">Okolicznościowe</button>
+                <button class="filter-button bg-card py-2 px-4 rounded-full active" data-filter="all">Wszystkie</button>
+                <button class="filter-button bg-card py-2 px-4 rounded-full" data-filter="slubne">Ślubne</button>
+                <button class="filter-button bg-card py-2 px-4 rounded-full" data-filter="portretowe">Portretowe</button>
+                <button class="filter-button bg-card py-2 px-4 rounded-full" data-filter="okolicznosciowe">Okolicznościowe</button>
             </div>
             <div class="masonry" id="gallery">
                 <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg', 'Ceremonia ślubna w kościele, maj 2025')">
@@ -190,23 +191,23 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 p-6 text-center">
-        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
+    <footer class="bg-secondary p-6 text-center">
+        <p class="text-primary">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
         <ul class="flex justify-center space-x-4 mt-4">
-            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-highlight hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-highlight hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
-        <div class="mt-4 text-gray-400">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:10 CEST</p>
+        <div class="mt-4 text-primary opacity-70">
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:17 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
-            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
+            <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
+            <button id="accept-cookies" class="bg-highlight text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-400 text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-highlight text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
         <i class="fas fa-arrow-up"></i>
     </button>
 
