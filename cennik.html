@@ -48,12 +48,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #facc15;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <header class="bg-gray-800 p-6">
-        <nav class="max-w-7xl mx-auto flex justify-center items-center">
+        <nav class="max-w-7xl mx-auto flex items-center">
             <div class="logo">KW</div>
-            <ul class="flex space-x-6">
+            <ul class="flex space-x-6 mx-auto">
                 <li><a href="index.html" class="text-white hover:text-yellow-400" aria-label="Strona Główna">Strona Główna</a></li>
                 <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
                 <li><a href="cennik.html" class="text-white hover:text-yellow-400 active" aria-label="Cennik">Cennik</a></li>
