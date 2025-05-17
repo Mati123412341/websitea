@@ -43,26 +43,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Krzysztof Wątorowski</title>
-    <meta name="description" content="Portfolio fotograficzne Krzysztofa Wątorowskiego: sesje ślubne, portretowe i okolicznościowe w najwyższej jakości.">
-    <meta name="keywords" content="portfolio, fotografia, ślubna, portretowa, Warszawa">
+    <meta name="description" content="Portfolio fotograficzne Krzysztofa Wątorowskiego - sesje ślubne, portretowe i okolicznościowe.">
+    <meta name="keywords" content="fotograf, portfolio, fotografia ślubna, sesja portretowa, Warszawa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .carousel-slide {
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        .masonry {
+            column-count: 3;
+            column-gap: 1rem;
         }
-        .carousel-slide.active {
-            display: block;
-            opacity: 1;
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            position: relative;
         }
-        .carousel:hover .carousel-slide {
-            animation-play-state: paused;
-        }
-        .portfolio-item:hover img {
+        .masonry-item:hover img {
             transform: scale(1.05);
             transition: transform 0.3s ease;
+        }
+        .masonry-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .filter-button.active {
+            background-color: #facc15;
+            color: black;
+        }
+        .pagination-button.active {
+            background-color: #facc15;
+            color: black;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -79,115 +106,59 @@
             </ul>
         </nav>
         <h1 class="text-4xl font-bold text-center mt-6">Portfolio</h1>
-        <p class="text-lg text-gray-300 text-center">Odkryj moje najlepsze prace w różnych kategoriach fotograficznych.</p>
+        <p class="text-lg text-gray-300 text-center">Obejrzyj moje najlepsze prace i znajdź inspirację dla swojej sesji.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
-        <section id="portfolio" class="py-12">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold mb-4 text-center">Nasze Prace</h2>
-                <div class="flex justify-center space-x-4">
-                    <button class="filter-btn bg-yellow-400 text-black py-2 px-4 rounded-full hover:bg-yellow-500" data-category="all">Wszystkie</button>
-                    <button class="filter-btn bg-gray-700 text-white py-2 px-4 rounded-full hover:bg-gray-600" data-category="slubne">Ślubne</button>
-                    <button class="filter-btn bg-gray-700 text-white py-2 px-4 rounded-full hover:bg-gray-600" data-category="portretowe">Portretowe</button>
-                    <button class="filter-btn bg-gray-700 text-white py-2 px-4 rounded-full hover:bg-gray-600" data-category="okolicznosciowe">Okolicznościowe</button>
-                </div>
-            </div>
-            <div class="carousel relative" role="region" aria-label="Karuzela portfolio">
-                <div class="carousel-slide portfolio-item active" data-category="slubne">
-                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress" alt="Plenerowa sesja ślubna na łące, lato 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Sesja ślubna na łące, lato 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="slubne">
-                    <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress" alt="Ślub w pałacu, zima 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Ślub w pałacu, zima 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="slubne">
-                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress" alt="Sesja ślubna w lesie, lato 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Sesja ślubna w lesie, lato 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="slubne">
-                    <img src="https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress" alt="Przygotowania ślubne, wiosna 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Przygotowania ślubne, wiosna 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="portretowe">
-                    <img src="https://images.pexels.com/photos/937627/pexels-photo-937627.jpeg?auto=compress" alt="Sesja portretowa w parku, jesień 2024" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret w parku, jesień 2024</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="portretowe">
-                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress" alt="Portret mężczyzny w studio, wiosna 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret mężczyzny, wiosna 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="portretowe">
-                    <img src="https://images.pexels.com/photos/1181715/pexels-photo-1181715.jpeg?auto=compress" alt="Portret w świetle naturalnym, lato 2024" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret w świetle naturalnym, lato 2024</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="portretowe">
-                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Portret w studio, zima 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Portret w studio, zima 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="okolicznosciowe">
-                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress" alt="Chrzciny w Krakowie, marzec 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Chrzciny w Krakowie, marzec 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="okolicznosciowe">
-                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress" alt="Sesja rodzinna nad morzem, lato 2024" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Sesja rodzinna nad morzem, lato 2024</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="okolicznosciowe">
-                    <img src="https://images.pexels.com/photos/1128493/pexels-photo-1128493.jpeg?auto=compress" alt="Komunia w kościele, maj 2025" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Komunia w kościele, maj 2025</p>
-                    </div>
-                </div>
-                <div class="carousel-slide portfolio-item" data-category="okolicznosciowe">
-                    <img src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress" alt="Impreza firmowa, grudzień 2024" class="w-full h-64 object-cover rounded-lg" loading="lazy">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white">Impreza firmowa, grudzień 2024</p>
-                    </div>
-                </div>
-                <div class="absolute top-1/2 left-4 transform -translate-y-1/2">
-                    <button class="carousel-prev bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600" aria-label="Poprzedni slajd"><i class="fas fa-chevron-left"></i></button>
-                </div>
-                <div class="absolute top-1/2 right-4 transform -translate-y-1/2">
-                    <button class="carousel-next bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600" aria-label="Następny slajd"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-75 hover:opacity-100" aria-label="Przejdź do slajdu 1"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 2"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 3"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 4"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 5"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 6"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 7"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 8"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 9"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 10"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 11"></button>
-                    <button class="carousel-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" aria-label="Przejdź do slajdu 12"></button>
+        <section id="featured-project" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Wyróżniony Projekt</h2>
+            <div class="relative bg-gray-800 p-6 rounded-lg max-w-3xl mx-auto group">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress" alt="Ślub w Tatrach, maj 2025" class="w-full h-96 object-cover rounded-lg shadow-lg" loading="lazy">
+                <div class="mt-4">
+                    <h3 class="text-2xl font-semibold">Ślub w Tatrach, maj 2025</h3>
+                    <p class="text-gray-300">Plenerowa sesja ślubna w majestatycznych Tatrach, pełna emocji i naturalnego piękna. Ta sesja zdobyła wyróżnienie w konkursie "Wedding Moments 2025".</p>
                 </div>
             </div>
         </section>
+
+        <section id="portfolio-gallery" class="py-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Galeria</h2>
+            <div class="flex justify-center space-x-4 mb-8">
+                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black active" data-filter="all">Wszystkie</button>
+                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="slubne">Ślubne</button>
+                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="portretowe">Portretowe</button>
+                <button class="filter-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-filter="okolicznosciowe">Okolicznościowe</button>
+            </div>
+            <div class="masonry" id="gallery">
+                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress', 'Ceremonia ślubna w kościele, maj 2025')">
+                    <img src="https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress" alt="Ceremonia ślubna w kościele, maj 2025" loading="lazy">
+                </div>
+                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress', 'Sesja portretowa w studio, kwiecień 2025')">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress" alt="Sesja portretowa w studio, kwiecień 2025" loading="lazy">
+                </div>
+                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress', 'Chrzciny w Krakowie, marzec 2025')">
+                    <img src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress" alt="Chrzciny w Krakowie, marzec 2025" loading="lazy">
+                </div>
+                <div class="masonry-item" data-category="slubne" onclick="openLightbox('https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress', 'Sesja ślubna w lesie, lato 2025')">
+                    <img src="https://images.pexels.com/photos/169195/pexels-photo-169195.jpeg?auto=compress" alt="Sesja ślubna w lesie, lato 2025" loading="lazy">
+                </div>
+                <div class="masonry-item" data-category="portretowe" onclick="openLightbox('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress', 'Sesja rodzinna nad morzem, lato 2024')">
+                    <img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress" alt="Sesja rodzinna nad morzem, lato 2024" loading="lazy">
+                </div>
+                <div class="masonry-item" data-category="okolicznosciowe" onclick="openLightbox('https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress', 'Ceremonia ślubna w plenerze, maj 2025')">
+                    <img src="https://images.pexels.com/photos/1391373/pexels-photo-1391373.jpeg?auto=compress" alt="Ceremonia ślubna w plenerze, maj 2025" loading="lazy">
+                </div>
+            </div>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black active" data-page="1">1</button>
+                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-page="2">2</button>
+                <button class="pagination-button bg-gray-800 py-2 px-4 rounded-full hover:bg-yellow-400 hover:text-black" data-page="3">3</button>
+            </div>
+        </section>
+
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="">
+        </div>
     </main>
 
     <footer class="bg-gray-800 p-6 text-center">
@@ -208,67 +179,45 @@
             document.getElementById('cookie-notice').style.display = 'none';
         });
 
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const prevBtn = document.querySelector('.carousel-prev');
-        const nextBtn = document.querySelector('.carousel-next');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        let currentSlide = 0;
-        let filteredSlides = Array.from(slides);
-
-        function showSlide(index) {
-            filteredSlides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-                dots[i].classList.toggle('opacity-75', i === index);
-                dots[i].classList.toggle('opacity-50', i !== index);
-            });
+        function openLightbox(src, alt) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightboxImg.alt = alt;
+            lightbox.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % filteredSlides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + filteredSlides.length) % filteredSlides.length;
-            showSlide(currentSlide);
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
-        });
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const galleryItems = document.querySelectorAll('.masonry-item');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const category = button.dataset.category;
-                filterButtons.forEach(btn => btn.classList.replace('bg-yellow-400', 'bg-gray-700'));
-                filterButtons.forEach(btn => btn.classList.replace('text-black', 'text-white'));
-                button.classList.replace('bg-gray-700', 'bg-yellow-400');
-                button.classList.replace('text-white', 'text-black');
+                const filter = button.getAttribute('data-filter');
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
 
-                if (category === 'all') {
-                    filteredSlides = Array.from(slides);
-                } else {
-                    filteredSlides = Array.from(slides).filter(slide => slide.dataset.category === category);
-                }
-
-                currentSlide = 0;
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('opacity-75'));
-                dots.forEach(dot => dot.classList.add('opacity-50'));
-                showSlide(currentSlide);
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || filter === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
 
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-
-        let slideInterval = setInterval(nextSlide, 5000);
-        document.querySelector('.carousel').addEventListener('mouseenter', () => clearInterval(slideInterval));
-        document.querySelector('.carousel').addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+        const paginationButtons = document.querySelectorAll('.pagination-button');
+        paginationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                paginationButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                alert(`Przejdź do strony ${button.getAttribute('data-page')} (wymaga backendu)`);
+            });
+        });
     </script>
 </body>
 </html>
