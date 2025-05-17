@@ -168,4 +168,38 @@
         </div>
         <div id="cookie-notice" class="mt-4">
             <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <
+            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            document.getElementById('cookie-notice').style.display = 'none';
+        });
+
+        document.getElementById('add-post-form').addEventListener('submit', (e) => {
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const date = document.getElementById('date').value;
+            const category = document.getElementById('category').value;
+
+            if (!title || !content || !date || !category) {
+                e.preventDefault();
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            }
+        });
+
+        function editPost(id) {
+            alert(`Edytuj artykuł o ID: ${id}`);
+            // Logika edycji artykułu
+        }
+
+        function deletePost(id) {
+            if (confirm(`Czy na pewno chcesz usunąć artykuł o ID: ${id}?`)) {
+                alert(`Usunięto artykuł o ID: ${id}`);
+                // Logika usuwania artykułu
+            }
+        }
+    </script>
+</body>
+</html>
