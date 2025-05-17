@@ -119,40 +119,13 @@
             transform: scale(1.1);
             transition: all 0.3s ease;
         }
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: #facc15;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1f2937;
-            font-size: 1.5rem;
-        }
-        @keyframes countUp {
-            from { counter-increment: value 0; }
-            to { counter-increment: value 500; }
-        }
-        .counter {
-            counter-reset: value 0;
-            animation: countUp 2s forwards;
-        }
-        .counter::after {
-            content: counter(value);
-            font-size: 2rem;
-            font-weight: bold;
-            color: #facc15;
-        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <a href="#main" class="skip-link absolute left-0 top-0 bg-white text-black p-2 focus:z-50">Pomiń do treści</a>
     <header class="relative bg-gray-900 h-screen">
-        <nav class="bg-blue-900 bg-opacity-90 p-4 flex justify-between items-center max-w-7xl mx-auto">
-            <div class="logo">KW</div>
-            <ul class="flex space-x-6">
+        <nav class="bg-blue-900 bg-opacity-90 p-4">
+            <ul class="flex justify-center space-x-6">
                 <li><a href="index.html" class="text-white hover:text-yellow-400 active" aria-label="Strona Główna">Strona Główna</a></li>
                 <li><a href="portfolio.html" class="text-white hover:text-yellow-400" aria-label="Portfolio">Portfolio</a></li>
                 <li><a href="cennik.html" class="text-white hover:text-yellow-400" aria-label="Cennik">Cennik</a></li>
@@ -203,15 +176,7 @@
             <h2 class="text-3xl font-bold mb-6 text-center">O Mnie</h2>
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-1">
-                    <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak 'Wedding Vogue'. Przeprowadziłem ponad <span class="counter" data-target="500"></span>+ sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
-                    <div class="flex justify-around mt-6 text-center">
-                        <div>
-                            <div class="counter" data-target="10"></div> lat doświadczenia
-                        </div>
-                        <div>
-                            <div class="counter" data-target="50"></div> publikacji
-                        </div>
-                    </div>
+                    <p class="text-lg text-gray-300">Od ponad 10 lat zamieniam ulotne chwile w trwałe wspomnienia. Specjalizuję się w fotografii ślubnej i portretowej, łącząc pasję z profesjonalizmem. Moje prace zdobyły uznanie, w tym nagrodę Fotograf Roku 2024 oraz publikacje w magazynach takich jak "Wedding Vogue". Przeprowadziłem ponad 500 sesji zdjęciowych w całej Polsce, od Tatr po Bałtyk, zawsze dążąc do perfekcji w każdym kadrze.</p>
                 </div>
                 <div class="flex-1">
                     <div class="relative w-64 h-80 mx-auto">
@@ -322,7 +287,7 @@
                 </div>
                 <button type="submit" class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500">Wyślij</button>
             </form>
-            <p class="text-center mt-4">Email: <a href="mailto:krzysztof.watorowski@example.com" class="text-yellow-400">krzysztof.watorowski@example.com</a> | Telefon: <a href="tel:+48790123450" class="text-yellow-400">+48 790 123 450</a></p>
+            <p class="text-center mt-4">Email: <a href="mailto:krzysztof.watorowski@example.com" class="text-yellow-400">krzysztof.watorowski@example.com</a> | Telefon: <a href="tel:+48790123456" class="text-yellow-400">+48 790 123 456</a></p>
         </section>
 
         <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
@@ -500,25 +465,6 @@
         let testimonialInterval = setInterval(nextTestimonial, 6000);
         document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => clearInterval(testimonialInterval));
         document.querySelector('.testimonial-carousel').addEventListener('mouseleave', () => testimonialInterval = setInterval(nextTestimonial, 6000));
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let start = 0;
-                const duration = 2000;
-                const step = target / (duration / 100);
-                const updateCounter = setInterval(() => {
-                    start += step;
-                    if (start >= target) {
-                        clearInterval(updateCounter);
-                        counter.innerHTML = Math.floor(target);
-                    } else {
-                        counter.innerHTML = Math.floor(start);
-                    }
-                }, 100);
-            });
-        });
     </script>
 </body>
 </html>
