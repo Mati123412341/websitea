@@ -43,8 +43,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Krzysztof Wątorowski</title>
-    <meta name="description" content="Blog fotograficzny Krzysztofa Wątorowskiego - porady, inspiracje i techniki fotograficzne.">
-    <meta name="keywords" content="blog, fotograf, porady fotograficzne, inspiracje">
+    <meta name="description" content="Blog fotograficzny Krzysztofa Wątorowskiego: porady, inspiracje, techniki fotograficzne.">
+    <meta name="keywords" content="blog, fotografia, porady, inspiracje, technika">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,6 +61,45 @@
             color: #1f2937;
             font-size: 1.5rem;
         }
+        .blog-post:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        :root {
+            --bg-color: #1f2937;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --highlight: #facc15;
+        }
+        body.light-mode {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --highlight: #facc15;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .bg-gray-900 {
+            background-color: var(--bg-color);
+        }
+        .text-white {
+            color: var(--text-color);
+        }
+        .bg-gray-800 {
+            background-color: var(--card-bg);
+        }
+        .text-gray-300 {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -75,48 +114,24 @@
                 <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
+        <div class="mode-toggle">
+            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
         <h1 class="text-4xl font-bold text-center mt-6">Blog</h1>
-        <p class="text-lg text-gray-300 text-center">Znajdź inspiracje i porady fotograficzne.</p>
+        <p class="text-lg text-gray-300 text-center">Porady, inspiracje i techniki fotograficzne.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
         <section id="blog-posts" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Ostatnie Wpisy</h2>
-            <article class="bg-gray-800 p-6 rounded-lg mb-6">
-                <h3 class="text-2xl font-semibold mb-2">Jak przygotować się do sesji ślubnej</h3>
-                <p class="text-gray-300 mb-4">17 maja 2025 | Kategoria: Porady</p>
-                <p class="text-gray-300">Praktyczne wskazówki, jak przygotować się do sesji ślubnej, aby wszystko przebiegło idealnie. Od wyboru stroju po planowanie czasu...</p>
-                <a href="#" class="text-yellow-400 hover:text-yellow-500">Czytaj więcej</a>
-            </article>
-            <article class="bg-gray-800 p-6 rounded-lg mb-6">
-                <h3 class="text-2xl font-semibold mb-2">Najlepsze lokalizacje na sesje plenerowe</h3>
-                <p class="text-gray-300 mb-4">15 maja 2025 | Kategoria: Inspiracje</p>
-                <p class="text-gray-300">Odkryj najpiękniejsze miejsca w Polsce na sesje plenerowe – Tatry, Bałtyk i nie tylko...</p>
-                <a href="#" class="text-yellow-400 hover:text-yellow-500">Czytaj więcej</a>
-            </article>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 p-6 text-center">
-        <p class="text-gray-300">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
-        <ul class="flex justify-center space-x-4 mt-4">
-            <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://instagram.com" aria-label="Profil na Instagramie" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
-        </ul>
-        <div class="mt-4 text-gray-400">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 04:57 CEST</p>
-        </div>
-        <div id="cookie-notice" class="mt-4">
-            <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
-            <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('accept-cookies').addEventListener('click', () => {
-            document.getElementById('cookie-notice').style.display = 'none';
-        });
-    </script>
-</body>
-</html>
+            <h2 class="text-3xl font-bold mb-6 text-center">Najnowsze Wpisy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <article class="blog-post bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-2">Jak przygotować się do sesji ślubnej</h3>
+                    <p class="text-gray-400 mb-4">17 maja 2025 | Kategoria: Porady</p>
+                    <p class="text-gray-300">Dowiedz się, jak zaplanować idealną sesję ślubną – od wyboru lokalizacji po odpowiedni strój.</p>
+                    <a href="#" class="text-yellow-400 hover:text-yellow-500 mt-4 inline-block">Czytaj więcej</a>
+                </article>
+                <article class="blog-post bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb

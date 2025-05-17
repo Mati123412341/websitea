@@ -43,12 +43,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Krzysztof Wątorowski</title>
-    <meta name="description" content="Portfolio fotograficzne Krzysztofa Wątorowskiego - sesje ślubne, portretowe i okolicznościowe.">
-    <meta name="keywords" content="fotograf, portfolio, fotografia ślubna, sesja portretowa, Warszawa">
+    <meta name="description" content="Portfolio fotograficzne Krzysztofa Wątorowskiego: zdjęcia ślubne, portretowe i okolicznościowe.">
+    <meta name="keywords" content="portfolio, fotografia, ślubna, portretowa, okolicznościowa">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #facc15;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
         .masonry {
             column-count: 3;
             column-gap: 1rem;
@@ -56,19 +68,15 @@
         .masonry-item {
             break-inside: avoid;
             margin-bottom: 1rem;
-            position: relative;
-        }
-        .masonry-item:hover img {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
+            cursor: pointer;
         }
         .masonry-item img {
             width: 100%;
             border-radius: 8px;
         }
-        .filter-button.active {
-            background-color: #facc15;
-            color: black;
+        .masonry-item:hover img {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
         }
         .lightbox {
             display: none;
@@ -88,17 +96,40 @@
             border: 5px solid white;
             border-radius: 10px;
         }
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: #facc15;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #1f2937;
-            font-size: 1.5rem;
+        :root {
+            --bg-color: #1f2937;
+            --text-color: #ffffff;
+            --card-bg: #374151;
+            --highlight: #facc15;
+        }
+        body.light-mode {
+            --bg-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --highlight: #facc15;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .bg-gray-900 {
+            background-color: var(--bg-color);
+        }
+        .text-white {
+            color: var(--text-color);
+        }
+        .bg-gray-800 {
+            background-color: var(--card-bg);
+        }
+        .text-gray-300 {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -114,22 +145,16 @@
                 <li><a href="admin.html" class="text-white hover:text-yellow-400" aria-label="Panel Administracyjny">Admin</a></li>
             </ul>
         </nav>
+        <div class="mode-toggle">
+            <button id="mode-toggle-btn" class="bg-yellow-400 text-black py-1 px-3 rounded-full hover:bg-yellow-500" aria-label="Przełącz tryb">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
         <h1 class="text-4xl font-bold text-center mt-6">Portfolio</h1>
-        <p class="text-lg text-gray-300 text-center">Obejrzyj moje najlepsze prace i znajdź inspirację dla swojej sesji.</p>
+        <p class="text-lg text-gray-300 text-center">Przeglądaj moje najnowsze prace – od ślubów po portrety.</p>
     </header>
 
     <main id="main" class="max-w-7xl mx-auto p-6">
-        <section id="featured-project" class="py-12">
-            <h2 class="text-3xl font-bold mb-6 text-center">Wyróżniony Projekt</h2>
-            <div class="relative bg-gray-800 p-6 rounded-lg max-w-3xl mx-auto group">
-                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" alt="Ślub w Tatrach, maj 2025" class="w-full h-96 object-cover rounded-lg shadow-lg" loading="lazy">
-                <div class="mt-4">
-                    <h3 class="text-2xl font-semibold">Ślub w Tatrach, maj 2025</h3>
-                    <p class="text-gray-300">Plenerowa sesja ślubna w majestatycznych Tatrach, pełna emocji i naturalnego piękna. Ta sesja zdobyła wyróżnienie w konkursie 'Wedding Moments 2025'.</p>
-                </div>
-            </div>
-        </section>
-
         <section id="portfolio-gallery" class="py-12">
             <h2 class="text-3xl font-bold mb-6 text-center">Galeria</h2>
             <div class="flex justify-center space-x-4 mb-8">
@@ -173,13 +198,17 @@
             <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-yellow-400 hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
         <div class="mt-4 text-gray-400">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 04:57 CEST</p>
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:10 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
             <p class="text-gray-300">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
             <button id="accept-cookies" class="bg-yellow-400 text-black py-1 px-4 rounded-full mt-2 hover:bg-yellow-500">Akceptuj</button>
         </div>
     </footer>
+
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-yellow-400 text-black py-2 px-4 rounded-full hidden hover:bg-yellow-500" aria-label="Powrót do góry">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         document.getElementById('accept-cookies').addEventListener('click', () => {
@@ -193,6 +222,7 @@
             lightboxImg.alt = alt;
             lightbox.style.display = 'flex';
         }
+
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
         }
@@ -202,10 +232,9 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
+                const filter = button.getAttribute('data-filter');
                 galleryItems.forEach(item => {
                     const category = item.getAttribute('data-category');
                     if (filter === 'all' || filter === category) {
@@ -215,6 +244,31 @@
                     }
                 });
             });
+        });
+
+        const modeToggleBtn = document.getElementById('mode-toggle-btn');
+        modeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = modeToggleBtn.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
