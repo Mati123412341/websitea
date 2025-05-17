@@ -258,6 +258,13 @@
             border: 1px solid var(--secondary-bg);
             color: var(--text-color);
         }
+        /* Sekcja statystyk */
+        .stats-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-primary text-primary font-sans">
@@ -551,6 +558,20 @@
     </main>
 
     <footer class="bg-secondary p-6 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="stats-card">
+                <p class="text-2xl font-bold text-highlight">500+</p>
+                <p class="text-primary">Sesji zdjęciowych</p>
+            </div>
+            <div class="stats-card">
+                <p class="text-2xl font-bold text-highlight">10</p>
+                <p class="text-primary">Lat doświadczenia</p>
+            </div>
+            <div class="stats-card">
+                <p class="text-2xl font-bold text-highlight">300+</p>
+                <p class="text-primary">Zadowolonych klientów</p>
+            </div>
+        </div>
         <p class="text-primary">© 2025 Krzysztof Wątorowski. Wszelkie prawa zastrzeżone.</p>
         <ul class="flex justify-center space-x-4 mt-4">
             <li><a href="https://facebook.com" aria-label="Profil na Facebooku" class="text-highlight hover:text-yellow-500"><i class="fab fa-facebook-f"></i></a></li>
@@ -558,7 +579,7 @@
             <li><a href="https://pinterest.com" aria-label="Profil na Pintereście" class="text-highlight hover:text-yellow-500"><i class="fab fa-pinterest-p"></i></a></li>
         </ul>
         <div class="mt-4 text-primary opacity-70">
-            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:17 CEST</p>
+            <p>Wersja 1.0 | Zaktualizowano: 17 maja 2025, 05:40 CEST</p>
         </div>
         <div id="cookie-notice" class="mt-4">
             <p class="text-primary">Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Kontynuując, akceptujesz naszą politykę cookie.</p>
